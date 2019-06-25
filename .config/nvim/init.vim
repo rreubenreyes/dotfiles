@@ -124,7 +124,7 @@ nnoremap <leader><leader>x "*d
 nnoremap <leader><leader>v "*p
 
 "" EasyMotion                          # keybinds__editing--easymotion
-nnoremap <leader>a <Plug>(easymotion-prefix)
+nmap <leader>a <Plug>(easymotion-prefix)
 
 "" Opening files                       # keybinds__editing--files
 nnoremap <leader>ov :vertical wincmd f<CR>
@@ -349,7 +349,7 @@ let g:indent_guides_guide_size=1
 
 "" Split bar color                     # theme__splitbar
 """ 10% lighter than bg
-hi VertSplit guibg=bg guifg=#1B3041
+autocmd ColorScheme * hi VertSplit guifg=#01223d ctermfg=238 gui=NONE cterm=NONE
 
 """"""""""""""""""""""""" 
 """"""""""""""""""""

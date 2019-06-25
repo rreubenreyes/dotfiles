@@ -164,13 +164,23 @@ nnoremap <leader>pf :Files<CR>
 """ List all color schemes
 nnoremap <leader>Tc :Colors<CR> 
 
-""""""""""""""""""""""""" [ SWIPER ]   # keybinds__fzf--swiper
+""""""""""""""""""""""""" [ SWIPER ]   # keybinds__swiper
 
 """ Swipe all lines in the current buffer
 nnoremap <leader>ss :BLines<CR>
 
 """ Swipe all lines in all open buffers
 nnoremap <leader>sS :Lines<CR> 
+
+""""""""""""""""""""""""" [ goto ]    # keybinds__goto
+
+""" Go to tag definition
+nnoremap <leader>gF <C-]> 
+
+""" Go to path under cursor
+nnoremap <leader>gf gf
+nnoremap <leader>gv :vertical qR wincmd f<CR>
+nnoremap <leader>gs <C-w>f 
 
 
 """"""""""""""""""""""""" [ VIMWIKI ]  # keybinds__vimwiki
@@ -252,7 +262,6 @@ tnoremap <Esc> <C-\><C-n>
 """"""""""" 
 " [ ALE ] "                            # ale
 """"""""""" 
-""""""""""""""""""""""""" 
 
 "" Layout                              # ale__layout
 let g:ale_sign_column_always=1

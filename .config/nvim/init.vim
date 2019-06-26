@@ -126,8 +126,14 @@ nnoremap <leader><leader>v "*p
 "" EasyMotion                          # keybinds__editing--easymotion
 nmap <leader>a <Plug>(easymotion-prefix)
 
+"" Folding                             # keybinds__editing--folding
+nnoremap <leader>eA zA
+nnoremap <leader>ea za
+nnoremap <leader>ec zc
+nnoremap <leader>eo zo
+
 "" Opening files                       # keybinds__editing--files
-nnoremap <leader>ov :vertical wincmd f<CR>
+nnoremap <leader> :vertical wincmd f<CR>
 nnoremap <leader>os wincmd f<CR>
 
 """"""""""""""""""""""""" [ CONFIG ]   # keybinds__config

@@ -38,13 +38,13 @@ call plug#begin('~/.local/share/nvim/plugged')
 "" Navigation
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
-
 "" Window Management
   Plug 'simeji/winresizer'
 
 "" Editing
   Plug 'craigemery/vim-autotag' 
   Plug 'easymotion/vim-easymotion'
+  Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/vim-easy-align'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'

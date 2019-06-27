@@ -65,6 +65,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 "" ALE
   Plug 'w0rp/ale'
 
+"" Polyglot
+  Plug 'sheerun/vim-polyglot'
+
 "" JavaScript
   Plug 'pangloss/vim-javascript'
   Plug 'kern/vim-es7'
@@ -363,15 +366,15 @@ autocmd ColorScheme * hi VertSplit guifg=#01223d ctermfg=238 gui=NONE cterm=NONE
 """"""""""""""""""""
 """"""""""""""""""""""""" 
 
+au TermOpen * setlocal nonumber norelativenumber
 set number
 set numberwidth=4
 set relativenumber
-au TermOpen * setlocal nonumber norelativenumber
 
-set shiftwidth=4
-set tabstop=4
 set expandtab
 set laststatus=2
+set shiftwidth=4
+set tabstop=4
 
 """"""""""""""""""""""""" 
 """""""""""""""""""""""""""""""""" 
@@ -379,8 +382,9 @@ set laststatus=2
 """"""""""""""""""""""""""""""""""
 """"""""""""""""""""""""" 
 
-let g:highlightedyank_highlight_duration=150
-set omnifunc=syntaxcomplete#Complete
-set nocompatible
 filetype plugin on
+let g:highlightedyank_highlight_duration=150
+set hidden
+set nocompatible
+set omnifunc=syntaxcomplete#Complete
 syntax on

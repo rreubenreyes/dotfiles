@@ -42,13 +42,26 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'simeji/winresizer'
 
 "" Editing
+  Plug 'christoomey/vim-system-copy'
+  Plug 'christoomey/vim-sort-motion'
   Plug 'craigemery/vim-autotag' 
   Plug 'easymotion/vim-easymotion'
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/vim-easy-align'
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-surround'
   Plug 'machakann/vim-highlightedyank'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'vim-scripts/ReplaceWithRegister'
+  "
+"" Text Objects
+  Plug 'Julian/vim-textobj-variable-segment'
+  Plug 'glts/vim-textobj-comtment'
+  Plug 'jceb/vim-textobj-uri'
+  Plug 'kana/vim-textobj-entire'
+  Plug 'kana/vim-textobj-user'
+  Plug 'vimtaku/vim-textobj-keyvalue'
 
 "" Visual
   Plug 'Yggdroot/indentLine'
@@ -69,9 +82,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
 
 "" JavaScript
-  Plug 'pangloss/vim-javascript'
   Plug 'kern/vim-es7'
   Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'pangloss/vim-javascript'
 
 "" TypeScript
   Plug 'leafgarland/typescript-vim'
@@ -115,16 +128,11 @@ nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>bd :bp\|bd #<CR><CR>
 
 """ Buffer navigation
-nnoremap <leader>bp :bp<CR>
-nnoremap <leader>bn :bn<CR>
-nnoremap <leader>b0 :bfirst<CR>
 nnoremap <leader>b$ :blast<CR>
+nnoremap <leader>b0 :bfirst<CR>
 nnoremap <leader>bB :b 
-
-"" Clipboard operations                # keybinds__editing--clibpoard
-nnoremap <leader><leader>c "*y
-nnoremap <leader><leader>x "*d
-nnoremap <leader><leader>v "*p
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bp :bp<CR>
 
 "" EasyMotion                          # keybinds__editing--easymotion
 nmap <leader>a <Plug>(easymotion-prefix)
@@ -159,8 +167,8 @@ nnoremap <leader>ev :ALEInfo<CR>
 
 "" Files                               # keybinds__fzf--files
 nnoremap <leader>ff :Files 
-nnoremap <leader>fh :Files $HOME<CR>
 nnoremap <leader>fd :Files ~/dev<CR> 
+nnoremap <leader>fh :Files $HOME<CR>
 
 "" Project search                      # keybinds__fzf--projects
 """ Project-wide grep
@@ -203,24 +211,24 @@ nnoremap <leader>gs <C-w>f
 """"""""""""""""""""""""" [ VIMWIKI ]  # keybinds__vimwiki
 
 "" Global mappings
-nmap ,w <Plug>VimwikiIndex
-nmap ,t <Plug>VimwikiTabIndex
-nmap ,wq <Plug>VimwikiUISelect
-nmap ,i <Plug>VimwikiDiaryIndex
 nmap ,d <Plug>VimwikiMakeDiaryNote
+nmap ,dm <Plug>VimwikiMakeTomorrowDiaryNote
 nmap ,dt <Plug>VimwikiTabMakeDiaryNote
 nmap ,dy <Plug>VimwikiMakeYesterdayDiaryNote
-nmap ,dm <Plug>VimwikiMakeTomorrowDiaryNote
+nmap ,i <Plug>VimwikiDiaryIndex
+nmap ,t <Plug>VimwikiTabIndex
+nmap ,w <Plug>VimwikiIndex
+nmap ,wq <Plug>VimwikiUISelect
 
 "" Local mappings
+nmap ,dd <Plug>VimwikiDeleteLink
+nmap ,rr <Plug>VimwikiRenameLink
 nmap ,wc <Plug>Vimwiki2HTML
 nmap ,wcc <Plug>Vimwiki2HTMLBrowse
 nmap ,wcr <Plug>VimwikiDiaryGenerateLinks
 nmap ,ws <Plug>VimwikiSplitLink
-nmap ,wv <Plug>VimwikiVSplitLink
 nmap ,wt <Plug>VimwikiTabnewLink
-nmap ,dd <Plug>VimwikiDeleteLink
-nmap ,rr <Plug>VimwikiRenameLink
+nmap ,wv <Plug>VimwikiVSplitLink
 
 "" Enable folding                      # keybinds__vimwiki--folding
 let g:vimwiki_folding='expr'  
@@ -244,8 +252,8 @@ nnoremap <leader><Tab> <C-w>w
 nnoremap <leader>ww :Windows<CR>
 
 """ Splits
-nnoremap <leader>wv :vsplit<CR>
 nnoremap <leader>ws :split<CR>
+nnoremap <leader>wv :vsplit<CR>
 
 """ Start resizer in resize mode
 nnoremap <leader>wr :WinResizerStartResize<CR>

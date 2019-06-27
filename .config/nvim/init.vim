@@ -111,13 +111,6 @@ nnoremap <leader>bb :Buffers<CR>
 """ Close buffers without closing the window
 nnoremap <leader>bd :bp\|bd #<CR><CR>
 
-""" Buffer navigation
-nnoremap <leader>bp :bp<CR>
-nnoremap <leader>bn :bn<CR>
-nnoremap <leader>b0 :bfirst<CR>
-nnoremap <leader>b$ :blast<CR>
-nnoremap <leader>bB :b 
-
 "" Clipboard operations                # keybinds__editing--clibpoard
 nnoremap <leader><leader>c "*y
 nnoremap <leader><leader>x "*d
@@ -189,11 +182,11 @@ nnoremap <leader>sS :Lines<CR>
 """"""""""""""""""""""""" [ goto ]     # keybinds__goto
 
 """ Go to tag definition
-nnoremap <leader>gF <C-]> 
+nnoremap <leader>gd <C-]> 
 
 """ Go to path under cursor
 nnoremap <leader>gf gf
-nnoremap <leader>gv :vertical qR wincmd f<CR>
+nnoremap <leader>gv :vertical wincmd f<CR>
 nnoremap <leader>gs <C-w>f 
 
 

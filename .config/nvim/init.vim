@@ -38,26 +38,30 @@ call plug#begin('~/.local/share/nvim/plugged')
 "" Navigation
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+
 "" Window Management
-  Plug 'simeji/winresizer'
+  Plug 'simeji/winresizer' 
 
 "" Editing
-  Plug 'christoomey/vim-system-copy'
   Plug 'christoomey/vim-sort-motion'
+  Plug 'christoomey/vim-system-copy'
   Plug 'craigemery/vim-autotag' 
   Plug 'easymotion/vim-easymotion'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'gko/vim-coloresque'
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/vim-easy-align'
   Plug 'machakann/vim-highlightedyank'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'vim-scripts/ReplaceWithRegister'
-  "
+
 "" Text Objects
   Plug 'Julian/vim-textobj-variable-segment'
-  Plug 'glts/vim-textobj-comtment'
+  Plug 'glts/vim-textobj-comment'
   Plug 'jceb/vim-textobj-uri'
   Plug 'kana/vim-textobj-entire'
   Plug 'kana/vim-textobj-user'
@@ -123,6 +127,7 @@ nmap ga <Plug>(EasyAlign)
 "" Buffers                             # keybinds__editing--buffers
 """ Buffer list
 nnoremap <leader>bb :Buffers<CR>
+nnoremap <leader>cd :cd %:p:h<CR>
 
 """ Close buffers without closing the window
 nnoremap <leader>bd :bp\|bd #<CR><CR>
@@ -133,7 +138,6 @@ nnoremap <leader>b0 :bfirst<CR>
 nnoremap <leader>bB :b 
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
->>>>>>> 2ab7df7ad74991b78b809d0571bee17ea6c0d181
 
 "" EasyMotion                          # keybinds__editing--easymotion
 nmap <leader>a <Plug>(easymotion-prefix)

@@ -19,6 +19,10 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+"" Oh god
+  Plug 'takac/vim-hardtime'
+  let g:hardtime_default_on=1
+
 """"""""""""""""""""""""" [ SENSIBLE ] # plugins__sensible
 
 "" Theme
@@ -43,6 +47,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'simeji/winresizer' 
 
 "" Editing
+  Plug 'Shougo/deoplete.nvim'
   Plug 'christoomey/vim-sort-motion'
   Plug 'christoomey/vim-system-copy'
   Plug 'craigemery/vim-autotag' 
@@ -51,7 +56,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/vim-easy-align'
   Plug 'machakann/vim-highlightedyank'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
@@ -92,6 +96,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 "" TypeScript
   Plug 'leafgarland/typescript-vim'
 
+
+
 """"""""""""""""""""""""" [ NOTES ]    # plugins__vimwiki
 
 "" VimWiki
@@ -112,6 +118,8 @@ call plug#end()
 let mapleader=" " 
 
 """"""""""""""""""""""""" [ EDITING ]  # keybinds__editing
+"" Tab completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "" Mouse                               # keybinds__editing--mouse
 set mouse=a
@@ -126,7 +134,6 @@ nmap ga <Plug>(EasyAlign)
 "" Buffers                             # keybinds__editing--buffers
 """ Buffer list
 nnoremap <leader>bb :Buffers<CR>
-nnoremap <leader>cd :cd %:p:h<CR>
 
 """ Close buffers without closing the window
 nnoremap <leader>bd :bp\|bd #<CR><CR>
@@ -170,7 +177,7 @@ nnoremap <leader>ev :ALEInfo<CR>
 """"""""""""""""""""""""" [ FZF ]      # keybinds__fzf
 
 "" Files                               # keybinds__fzf--files
-nnoremap <leader>ff :Files 
+nnoremap <leader>ff :Files %:p:h<CR>
 nnoremap <leader>fd :Files ~/dev<CR> 
 nnoremap <leader>fh :Files $HOME<CR>
 
@@ -336,6 +343,15 @@ let g:vimwiki_list = [{'path': '$HOME/Dropbox/md', 'syntax': 'markdown', 'ext': 
 
 "" Folding mode                        # vimwiki__folding
 let g:rooter_change_directory_for_non_project_files='current'
+
+""""""""""""""""""""""""" 
+""""""""""""""" 
+" [ DEOPLETE ] "                        # deoplete
+""""""""""""""" 
+""""""""""""""""""""""""" 
+
+"" Deoplete
+  let g:deoplete#enable_at_startup=1
 
 """"""""""""""""""""""""" 
 """"""""""""" 

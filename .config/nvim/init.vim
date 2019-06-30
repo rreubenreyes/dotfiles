@@ -46,7 +46,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'christoomey/vim-sort-motion'
   Plug 'christoomey/vim-system-copy'
   Plug 'craigemery/vim-autotag' 
-  Plug 'easymotion/vim-easymotion'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'gko/vim-coloresque'
   Plug 'jiangmiao/auto-pairs'

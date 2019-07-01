@@ -1,6 +1,3 @@
-" enable syntax highlighting
-syntax enable
+set rnu
+set nohlsearch
 
-" enable relative line numbers
-:set relativenumber
-:set rnu

@@ -47,14 +47,14 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'simeji/winresizer'
   Plug 't9md/vim-choosewin'
 
-"" Editing
+" Editing
   Plug 'Shougo/deoplete.nvim'
   Plug 'christoomey/vim-sort-motion'
   Plug 'christoomey/vim-system-copy'
   Plug 'craigemery/vim-autotag'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'gko/vim-coloresque'
-  Plug 'jiangmiao/auto-pairs'
+  Plug 'gko/vim-coloresque' " CSS color previews
+  Plug 'jiangmiao/auto-pairs' " Bracket pairs
   Plug 'jparise/vim-graphql'
   Plug 'junegunn/vim-easy-align'
   Plug 'machakann/vim-highlightedyank'
@@ -68,10 +68,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 "" Text Objects
   Plug 'Julian/vim-textobj-variable-segment'
   Plug 'glts/vim-textobj-comment'
-  Plug 'jceb/vim-textobj-uri'
   Plug 'kana/vim-textobj-entire'
   Plug 'kana/vim-textobj-user'
-  Plug 'vimtaku/vim-textobj-keyvalue'
 
 "" Visual
   Plug 'Yggdroot/indentLine'
@@ -349,7 +347,9 @@ let g:rooter_change_directory_for_non_project_files='current'
 """""""""""""""""""""""""
 
 "" Set VimWiki root                    # vimwiki__root
-let g:vimwiki_list = [{'path': '$HOME/Dropbox/md', 'syntax': 'markdown', 'ext': '.md'}]
+let wiki={'path': '$HOME/Dropbox/md', 'syntax': 'markdown', 'ext': '.md'}
+let wiki.nested_syntaxes={'python': 'python', 'javascript': 'js', 'typescript': 'ts'}
+let g:vimwiki_list=[wiki]
 
 "" Folding mode                        # vimwiki__folding
 let g:rooter_change_directory_for_non_project_files='current'

@@ -15,6 +15,7 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 export VIMRC="~/.config/nvim/init.vim"
+. $HOME/z.sh
 
 #
 # Set list of themes to load

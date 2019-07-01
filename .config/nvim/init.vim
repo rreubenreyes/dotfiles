@@ -1,10 +1,10 @@
-"" 
+""
 " This is Reuben's Vim/NeoVim configuration. Here is a reminder on how this is organized:
 "
 " * Sections are separated by obnoxious jumbotron headers
 " * Subsections are separated by less obnoxious horizontal rules
 " * Sections have tags which are written in BEM syntax:
-" 
+"
 "     <category>__<main section>--<subsection>
 "
 " * Tags are meant to be browsed using a swiper or visual search
@@ -12,12 +12,16 @@
 " * Have fun!
 "
 """""""""""""""""""""""""
-""""""""""""""" 
+"""""""""""""""
 " [ PLUGINS ] "                        # plugins
-""""""""""""""" 
+"""""""""""""""
 """""""""""""""""""""""""
 
 call plug#begin('~/.local/share/nvim/plugged')
+
+"" Oh god
+  Plug 'takac/vim-hardtime'
+  let g:hardtime_default_on=1
 
 """"""""""""""""""""""""" [ SENSIBLE ] # plugins__sensible
 
@@ -26,7 +30,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 """"""""""""""""""""""""" [ VISUAL ]   # plugins__visual
 
-"" Theme
+" Theme
   Plug 'haishanh/night-owl.vim'
 
 "" Airline
@@ -41,17 +45,20 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 "" Window Management
   Plug 'simeji/winresizer'
+  Plug 't9md/vim-choosewin'
 
-"" Editing
+" Editing
+  Plug 'Shougo/deoplete.nvim'
   Plug 'christoomey/vim-sort-motion'
   Plug 'christoomey/vim-system-copy'
-  Plug 'craigemery/vim-autotag' 
-  Plug 'easymotion/vim-easymotion'
-  Plug 'jiangmiao/auto-pairs'
+  Plug 'craigemery/vim-autotag'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'gko/vim-coloresque' " CSS color previews
+  Plug 'jiangmiao/auto-pairs' " Bracket pairs
+  Plug 'jparise/vim-graphql'
   Plug 'junegunn/vim-easy-align'
   Plug 'machakann/vim-highlightedyank'
   Plug 'mattn/emmet-vim'
-  Plug 'mxw/vim-jsx'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-surround'
@@ -64,7 +71,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'jceb/vim-textobj-uri'
   Plug 'kana/vim-textobj-entire'
   Plug 'kana/vim-textobj-user'
-  Plug 'vimtaku/vim-textobj-keyvalue'
 
 "" Visual
   Plug 'Yggdroot/indentLine'
@@ -92,6 +98,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 "" TypeScript
   Plug 'leafgarland/typescript-vim'
 
+
+
 """"""""""""""""""""""""" [ NOTES ]    # plugins__vimwiki
 
 "" VimWiki
@@ -100,22 +108,27 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 call plug#end()
 
-""""""""""""""""""""""""" 
+"""""""""""""""""""""""""
 
 """"""""""""""""
 " [ KEYBINDS ] "                       # keybinds
 """"""""""""""""
 
-"""""""""""""""""""""""""             
+"""""""""""""""""""""""""
 
 "" Leader                              # keybinds__leader
-let mapleader=" " 
+let mapleader=" "
 
 """"""""""""""""""""""""" [ EDITING ]  # keybinds__editing
+"" Tab completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"" Toggle indent lines
+nnoremap <leader>ig :IndentLinesToggle<CR>
 
 "" Mouse                               # keybinds__editing--mouse
 set mouse=a
-    
+
 "" Alignment                           # keybinds__editing--align
 """ Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -125,10 +138,18 @@ nmap ga <Plug>(EasyAlign)
 
 "" Buffers                             # keybinds__editing--buffers
 """ Buffer list
-nnoremap <leader>bb :Buffers<CR>
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
 
 """ Close buffers without closing the window
 nnoremap <leader>bd :bp\|bd #<CR><CR>
+
+""" Buffer navigation
+nnoremap <leader>b$ :blast<CR>
+nnoremap <leader>b0 :bfirst<CR>
+nnoremap <leader>bB :b
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bp :bp<CR>
 
 "" EasyMotion                          # keybinds__editing--easymotion
 nmap <leader>a <Plug>(easymotion-prefix)
@@ -146,12 +167,12 @@ nnoremap <leader>os wincmd f<CR>
 """"""""""""""""""""""""" [ CONFIG ]   # keybinds__config
 
 "" Reload plugins                      # keybinds__config--plugins
-nnoremap <leader>qP :PlugInstall<CR> 
-nnoremap <leader>qrp :PlugUpdate<CR> 
+nnoremap <leader>qP :PlugInstall<CR>
+nnoremap <leader>qrp :PlugUpdate<CR>
 
 "" Reload config                       # keybinds__config--config
-nnoremap <leader>qR :source $MYVIMRC<CR> 
-nnoremap <leader>fed :edit $MYVIMRC<CR> 
+nnoremap <leader>qR :source $MYVIMRC<CR>
+nnoremap <leader>fed :edit $MYVIMRC<CR>
 
 
 """"""""""""""""""""""""" [ LINTING ]  # keybinds__linting
@@ -162,20 +183,20 @@ nnoremap <leader>ev :ALEInfo<CR>
 """"""""""""""""""""""""" [ FZF ]      # keybinds__fzf
 
 "" Files                               # keybinds__fzf--files
-nnoremap <leader>ff :Files 
-nnoremap <leader>fd :Files ~/dev<CR> 
+nnoremap <leader>ff :Files %:p:h<CR>
+nnoremap <leader>fd :Files ~/dev<CR>
 nnoremap <leader>fh :Files $HOME<CR>
 
 "" Project search                      # keybinds__fzf--projects
 """ Project-wide grep
-nnoremap <leader>ps :Ag<CR> 
+nnoremap <leader>ps :Ag<CR>
 
 """ Project-wide file search
 nnoremap <leader>pf :Files<CR>
 
 "" Colors/Themes                       # keybinds__fzf--colors
 """ List all color schemes
-nnoremap <leader>Tc :Colors<CR> 
+nnoremap <leader>Tc :Colors<CR>
 
 """"""""""""""""""""""""" [ TERMINAL ] # keybinds__terminal
 
@@ -191,17 +212,17 @@ nnoremap <leader>xs :split\|te<CR>
 nnoremap <leader>ss :BLines<CR>
 
 """ Swipe all lines in all open buffers
-nnoremap <leader>sS :Lines<CR> 
+nnoremap <leader>sS :Lines<CR>
 
 """"""""""""""""""""""""" [ goto ]     # keybinds__goto
 
 """ Go to tag definition
-nnoremap <leader>gd <C-]> 
+nnoremap <leader>gd <C-]>
 
 """ Go to path under cursor
 nnoremap <leader>gf gf
 nnoremap <leader>gv :vertical wincmd f<CR>
-nnoremap <leader>gs <C-w>f 
+nnoremap <leader>gs <C-w>f
 
 
 """"""""""""""""""""""""" [ VIMWIKI ]  # keybinds__vimwiki
@@ -227,14 +248,14 @@ nmap ,wt <Plug>VimwikiTabnewLink
 nmap ,wv <Plug>VimwikiVSplitLink
 
 "" Enable folding                      # keybinds__vimwiki--folding
-let g:vimwiki_folding='expr'  
+let g:vimwiki_folding='expr'
 
 "" Dates                               # keybinds__vimwiki--dates
 """ Place a date in italics on the line after the cursor
-nnoremap ,. :r!date<CR>yss_yss>k
+nmap ,. :r!date<CR>yss_yss>k
 
 """ Place a date on the line after the cursor
-nnoremap ,! :r!date<CR>kyss>k
+nmap ,! :r!date<CR>kyss>k
 
 """""""""""""""""""""""" [ WINDOW ]    # keybinds__window
 
@@ -246,6 +267,7 @@ nnoremap <leader><Tab> <C-w>w
 
 """ Open windows list
 nnoremap <leader>ww :Windows<CR>
+nmap \ <Plug>(choosewin)
 
 """ Splits
 nnoremap <leader>ws :split<CR>
@@ -254,15 +276,10 @@ nnoremap <leader>wv :vsplit<CR>
 """ Start resizer in resize mode
 nnoremap <leader>wr :WinResizerStartResize<CR>
 
-""" Start resizer in focus mode
-nnoremap <leader>wf :WinResizerStartFocus<CR>
-
 """ Start resizer in move mode
 nnoremap <leader>wm :WinResizerStartMove<CR>
 
 """""""""""""""""""""""" [ NERDTREE ]  # keybinds__nerdtree
-"" Focus NERDTree window
-nnoremap <leader>0 :NERDTreeFocus<CR>
 
 "" Toggle NERDTree window
 nnoremap <leader>tt :NERDTreeToggle<CR>
@@ -271,18 +288,18 @@ nnoremap <leader>tt :NERDTreeToggle<CR>
 nnoremap <leader>tr :NERDTree<CR>
 
 "" Wait for an arg, then close that tab
-nnoremap <leader>tc :tabclose 
+nnoremap <leader>tc :tabclose
 
 "" Close the current tab
-nnoremap <leader>tC :tabclose<CR> 
+nnoremap <leader>tC :tabclose<CR>
 
 "" Escape in terminal mode actually escapes terminal mode
 tnoremap <Esc> <C-\><C-n>
 
-""""""""""""""""""""""""" 
-""""""""""" 
+"""""""""""""""""""""""""
+"""""""""""
 " [ ALE ] "                            # ale
-""""""""""" 
+"""""""""""
 
 "" Layout                              # ale__layout
 let g:ale_sign_column_always=1
@@ -292,46 +309,68 @@ let g:airline#extnsions#ale#enabled=1
 let g:airline#extensions#tabline#enabled=1
 
 "" Set up fixers                       # ale__fixers
-let b:ale_fixers=['prettier', 'eslint', 'prettier-eslint']
-
 """ When to fix 
 let b:ale_fix_on_save=1
+let g:ale_fixers=['prettier', 'eslint', 'prettier-eslint']
+let g:ale_linters={
+            \'javascript': ['eslint', 'tsserver']
+            \}
+let g:ale_pattern_options = {
+\   '.*\md': {'ale_enabled': 0},
+\}
+let g:ale_linters_explicit=1
 
-""""""""""""""""""""""""" 
-"""""""""""""""""" 
+
+""" When to fix
+let g:ale_fix_on_save=1
+let g:ale_open_list=1
+
+"""""""""""""""""""""""""
+""""""""""""""""""
 " [ WINRESIZER ] "                     # winresizer
-"""""""""""""""""" 
-""""""""""""""""""""""""" 
+""""""""""""""""""
+"""""""""""""""""""""""""
 
 ""                                     # winresizer__increments let g:winresizer_vert_resize=5
 let g:winresizer_horiz_resize=2
 
-""""""""""""""""""""""""" 
+"""""""""""""""""""""""""
 """"""""""""""
 " [ ROOTER ] "                         # rooter
-"""""""""""""" 
-""""""""""""""""""""""""" 
+""""""""""""""
+"""""""""""""""""""""""""
 
-""" If a file isn't a Git project, make $PWD=current 
+""" If a file isn't a Git project, make $PWD=current
 let g:rooter_change_directory_for_non_project_files='current'
 
-""""""""""""""""""""""""" 
-""""""""""""""" 
+"""""""""""""""""""""""""
+"""""""""""""""
 " [ VIMWIKI ] "                        # vimwiki
-""""""""""""""" 
-""""""""""""""""""""""""" 
+"""""""""""""""
+"""""""""""""""""""""""""
 
 "" Set VimWiki root                    # vimwiki__root
-let g:vimwiki_list = [{'path': '$HOME/Dropbox/md', 'syntax': 'markdown', 'ext': '.md'}]
+let wiki={'path': '$HOME/Dropbox/md', 'syntax': 'markdown', 'ext': '.md'}
+let wiki.nested_syntaxes={'python': 'python', 'javascript': 'js', 'typescript': 'ts'}
+let g:vimwiki_list=[wiki]
 
 "" Folding mode                        # vimwiki__folding
 let g:rooter_change_directory_for_non_project_files='current'
 
-""""""""""""""""""""""""" 
-""""""""""""" 
+"""""""""""""""""""""""""
+"""""""""""""""
+" [ DEOPLETE ] "                        # deoplete
+"""""""""""""""
+"""""""""""""""""""""""""
+
+"" Deoplete
+  let g:deoplete#enable_at_startup=1
+
+"""""""""""""""""""""""""
+"""""""""""""
 " [ THEME ] "                          # theme
-""""""""""""" 
-""""""""""""""""""""""""" 
+"""""""""""""
+"""""""""""""""""""""""""
 
 "" Enable terminal GUI colors          # theme__gui
 
@@ -355,18 +394,18 @@ let g:airline_right_sep = ''
 "" Enable indent guides                # theme__indent
 
 let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
+let g:indent_guides_start_level=4
 let g:indent_guides_guide_size=1
 
 "" Split bar color                     # theme__splitbar
 """ 10% lighter than bg
 autocmd ColorScheme * hi VertSplit guifg=#01223d ctermfg=238 gui=NONE cterm=NONE
 
-""""""""""""""""""""""""" 
+"""""""""""""""""""""""""
 """"""""""""""""""""
 " [ LINE NUMBERS ] "                   # linum
 """"""""""""""""""""
-""""""""""""""""""""""""" 
+"""""""""""""""""""""""""
 
 au TermOpen * setlocal nonumber norelativenumber
 set number
@@ -378,11 +417,11 @@ set laststatus=2
 set shiftwidth=4
 set tabstop=4
 
-""""""""""""""""""""""""" 
-"""""""""""""""""""""""""""""""""" 
+"""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""
 " [ HASN'T BEEN SORTED OUT YET ] "     # unsorted
 """"""""""""""""""""""""""""""""""
-""""""""""""""""""""""""" 
+"""""""""""""""""""""""""
 
 filetype plugin on
 let g:highlightedyank_highlight_duration=150

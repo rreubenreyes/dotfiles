@@ -1,4 +1,3 @@
-""
 " This is Reuben's Vim/NeoVim configuration. Here is a reminder on how this is organized:
 "
 " * Sections are separated by obnoxious jumbotron headers
@@ -68,7 +67,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 "" Text Objects
   Plug 'Julian/vim-textobj-variable-segment'
   Plug 'glts/vim-textobj-comment'
-  Plug 'jceb/vim-textobj-uri'
   Plug 'kana/vim-textobj-entire'
   Plug 'kana/vim-textobj-user'
 
@@ -105,6 +103,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 "" VimWiki
   Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
+""""""""""""""""""""""""" [ .TODO ]    # plugins__todo
+  Plug 'freitass/todo.txt-vim'
 
 call plug#end()
 
@@ -118,6 +118,7 @@ call plug#end()
 
 "" Leader                              # keybinds__leader
 let mapleader=" "
+let maplocalleader="|"
 
 """"""""""""""""""""""""" [ EDITING ]  # keybinds__editing
 "" Tab completion
@@ -309,21 +310,10 @@ let g:airline#extnsions#ale#enabled=1
 let g:airline#extensions#tabline#enabled=1
 
 "" Set up fixers                       # ale__fixers
-""" When to fix 
-let b:ale_fix_on_save=1
-let g:ale_fixers=['prettier', 'eslint', 'prettier-eslint']
-let g:ale_linters={
-            \'javascript': ['eslint', 'tsserver']
-            \}
-let g:ale_pattern_options = {
-\   '.*\md': {'ale_enabled': 0},
-\}
-let g:ale_linters_explicit=1
-
+let b:ale_fixers=['prettier', 'eslint', 'prettier-eslint']
 
 """ When to fix
-let g:ale_fix_on_save=1
-let g:ale_open_list=1
+let b:ale_fix_on_save=1
 
 """""""""""""""""""""""""
 """"""""""""""""""
@@ -351,7 +341,13 @@ let g:rooter_change_directory_for_non_project_files='current'
 
 "" Set VimWiki root                    # vimwiki__root
 let wiki={'path': '$HOME/Dropbox/md', 'syntax': 'markdown', 'ext': '.md'}
-let wiki.nested_syntaxes={'python': 'python', 'javascript': 'js', 'typescript': 'ts'}
+let wiki.nested_syntaxes={
+            \'python': 'python',
+            \'javascript': 'js',
+            \'typescript': 'ts',
+            \'bash': 'sh',
+            \'rust': 'rs'
+            \}
 let g:vimwiki_list=[wiki]
 
 "" Folding mode                        # vimwiki__folding

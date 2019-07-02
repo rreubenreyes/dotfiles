@@ -104,6 +104,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 "" VimWiki
   Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
+""""""""""""""""""""""""" [ .TODO ]    # plugins__todo
+  Plug 'freitass/todo.txt-vim'
 
 call plug#end()
 
@@ -117,6 +119,7 @@ call plug#end()
 
 "" Leader                              # keybinds__leader
 let mapleader=" "
+let maplocalleader="|"
 
 """"""""""""""""""""""""" [ EDITING ]  # keybinds__editing
 "" Tab completion
@@ -308,19 +311,10 @@ let g:airline#extnsions#ale#enabled=1
 let g:airline#extensions#tabline#enabled=1
 
 "" Set up fixers                       # ale__fixers
-let g:ale_fixers=['prettier', 'eslint', 'prettier-eslint']
-let g:ale_linters={
-            \'javascript': ['eslint', 'tsserver']
-            \}
-let g:ale_pattern_options = {
-\   '.*\md': {'ale_enabled': 0},
-\}
-let g:ale_linters_explicit=1
-
+let b:ale_fixers=['prettier', 'eslint', 'prettier-eslint']
 
 """ When to fix
-let g:ale_fix_on_save=1
-let g:ale_open_list=1
+let b:ale_fix_on_save=1
 
 """""""""""""""""""""""""
 """"""""""""""""""

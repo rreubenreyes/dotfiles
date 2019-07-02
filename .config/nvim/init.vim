@@ -342,7 +342,13 @@ let g:rooter_change_directory_for_non_project_files='current'
 
 "" Set VimWiki root                    # vimwiki__root
 let wiki={'path': '$HOME/Dropbox/md', 'syntax': 'markdown', 'ext': '.md'}
-let wiki.nested_syntaxes={'python': 'python', 'javascript': 'js', 'typescript': 'ts'}
+let wiki.nested_syntaxes={
+            \'python': 'python',
+            \'javascript': 'js',
+            \'typescript': 'ts',
+            \'bash': 'sh',
+            \'rust': 'rs'
+            \}
 let g:vimwiki_list=[wiki]
 
 "" Folding mode                        # vimwiki__folding

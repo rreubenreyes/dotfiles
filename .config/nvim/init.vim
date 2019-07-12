@@ -72,13 +72,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 "" Visual
   Plug 'Yggdroot/indentLine'
-  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  Plug 'tpope/vim-vinegar'
 
 "" Git
   Plug 'airblade/vim-gitgutter'
   Plug 'airblade/vim-rooter'
   Plug 'tpope/vim-fugitive'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
 
 """"""""""""""""""""""""" [ SYNTAX ]   # plugins__syntax
 
@@ -96,15 +95,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 "" TypeScript
   Plug 'leafgarland/typescript-vim'
 
-
-
 """"""""""""""""""""""""" [ NOTES ]    # plugins__vimwiki
 
 "" VimWiki
   Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-
-""""""""""""""""""""""""" [ .TODO ]    # plugins__todo
-  Plug 'freitass/todo.txt-vim'
 
 call plug#end()
 
@@ -280,23 +274,6 @@ nnoremap <leader>wr :WinResizerStartResize<CR>
 """ Start resizer in move mode
 nnoremap <leader>wm :WinResizerStartMove<CR>
 
-"""""""""""""""""""""""" [ NERDTREE ]  # keybinds__nerdtree
-
-"" Toggle NERDTree window
-nnoremap <leader>tt :NERDTreeToggle<CR>
-
-"" Refresh NERDTree to current directory
-nnoremap <leader>tr :NERDTree<CR>
-
-"" Wait for an arg, then close that tab
-nnoremap <leader>tc :tabclose
-
-"" Close the current tab
-nnoremap <leader>tC :tabclose<CR>
-
-"" Escape in terminal mode actually escapes terminal mode
-tnoremap <Esc> <C-\><C-n>
-
 """""""""""""""""""""""""
 """""""""""
 " [ ALE ] "                            # ale
@@ -304,16 +281,26 @@ tnoremap <Esc> <C-\><C-n>
 
 "" Layout                              # ale__layout
 let g:ale_sign_column_always=1
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '🤔'
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 
 "" Enable Airline section              # ale__airline
 let g:airline#extnsions#ale#enabled=1
 let g:airline#extensions#tabline#enabled=1
 
 "" Set up fixers                       # ale__fixers
-let b:ale_fixers=['prettier', 'eslint', 'prettier-eslint']
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier-eslint', 'eslint', 'prettier'],
+\}
 
 """ When to fix
-let b:ale_fix_on_save=1
+let g:ale_fix_on_save=1
 
 """""""""""""""""""""""""
 """"""""""""""""""
@@ -388,6 +375,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
 "" Enable indent guides                # theme__indent
+let g:indentLine_enabled=1
 
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=4

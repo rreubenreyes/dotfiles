@@ -7,7 +7,19 @@ export ENV="$HOME/dev/env-vars"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME=""
+ZSH_THEME="spaceship"
+SPACESHIP_PROMPT_ORDER=(
+    user
+    host
+    dir
+    git
+    node
+    exec_time
+    line_sep
+    jobs
+    exit_code
+    char
+)
 
 # nvm fix
 export NVM_DIR="$HOME/.nvm"
@@ -70,18 +82,12 @@ plugins=(
   alias-tips
   extract
   git
-  npm
   osx
-  sublime
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
-# load pure
-autoload -U promptinit; promptinit
-prompt pure
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"

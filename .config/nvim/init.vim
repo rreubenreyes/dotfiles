@@ -24,7 +24,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 """"""""""""""""""""""""" [ SENSIBLE ] # plugins__sensible
 
-"" Theme
+"" Sensible defaults
   Plug 'tpope/vim-sensible'
 
 """"""""""""""""""""""""" [ VISUAL ]   # plugins__visual
@@ -46,8 +46,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'simeji/winresizer'
   Plug 't9md/vim-choosewin'
 
+"" COC
+  Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+
 " Editing
-  Plug 'Shougo/deoplete.nvim'
   Plug 'christoomey/vim-sort-motion'
   Plug 'christoomey/vim-system-copy'
   Plug 'craigemery/vim-autotag'
@@ -56,7 +58,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'jiangmiao/auto-pairs' " Bracket pairs
   Plug 'jparise/vim-graphql'
   Plug 'junegunn/vim-easy-align'
-  Plug 'machakann/vim-highlightedyank'
   Plug 'mattn/emmet-vim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
@@ -65,8 +66,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-scripts/ReplaceWithRegister'
 
 "" Text Objects
-  Plug 'Julian/vim-textobj-variable-segment'
-  Plug 'glts/vim-textobj-comment'
   Plug 'kana/vim-textobj-entire'
   Plug 'kana/vim-textobj-user'
 
@@ -302,6 +301,7 @@ let g:ale_fixers = {
 """ When to fix
 let g:ale_fix_on_save=1
 
+
 """""""""""""""""""""""""
 """"""""""""""""""
 " [ WINRESIZER ] "                     # winresizer
@@ -339,15 +339,6 @@ let g:vimwiki_list=[wiki]
 
 "" Folding mode                        # vimwiki__folding
 let g:rooter_change_directory_for_non_project_files='current'
-
-"""""""""""""""""""""""""
-"""""""""""""""
-" [ DEOPLETE ] "                        # deoplete
-"""""""""""""""
-"""""""""""""""""""""""""
-
-"" Deoplete
-  let g:deoplete#enable_at_startup=1
 
 """""""""""""""""""""""""
 """""""""""""
@@ -407,9 +398,12 @@ set tabstop=4
 """"""""""""""""""""""""""""""""""
 """""""""""""""""""""""""
 
+let g:javascript_plugin_jsdoc=1
+highlight jsFunction cterm=italic gui=italic
 filetype plugin on
-let g:highlightedyank_highlight_duration=150
 set hidden
+set nohlsearch
+set cursorline
 set nocompatible
 set omnifunc=syntaxcomplete#Complete
 syntax on

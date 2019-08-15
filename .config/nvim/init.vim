@@ -399,7 +399,6 @@ highlight jsFunction cterm=italic gui=italic
 filetype plugin on
 set hidden
 set nohlsearch
-set cursorline
 set nocompatible
 set omnifunc=syntaxcomplete#Complete
 set noswapfile

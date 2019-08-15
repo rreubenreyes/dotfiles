@@ -1,5 +1,6 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Path overrides for specific binaries
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export ENV="$HOME/dev/env-vars"
@@ -122,8 +123,6 @@ alias chrome='open -a "Google Chrome"'
 alias config='nvr ~/.zshrc'
 alias dev='cd ~/dev'
 alias dsl='sudo rm -rf /private/var/log/asl/*.asl'
-alias e="emacsclient -t --socket-name=/tmp/emacs1000/server"
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 alias finder='open -a "Finder"'
 alias get='ls -laH | grep'
 alias gpo='git push origin'

@@ -286,16 +286,16 @@ highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
 "" Enable Airline section              # ale__airline
-let g:airline#extnsions#ale#enabled=1
 let g:airline#extensions#tabline#enabled=1
 
 "" Set up fixers                       # ale__fixers
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
+
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier-eslint', 'eslint', 'prettier'],
+\    'javascript': ['eslint'],
+\    'scss': ['prettier']
 \}
 
 """ When to fix

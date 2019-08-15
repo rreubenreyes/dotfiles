@@ -8,6 +8,9 @@ export ENV="$HOME/dev/env-vars"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="spaceship"
+. $HOME/z.sh
+
+# Set Spaceship ZSH as a prompt
 SPACESHIP_PROMPT_ORDER=(
     user
     host
@@ -27,7 +30,6 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 export VIMRC="~/.config/nvim/init.vim"
-. $HOME/z.sh
 
 #
 # Set list of themes to load

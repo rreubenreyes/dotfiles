@@ -18,10 +18,6 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-"" Oh god
-  Plug 'takac/vim-hardtime'
-  let g:hardtime_default_on=1
-
 """"""""""""""""""""""""" [ SENSIBLE ] # plugins__sensible
 
 "" Sensible defaults
@@ -54,7 +50,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'christoomey/vim-system-copy'
   Plug 'craigemery/vim-autotag'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'gko/vim-coloresque' " CSS color previews
+  Plug 'gko/vim-coloresque', { 'for': ['css'] }
   Plug 'jiangmiao/auto-pairs' " Bracket pairs
   Plug 'jparise/vim-graphql'
   Plug 'junegunn/vim-easy-align'
@@ -87,9 +83,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
 
 "" JavaScript
-  Plug 'kern/vim-es7'
-  Plug 'maxmellon/vim-jsx-pretty'
-  Plug 'pangloss/vim-javascript'
+  Plug 'kern/vim-es7', { 'for': ['javascript', 'typescript'] }
+  Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
+  Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
 
 "" TypeScript
   Plug 'leafgarland/typescript-vim'
@@ -406,4 +402,5 @@ set nohlsearch
 set cursorline
 set nocompatible
 set omnifunc=syntaxcomplete#Complete
+set noswapfile
 syntax on

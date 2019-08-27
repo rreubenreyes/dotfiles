@@ -18,10 +18,6 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-"" Oh god
-  Plug 'takac/vim-hardtime'
-  let g:hardtime_default_on=1
-
 """"""""""""""""""""""""" [ SENSIBLE ] # plugins__sensible
 
 "" Sensible defaults
@@ -44,7 +40,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 "" Window Management
   Plug 'simeji/winresizer'
-  Plug 't9md/vim-choosewin'
 
 "" COC
   Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
@@ -54,7 +49,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'christoomey/vim-system-copy'
   Plug 'craigemery/vim-autotag'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'gko/vim-coloresque' " CSS color previews
+  Plug 'gko/vim-coloresque', { 'for': 'css' }
   Plug 'jiangmiao/auto-pairs' " Bracket pairs
   Plug 'jparise/vim-graphql'
   Plug 'junegunn/vim-easy-align'
@@ -92,7 +87,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'pangloss/vim-javascript'
 
 "" TypeScript
-  Plug 'leafgarland/typescript-vim'
+  Plug 'leafgarland/typescript-vim',
 
 """"""""""""""""""""""""" [ NOTES ]    # plugins__vimwiki
 
@@ -131,32 +126,14 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 "" Buffers                             # keybinds__editing--buffers
-""" Buffer list
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
 
 """ Close buffers without closing the window
 nnoremap <leader>bd :bp\|bd #<CR><CR>
 
-""" Buffer navigation
-nnoremap <leader>b$ :blast<CR>
-nnoremap <leader>b0 :bfirst<CR>
-nnoremap <leader>bB :b
-nnoremap <leader>bn :bn<CR>
-nnoremap <leader>bp :bp<CR>
-
 "" EasyMotion                          # keybinds__editing--easymotion
 nmap <leader>a <Plug>(easymotion-prefix)
-
-"" Folding                             # keybinds__editing--folding
-nnoremap <leader>eA zA
-nnoremap <leader>ea za
-nnoremap <leader>ec zc
-nnoremap <leader>eo zo
-
-"" Opening files                       # keybinds__editing--files
-nnoremap <leader> :vertical wincmd f<CR>
-nnoremap <leader>os wincmd f<CR>
 
 """"""""""""""""""""""""" [ CONFIG ]   # keybinds__config
 
@@ -168,11 +145,6 @@ nnoremap <leader>qrp :PlugUpdate<CR>
 nnoremap <leader>qR :source $MYVIMRC<CR>
 nnoremap <leader>fed :edit $MYVIMRC<CR>
 
-
-""""""""""""""""""""""""" [ LINTING ]  # keybinds__linting
-
-"" Linting                             # keybinds__linting--ale
-nnoremap <leader>ev :ALEInfo<CR>
 
 """"""""""""""""""""""""" [ FZF ]      # keybinds__fzf
 
@@ -187,18 +159,6 @@ nnoremap <leader>ps :Ag<CR>
 
 """ Project-wide file search
 nnoremap <leader>pf :Files<CR>
-
-"" Colors/Themes                       # keybinds__fzf--colors
-""" List all color schemes
-nnoremap <leader>Tc :Colors<CR>
-
-""""""""""""""""""""""""" [ TERMINAL ] # keybinds__terminal
-
-""" Open terminal in vsplit
-nnoremap <leader>xt :vs\|te<CR>
-
-""" Open terminal in split
-nnoremap <leader>xs :split\|te<CR>
 
 """""""""""""""""""""""" [ SWIPER ]    # keybinds__swiper
 
@@ -255,17 +215,6 @@ nmap ,! :r!date<CR>kyss>k
 
 "" Leader                              # keybinds__window--leader
 nnoremap <leader>w <C-w>
-
-""" Switch window focus
-nnoremap <leader><Tab> <C-w>w
-
-""" Open windows list
-nnoremap <leader>ww :Windows<CR>
-nmap \ <Plug>(choosewin)
-
-""" Splits
-nnoremap <leader>ws :split<CR>
-nnoremap <leader>wv :vsplit<CR>
 
 """ Start resizer in resize mode
 nnoremap <leader>wr :WinResizerStartResize<CR>
@@ -354,7 +303,6 @@ endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 "" Enable theme                        # theme__colorscheme
-
 syntax enable
 colorscheme night-owl
 

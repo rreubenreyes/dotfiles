@@ -106,7 +106,6 @@ call plug#end()
 
 "" Leader                              # keybinds__leader
 let mapleader=" "
-let maplocalleader="|"
 
 """"""""""""""""""""""""" [ EDITING ]  # keybinds__editing
 "" Tab completion
@@ -245,6 +244,10 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \    'javascript': ['eslint'],
 \    'scss': ['prettier']
+\}
+
+let g:ale_pattern_options = {
+\   '.*\.md$': {'ale_enabled': 0},
 \}
 
 """ When to fix

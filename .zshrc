@@ -1,5 +1,5 @@
 # Path overrides for specific binaries
-export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/grep/libexec/gnubin:$HOME/bin:$HOME/Library/Python/3.7/bin:/Users/reuben/dev/sonar-scanner-4.0.0.1744-macosx/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -125,6 +125,7 @@ alias dev='cd ~/dev'
 # alias dsl='sudo rm -rf /private/var/log/asl/*.asl'
 alias finder='open -a "Finder"'
 alias get='ls -laH | grep'
+alias getenv='source ~/bin/getenv'
 alias gpo='git push origin'
 alias hd='ls -ap | egrep "^\..*/$"'
 alias hereyougo='git add --all && git commit -m'

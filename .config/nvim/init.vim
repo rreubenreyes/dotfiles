@@ -49,7 +49,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'christoomey/vim-system-copy'
   Plug 'craigemery/vim-autotag'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'gko/vim-coloresque', { 'for': 'css' }
+  Plug 'gko/vim-coloresque', { 'for': ['css'] }
   Plug 'jiangmiao/auto-pairs' " Bracket pairs
   Plug 'jparise/vim-graphql'
   Plug 'junegunn/vim-easy-align'
@@ -357,3 +357,5 @@ set nohlsearch
 set nocompatible
 set omnifunc=syntaxcomplete#Complete
 syntax on
+
+autocmd BufNewFile,BufRead *.md set syntax=markdown

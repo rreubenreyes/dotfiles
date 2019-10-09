@@ -358,3 +358,5 @@ set nocompatible
 set omnifunc=syntaxcomplete#Complete
 set noswapfile
 syntax on
+
+autocmd BufNewFile,BufRead *.md set syntax=markdown

@@ -88,9 +88,34 @@ plugins=(
   osx
   zsh-autosuggestions
   zsh-syntax-highlighting
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Vi mode configuration
+function zle-keymap-select zle-line-init {
+    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS2=$RPS1
+
+    # change cursor shape in iTerm2
+     case $KEYMAP in
+         vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
+         viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
+     esac
+
+    zle reset-prompt
+    zle -R
+}
+
+function zle-line-finish {
+    print -n -- "\E]50;CursorShape=0\C-G"  # block cursor
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -130,6 +155,7 @@ alias gpo='git push origin'
 alias hd='ls -ap | egrep "^\..*/$"'
 alias hereyougo='git add --all && git commit -m'
 alias hf='ls -ap | grep -v / | egrep "^\."'
+alias macapps='/Applications'
 alias nuke='rm -rf'
 alias nvimrc='nvim ~/.config/nvim/init.vim'
 alias please='sudo $(fc -ln -1)'

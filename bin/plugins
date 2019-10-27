@@ -1,0 +1,16 @@
+#!/bin/bash
+
+nvim="$HOME/.config/nvim/init.vim"
+vim="$HOME/.vimrc"
+app="nvim"
+appdir=$nvim
+plugid="Plug"
+
+while getopts "nv" opt; do
+    case $opt in
+        v) app="vim"; appdir=$vim; plugid="Plug" ;;
+        *) echo "Invalid option \""$opt"\"" >&2; exit 1 ;;
+    esac
+done
+
+cat $appdir | awk "{ if (\$1==\"$plugid\") print \$1  }" | wc -l | awk "{ print \$1 \" plugins installed for $app\" }"

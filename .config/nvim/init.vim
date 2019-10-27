@@ -65,7 +65,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'kana/vim-textobj-user'
 
 "" Visual
-  Plug 'Yggdroot/indentLine'
   Plug 'tpope/vim-vinegar'
 
 "" Git
@@ -89,11 +88,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 "" TypeScript
   Plug 'leafgarland/typescript-vim',
 
-""""""""""""""""""""""""" [ NOTES ]    # plugins__vimwiki
-
-"" VimWiki
-  Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-
 call plug#end()
 
 """""""""""""""""""""""""
@@ -110,9 +104,6 @@ let mapleader=" "
 """"""""""""""""""""""""" [ EDITING ]  # keybinds__editing
 "" Tab completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-"" Toggle indent lines
-nnoremap <leader>ig :IndentLinesToggle<CR>
 
 "" Mouse                               # keybinds__editing--mouse
 set mouse=a
@@ -177,39 +168,6 @@ nnoremap <leader>gf gf
 nnoremap <leader>gv :vertical wincmd f<CR>
 nnoremap <leader>gs <C-w>f
 
-
-""""""""""""""""""""""""" [ VIMWIKI ]  # keybinds__vimwiki
-
-"" Global mappings
-nmap ,d <Plug>VimwikiMakeDiaryNote
-nmap ,dm <Plug>VimwikiMakeTomorrowDiaryNote
-nmap ,dt <Plug>VimwikiTabMakeDiaryNote
-nmap ,dy <Plug>VimwikiMakeYesterdayDiaryNote
-nmap ,i <Plug>VimwikiDiaryIndex
-nmap ,t <Plug>VimwikiTabIndex
-nmap ,w <Plug>VimwikiIndex
-nmap ,wq <Plug>VimwikiUISelect
-
-"" Local mappings
-nmap ,dd <Plug>VimwikiDeleteLink
-nmap ,rr <Plug>VimwikiRenameLink
-nmap ,wc <Plug>Vimwiki2HTML
-nmap ,wcc <Plug>Vimwiki2HTMLBrowse
-nmap ,wcr <Plug>VimwikiDiaryGenerateLinks
-nmap ,ws <Plug>VimwikiSplitLink
-nmap ,wt <Plug>VimwikiTabnewLink
-nmap ,wv <Plug>VimwikiVSplitLink
-
-"" Enable folding                      # keybinds__vimwiki--folding
-let g:vimwiki_folding='expr'
-
-"" Dates                               # keybinds__vimwiki--dates
-""" Place a date in italics on the line after the cursor
-nmap ,. :r!date<CR>yss_yss>k
-
-""" Place a date on the line after the cursor
-nmap ,! :r!date<CR>kyss>k
-
 """""""""""""""""""""""" [ WINDOW ]    # keybinds__window
 
 "" Leader                              # keybinds__window--leader
@@ -272,25 +230,6 @@ let g:winresizer_horiz_resize=2
 """ If a file isn't a Git project, make $PWD=current
 let g:rooter_change_directory_for_non_project_files='current'
 
-"""""""""""""""""""""""""
-"""""""""""""""
-" [ VIMWIKI ] "                        # vimwiki
-"""""""""""""""
-"""""""""""""""""""""""""
-
-"" Set VimWiki root                    # vimwiki__root
-let wiki={'path': '$HOME/Dropbox/md', 'syntax': 'markdown', 'ext': '.md'}
-let wiki.nested_syntaxes={
-            \'python': 'python',
-            \'javascript': 'js',
-            \'typescript': 'ts',
-            \'bash': 'sh',
-            \'rust': 'rs'
-            \}
-let g:vimwiki_list=[wiki]
-
-"" Folding mode                        # vimwiki__folding
-let g:rooter_change_directory_for_non_project_files='current'
 
 """""""""""""""""""""""""
 """""""""""""

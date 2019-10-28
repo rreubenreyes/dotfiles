@@ -272,10 +272,10 @@ autocmd ColorScheme * hi VertSplit guifg=#01223d ctermfg=238 gui=NONE cterm=NONE
 """"""""""""""""""""
 """""""""""""""""""""""""
 
-au TermOpen * setlocal nonumber norelativenumber
 set number
 set numberwidth=4
 set relativenumber
+au TermOpen * setlocal nonumber norelativenumber
 
 set expandtab
 set laststatus=2
@@ -295,6 +295,6 @@ set hidden
 set nohlsearch
 set nocompatible
 set omnifunc=syntaxcomplete#Complete
+set nosc
 syntax on
 
-autocmd BufNewFile,BufRead *.md set syntax=markdown

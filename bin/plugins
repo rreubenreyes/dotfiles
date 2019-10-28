@@ -13,4 +13,7 @@ while getopts "nv" opt; do
     esac
 done
 
-cat $appdir | awk "{ if (\$1==\"$plugid\") print \$1  }" | wc -l | awk "{ print \$1 \" plugins installed for $app\" }"
+cat $appdir |\
+    awk "{ if (\$1==\"$plugid\") print \$1  }" |\
+    wc -l |\
+    awk "{ print \$1 \" plugins installed for $app\" }"

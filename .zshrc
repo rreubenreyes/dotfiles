@@ -138,6 +138,9 @@ zle -N zle-keymap-select
 alias chrome='open -a "Google Chrome"'
 alias firefox='open -a "Firefox"'
 alias preview='open -a "Preview"'
+alias vi='nvim'
+alias vim='nvim'
+alias vimdiff='nvim -d'
 
 # Utility aliases
 alias again='$(fc -ln -1)'

@@ -127,7 +127,7 @@ zle -N zle-keymap-select
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
@@ -136,17 +136,17 @@ zle -N zle-keymap-select
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# Assign an alias to the function
-alias again='$(fc -ln -1)'
+# App aliases
 alias chrome='open -a "Google Chrome"'
+alias firefox='open -a "Firefox"'
+alias preview='open -a "Preview"'
+alias vi='nvim'
+alias vim='nvim'
+alias vimdiff='nvim -d'
+
+# Utility aliases
+alias again='$(fc -ln -1)'
 alias config='nvr ~/.zshrc'
-alias dev='cd ~/dev'
 # alias dsl='sudo rm -rf /private/var/log/asl/*.asl'
 alias finder='open -a "Finder"'
 alias get='ls -laH | grep'
@@ -155,12 +155,18 @@ alias gpo='git push origin'
 alias hd='ls -ap | egrep "^\..*/$"'
 alias hereyougo='git add --all && git commit -m'
 alias hf='ls -ap | grep -v / | egrep "^\."'
-alias macapps='/Applications'
+alias macapps='cd /Applications'
 alias nuke='rm -rf'
 alias nvimrc='nvim ~/.config/nvim/init.vim'
 alias please='sudo $(fc -ln -1)'
-alias preview='open -a "Preview"'
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+# lol
+eval $(thefuck --alias fine --enable-experimental-instant-mode)
+eval $(thefuck --alias jesus --enable-experimental-instant-mode)
+eval $(thefuck --alias ugh --enable-experimental-instant-mode)
+eval $(thefuck --alias omfg --enable-experimental-instant-mode)
+eval $(thefuck --alias fuck --enable-experimental-instant-mode)
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

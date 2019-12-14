@@ -32,6 +32,9 @@ export NVM_DIR="$HOME/.nvm"
 
 export VIMRC="~/.config/nvim/init.vim"
 
+# AWS
+export AWS_DEFAULT_REGION="us-west-2"
+
 #
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -159,7 +162,10 @@ alias macapps='cd /Applications'
 alias nuke='rm -rf'
 alias nvimrc='nvim ~/.config/nvim/init.vim'
 alias please='sudo $(fc -ln -1)'
-
+alias redis-staging='~/bin/redis-5.0.6/src/redis-cli -h redis-staging.zfibdt.0001.usw2.cache.amazonaws.com -p 6379'
+alias redis-dev='~/bin/redis-5.0.6/src/redis-cli -h localhost -p 6379'
+alias redis='~/bin/redis-5.0.6/src/redis-cli -h hapi-infra-redis.zfibdt.ng.0001.usw2.cache.amazonaws.com -p 6379'
+alias redis-server='~/bin/redis-5.0.6/src/redis-server'
 
 # lol
 eval $(thefuck --alias fine --enable-experimental-instant-mode)

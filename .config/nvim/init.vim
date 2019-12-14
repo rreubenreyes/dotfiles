@@ -298,4 +298,3 @@ set omnifunc=syntaxcomplete#Complete
 set noswapfile
 set nosc
 syntax on
-

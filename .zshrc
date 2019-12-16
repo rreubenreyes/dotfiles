@@ -4,7 +4,7 @@ export PATH="/usr/local/opt/grep/libexec/gnubin:$HOME/bin:$HOME/Library/Python/3
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export ENV="$HOME/dev/env-vars"
-export TERM=screen
+# export TERM=screen
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -167,6 +167,7 @@ alias redis-staging='~/bin/redis-5.0.6/src/redis-cli -h redis-staging.zfibdt.000
 alias redis-dev='~/bin/redis-5.0.6/src/redis-cli -h localhost -p 6379'
 alias redis='~/bin/redis-5.0.6/src/redis-cli -h hapi-infra-redis.zfibdt.ng.0001.usw2.cache.amazonaws.com -p 6379'
 alias redis-server='~/bin/redis-5.0.6/src/redis-server'
+alias tmux='TERM=xterm-256color tmux'
 
 # lol
 eval $(thefuck --alias fine --enable-experimental-instant-mode)

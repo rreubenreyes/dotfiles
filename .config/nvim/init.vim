@@ -59,6 +59,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'vim-scripts/ReplaceWithRegister'
+  Plug 'Yilin-Yang/vim-markbar'
+  Plug 'tpope/vim-markdown'
 
 "" Text Objects
   Plug 'kana/vim-textobj-entire'
@@ -124,6 +126,14 @@ nnoremap <leader>bd :bp\|bd #<CR><CR>
 
 "" EasyMotion                          # keybinds__editing--easymotion
 nmap <leader>a <Plug>(easymotion-prefix)
+"
+"" VimMarkbar                          # keybinds__editing--markbar
+nmap <leader>m <Plug>ToggleMarkbar
+nmap <leader>mo <Plug>OpenMarkbar
+nmap <leader>mc <Plug>CloseMarkbar
+let g:markbar_open_position='topleft'
+let g:markbar_width=70
+let g:markbar_close_after_go_to=v:false
 
 """"""""""""""""""""""""" [ CONFIG ]   # keybinds__config
 

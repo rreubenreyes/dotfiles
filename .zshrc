@@ -36,6 +36,9 @@ export VIMRC="~/.config/nvim/init.vim"
 # AWS
 export AWS_DEFAULT_REGION="us-west-2"
 
+# bat
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 #
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -141,6 +144,7 @@ zle -N zle-keymap-select
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # App aliases
+alias cat=bat
 alias chrome='open -a "Google Chrome"'
 alias firefox='open -a "Firefox"'
 alias preview='open -a "Preview"'
@@ -167,7 +171,7 @@ alias redis-staging='~/bin/redis-5.0.6/src/redis-cli -h redis-staging.zfibdt.000
 alias redis-dev='~/bin/redis-5.0.6/src/redis-cli -h localhost -p 6379'
 alias redis='~/bin/redis-5.0.6/src/redis-cli -h hapi-infra-redis.zfibdt.ng.0001.usw2.cache.amazonaws.com -p 6379'
 alias redis-server='~/bin/redis-5.0.6/src/redis-server'
-alias tmux='TERM=xterm-256color tmux'
+alias tmux='TERM=screen tmux'
 
 # lol
 eval $(thefuck --alias fine --enable-experimental-instant-mode)
@@ -176,5 +180,6 @@ eval $(thefuck --alias ugh --enable-experimental-instant-mode)
 eval $(thefuck --alias omfg --enable-experimental-instant-mode)
 eval $(thefuck --alias fuck --enable-experimental-instant-mode)
 
-
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'

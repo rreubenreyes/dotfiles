@@ -1,0 +1,37 @@
+{
+  "extensions": {
+    "%2FUsers%2Freuben%2Fdev%2Famethyst": [
+      "coc:q"
+    ]
+  },
+  "yank": {
+    "%2FUsers%2Freuben%2F": {
+      "config%2Fnvim": [
+        ":Coc"
+      ]
+    }
+  },
+  "commands": {
+    "%2FUsers%2Freuben%2Fdev%2Famethyst": [
+      "tsserver",
+      "eslint",
+      "reloadproj"
+    ]
+  },
+  "sources": {
+    "%2FUsers%2Freuben%2Fdev%2Famethyst": [
+      ":cocL"
+    ]
+  },
+  "lists": {
+    "%2FUsers%2Freuben%2Fdev%2Famethyst": [
+      "symbols"
+    ]
+  },
+  "symbols": {
+    "%2FUsers%2Freuben%2Fdev%2Famethyst": [
+      "app",
+      "RoutesV"
+    ]
+  }
+}

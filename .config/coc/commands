@@ -1,0 +1,5 @@
+tsserver.reloadProjects
+workspace.workspaceFolders
+eslint.executeAutofix
+tsserver.goToProjectConfig
+json.retryResolveSchema

@@ -27,6 +27,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Theme
   Plug 'haishanh/night-owl.vim'
+  Plug 'NLKNguyen/papercolor-theme'
 
 "" Airline
   Plug 'vim-airline/vim-airline'
@@ -42,7 +43,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'simeji/winresizer'
 
 "" COC
-  Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+  Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
 
 " Editing
   Plug 'christoomey/vim-sort-motion'
@@ -61,6 +62,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-scripts/ReplaceWithRegister'
   Plug 'Yilin-Yang/vim-markbar'
   Plug 'tpope/vim-markdown'
+  Plug 'gcmt/taboo.vim'
 
 "" Text Objects
   Plug 'kana/vim-textobj-entire'
@@ -133,7 +135,8 @@ nmap <leader>mo <Plug>OpenMarkbar
 nmap <leader>mc <Plug>CloseMarkbar
 let g:markbar_open_position='topleft'
 let g:markbar_width=70
-let g:markbar_close_after_go_to=v:false
+let g:markbar_enable_peekaboo=v:false
+" let g:markbar_close_after_go_to=v:false
 
 """"""""""""""""""""""""" [ CONFIG ]   # keybinds__config
 
@@ -293,12 +296,67 @@ set shiftwidth=4
 set tabstop=4
 
 """""""""""""""""""""""""
+"""""""""""
+" [ COC ] "                            # unsorted
+"""""""""""
+"""""""""""""""""""""""""
+" Better display for messages
+set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+
+" Use `lp` and `ln` for navigate diagnostics
+nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> <leader>ld <Plug>(coc-definition)
+nmap <silent> <leader>lt <Plug>(coc-type-definition)
+nmap <silent> <leader>li <Plug>(coc-implementation)
+nmap <silent> <leader>lf <Plug>(coc-references)
+nmap <silent> <leader>ll <Plug>(coc-format-selected)
+nmap <silent> <leader>lL <Plug>(coc-format)
+
+nmap <silent> <leader>cc <Plug>(coc-codeaction-selected)
+vmap <silent> <leader>cc <Plug>(coc-codeaction-selected)
+
+" Remap for rename current word
+nmap <leader>lr <Plug>(coc-rename)
+
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+"""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""
 " [ HASN'T BEEN SORTED OUT YET ] "     # unsorted
 """"""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 let g:javascript_plugin_jsdoc=1
+let g:netrw_fastbrowse=0
+augroup netrw_buf_hidden_fix
+    autocmd!
+
+    " Set all non-netrw buffers to bufhidden=hide
+    autocmd BufWinEnter *
+                \  if &ft != 'netrw'
+                \|     set bufhidden=hide
+                \| endif
+
+augroup end
 highlight jsFunction cterm=italic gui=italic
 filetype plugin on
 set hidden

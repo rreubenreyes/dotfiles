@@ -171,7 +171,7 @@ alias redis-staging='~/bin/redis-5.0.6/src/redis-cli -h redis-staging.zfibdt.000
 alias redis-dev='~/bin/redis-5.0.6/src/redis-cli -h localhost -p 6379'
 alias redis='~/bin/redis-5.0.6/src/redis-cli -h hapi-infra-redis.zfibdt.ng.0001.usw2.cache.amazonaws.com -p 6379'
 alias redis-server='~/bin/redis-5.0.6/src/redis-server'
-alias tmux='TERM=screen tmux'
+alias tmux='TERM=xterm-256color tmux'
 
 # lol
 eval $(thefuck --alias fine --enable-experimental-instant-mode)

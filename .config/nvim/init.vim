@@ -61,7 +61,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-unimpaired'
   Plug 'vim-scripts/ReplaceWithRegister'
   Plug 'Yilin-Yang/vim-markbar'
-  Plug 'tpope/vim-markdown'
   Plug 'gcmt/taboo.vim'
 
 "" Text Objects

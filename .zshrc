@@ -183,3 +183,4 @@ eval $(thefuck --alias fuck --enable-experimental-instant-mode)
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
+

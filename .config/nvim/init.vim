@@ -302,8 +302,6 @@ set tabstop=4
 """""""""""""""""""""""""
 " Better display for messages
 set cmdheight=2
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 " always show signcolumns
@@ -343,7 +341,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 let g:javascript_plugin_jsdoc=1
 let g:netrw_fastbrowse=0

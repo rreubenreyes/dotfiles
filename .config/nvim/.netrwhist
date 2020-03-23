@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/Users/reuben/dev/application-api'
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/reuben/dev/amethyst/src/workers/v1'
+let g:netrw_dirhist_1='/Users/reuben/dev/amethyst/src/api/v1/controllers'
+let g:netrw_dirhist_0='/Users/reuben/dev/amethyst/src/api/v1'
+let g:netrw_dirhist_9='/Users/reuben/dev/amethyst/src/api'
+let g:netrw_dirhist_8='/Users/reuben/dev/amethyst/src'
+let g:netrw_dirhist_7='/Users/reuben/dev/amethyst/src/workers'
+let g:netrw_dirhist_6='/Users/reuben/dev/amethyst/src/workers/v1'
+let g:netrw_dirhist_5='/Users/reuben/dev/amethyst/src/api/v1/controllers'
+let g:netrw_dirhist_4='/Users/reuben/dev/amethyst/src/workers/v1'
+let g:netrw_dirhist_3='/Users/reuben/dev/amethyst/src/workers'

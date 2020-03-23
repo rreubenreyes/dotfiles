@@ -3,5 +3,7 @@
     "yank.highlight.enable": true,
     "yank.highlight.duration": 125,
     "tsserver.npm": "/usr/local/bin/npm",
-    "javascript.suggestionActions.enabled": false
+    "javascript.suggestionActions.enabled": false,
+    "eslint.enable": true,
+    "eslint.autoFixOnSave": true
 }

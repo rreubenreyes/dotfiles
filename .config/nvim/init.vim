@@ -54,6 +54,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'jiangmiao/auto-pairs' " Bracket pairs
   Plug 'jparise/vim-graphql'
   Plug 'junegunn/vim-easy-align'
+  Plug 'junegunn/vim-peekaboo'
   Plug 'mattn/emmet-vim'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-repeat'
@@ -366,3 +367,4 @@ set noswapfile
 set nosc
 syntax on
 set t_ut=
+set cursorline

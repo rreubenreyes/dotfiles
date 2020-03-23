@@ -45,7 +45,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 "" COC
   Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
 
-" Editing
+"" Ranger
+  Plug 'francoiscabrol/ranger.vim'
+  Plug 'rbgrouleff/bclose.vim'
+
+"" Editing
   Plug 'christoomey/vim-sort-motion'
   Plug 'christoomey/vim-system-copy'
   Plug 'craigemery/vim-autotag'
@@ -63,6 +67,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-scripts/ReplaceWithRegister'
   Plug 'Yilin-Yang/vim-markbar'
   Plug 'gcmt/taboo.vim'
+
 
 "" Text Objects
   Plug 'kana/vim-textobj-entire'
@@ -224,6 +229,13 @@ let g:ale_pattern_options = {
 """ When to fix
 let g:ale_fix_on_save=1
 
+"""""""""""""""""""""""""
+""""""""""""""""""
+" [ RANGER ] "                         # ranger
+""""""""""""""""""
+"""""""""""""""""""""""""
+
+let g:ranger_replace_netrw=1
 
 """""""""""""""""""""""""
 """"""""""""""""""

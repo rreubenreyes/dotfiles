@@ -154,7 +154,9 @@ alias vimdiff='nvim -d'
 
 # Utility aliases
 alias again='$(fc -ln -1)'
-alias config='nvr ~/.zshrc'
+alias cft='nvim ~/.config/alacritty/alacritty.yml'
+alias cfn='nvim ~/.config/nvim/init.vim'
+alias cfz='nvim ~/.zshrc'
 # alias dsl='sudo rm -rf /private/var/log/asl/*.asl'
 alias finder='open -a "Finder"'
 alias get='ls -laH | grep'
@@ -165,20 +167,12 @@ alias hereyougo='git add --all && git commit -m'
 alias hf='ls -ap | grep -v / | egrep "^\."'
 alias macapps='cd /Applications'
 alias nuke='rm -rf'
-alias nvimrc='nvim ~/.config/nvim/init.vim'
 alias please='sudo $(fc -ln -1)'
 alias redis-staging='~/bin/redis-5.0.6/src/redis-cli -h redis-staging.zfibdt.0001.usw2.cache.amazonaws.com -p 6379'
 alias redis-dev='~/bin/redis-5.0.6/src/redis-cli -h localhost -p 6379'
 alias redis='~/bin/redis-5.0.6/src/redis-cli -h hapi-infra-redis.zfibdt.ng.0001.usw2.cache.amazonaws.com -p 6379'
 alias redis-server='~/bin/redis-5.0.6/src/redis-server'
 alias tmux='TERM=xterm-256color tmux'
-
-# lol
-eval $(thefuck --alias fine --enable-experimental-instant-mode)
-eval $(thefuck --alias jesus --enable-experimental-instant-mode)
-eval $(thefuck --alias ugh --enable-experimental-instant-mode)
-eval $(thefuck --alias omfg --enable-experimental-instant-mode)
-eval $(thefuck --alias fuck --enable-experimental-instant-mode)
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

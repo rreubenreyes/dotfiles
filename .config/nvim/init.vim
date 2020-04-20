@@ -14,7 +14,7 @@ Plug 'tpope/vim-sensible'
 """"""""""""""""""""""""" [ VISUAL ]   # plugins__visual
 
 " Theme
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 "" Airline
 Plug 'vim-airline/vim-airline'
@@ -230,9 +230,7 @@ colorscheme gruvbox
 
 "" Enable Airline theme                # theme__airline
 let g:airline_theme='gruvbox'
-let g:airline_powerline_fonts = 0
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+let g:airline_powerline_fonts=1
 
 "" Enable indent guides                # theme__indent
 let g:indentLine_enabled=1
@@ -243,7 +241,6 @@ let g:indent_guides_guide_size=1
 
 "" Split bar color                     # theme__splitbar
 """ 10% lighter than bg
-" autocmd ColorScheme * hi VertSplit guifg=#01223d ctermfg=238 gui=NONE cterm=NONE
 
 """""""""""""""""""""""""
 """"""""""""""""""""

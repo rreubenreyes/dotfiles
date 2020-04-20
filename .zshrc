@@ -24,6 +24,9 @@ SPACESHIP_PROMPT_ORDER=(
     jobs
     exit_code
     char
+    aws
+    terraform
+    vi_mode
 )
 
 # nvm fix
@@ -102,7 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Vi mode configuration
 function zle-keymap-select zle-line-init {
-    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+    RPS1=""
     RPS2=$RPS1
 
     # change cursor shape in iTerm2
@@ -153,19 +156,14 @@ alias vim='nvim'
 alias vimdiff='nvim -d'
 
 # Utility aliases
-alias again='$(fc -ln -1)'
 alias cft='nvim ~/.config/alacritty/alacritty.yml'
 alias cfn='nvim ~/.config/nvim/init.vim'
 alias cfz='nvim ~/.zshrc'
 # alias dsl='sudo rm -rf /private/var/log/asl/*.asl'
 alias finder='open -a "Finder"'
-alias get='ls -laH | grep'
 alias getenv='source ~/bin/getenv'
 alias gpo='git push origin'
-alias hd='ls -ap | egrep "^\..*/$"'
 alias hereyougo='git add --all && git commit -m'
-alias hf='ls -ap | grep -v / | egrep "^\."'
-alias macapps='cd /Applications'
 alias nuke='rm -rf'
 alias please='sudo $(fc -ln -1)'
 alias redis-staging='~/bin/redis-5.0.6/src/redis-cli -h redis-staging.zfibdt.0001.usw2.cache.amazonaws.com -p 6379'
@@ -175,5 +173,6 @@ alias redis-server='~/bin/redis-5.0.6/src/redis-server'
 alias tmux='TERM=xterm-256color tmux'
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf/shell/key-bindings.zsh ] && source ~/.fzf/shell/key-bindings.zsh
 export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(nvim {})+abort'"

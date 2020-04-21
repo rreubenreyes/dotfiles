@@ -61,6 +61,9 @@ Plug 'kana/vim-textobj-user'
 "" Visual
 Plug 'tpope/vim-vinegar'
 
+"" Dadbod lol
+Plug 'tpope/vim-dadbod'
+
 "" Git
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'

@@ -25,6 +25,7 @@ SPACESHIP_PROMPT_ORDER=(
     exit_code
     char
     aws
+    package
     terraform
     vi_mode
 )
@@ -96,6 +97,7 @@ plugins=(
   extract
   git
   osx
+  sublime
   zsh-autosuggestions
   zsh-syntax-highlighting
   vi-mode
@@ -176,3 +178,6 @@ alias tmux='TERM=xterm-256color tmux'
 [ -f ~/.fzf/shell/key-bindings.zsh ] && source ~/.fzf/shell/key-bindings.zsh
 export FZF_DEFAULT_COMMAND='ag --nocolor --ignore node_modules -g ""'
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(nvim {})+abort'"
+export TERM_ITALICS=true
+
+# Mongo

@@ -5,7 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-sensible'
 
 " Gruvbox
-Plug 'gruvbox-community/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " Fancy statusline, most 'show metadata in the statusline' plugins look nicer now
 Plug 'vim-airline/vim-airline'
@@ -14,9 +14,6 @@ Plug 'vim-airline/vim-airline-themes'
 " Use external fzf for file navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" Easier window split keybinds
-Plug 'simeji/winresizer'
 
 " Mostly linting and language server support
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
@@ -27,6 +24,9 @@ Plug 'rbgrouleff/bclose.vim'
 
 " Because I'm too lazy to type "_di(F(p
 Plug 'vim-scripts/ReplaceWithRegister'
+
+" Copy things to system clipboard
+Plug 'christoomey/vim-system-copy'
 
 " taBs vS sPaCeS
 Plug 'editorconfig/editorconfig-vim'
@@ -119,10 +119,6 @@ nnoremap <leader>gs <C-w>f
 " This is a spacemacs binding I am way too used to so I kept it
 nnoremap <leader>w <C-w>
 
-" Easy window resizing, use hjkl to adjust split size
-nnoremap <leader>wr :WinResizerStartResize<CR>
-let g:winresizer_horiz_resize=2
-
 " Put linting information in the gutter
 let g:ale_sign_column_always=1
 let g:ale_sign_error = '❌'
@@ -199,6 +195,13 @@ command! LImpl execute "silent normal \<Plug>(coc-implementation)"
 command! LRef  execute "silent normal \<Plug>(coc-references)"
 
 " Use K to show documentation in preview window
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Enable jsdoc

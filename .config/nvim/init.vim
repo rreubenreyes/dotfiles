@@ -25,9 +25,6 @@ Plug 'rbgrouleff/bclose.vim'
 " Because I'm too lazy to type "_di(F(p
 Plug 'vim-scripts/ReplaceWithRegister'
 
-" Copy things to system clipboard
-Plug 'christoomey/vim-system-copy'
-
 " taBs vS sPaCeS
 Plug 'editorconfig/editorconfig-vim'
 
@@ -219,6 +216,9 @@ syntax on
 
 " Don't break colors when using vim in tmux
 set t_ut=
+
+" Let find automatically wildcard match the current directory
+set path=**
 
 " Inherit terminal background colors
 hi Normal guibg=NONE ctermbg=NONE

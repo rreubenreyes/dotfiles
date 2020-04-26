@@ -1,5 +1,9 @@
 # dotfiles
 
+## This section is where I post reminders for myself in case I forget how to do something in Vim
+
+* Resizing splits: `:vert resize <+,-><count>; @:`
+
 ## The "what does Reuben Reyes use?" section for when I get famous
 - __Theme/Color Scheme__
   - __[Night Owl](https://github.com/sdras/night-owl-vscode-theme/tree/master/demo)__ was my primary theme for almost 3 years. Nowadays I use __[Gruvbox](https://github.com/morhetz/gruvbox)__. Both are meant to be easy on the eyes. I dislike highly saturated themes.

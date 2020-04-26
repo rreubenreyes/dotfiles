@@ -116,6 +116,10 @@ nnoremap <leader>gs <C-w>f
 " This is a spacemacs binding I am way too used to so I kept it
 nnoremap <leader>w <C-w>
 
+" Open splts to the right/bottom
+set splitbelow
+set splitright
+
 " Put linting information in the gutter
 let g:ale_sign_column_always=1
 let g:ale_sign_error = '❌'

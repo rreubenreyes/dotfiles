@@ -17,6 +17,8 @@
     * `:argdo <some command>`. Some examples:
         * Search and replace in all buffers in the argument list: `:argdo s/something/else/g`
         * Add something to the end of each buffer: `:argdo norm Gi<the text that you want to add>`
+    * The above also works with the quickfix list, just replace `:arg` with `:c`
+    * To add items to the quickfix list you usually want `:grep` or `:vim[grep]`
 
 ## The "what does Reuben Reyes use?" section for when I get famous
 - __Theme/Color Scheme__

@@ -114,6 +114,7 @@ SPACESHIP_PROMPT_ORDER=(
     dir
     git
     node
+    rust
     exec_time
     line_sep
     jobs

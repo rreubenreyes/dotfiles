@@ -1,9 +1,11 @@
 {
     "diagnostic.displayByAle": true,
-    "yank.highlight.enable": true,
-    "yank.highlight.duration": 125,
-    "tsserver.npm": "/usr/local/bin/npm",
-    "javascript.suggestionActions.enabled": false,
+    "eslint.autoFixOnSave": true,
     "eslint.enable": true,
-    "eslint.autoFixOnSave": true
+    "javascript.suggestionActions.enabled": false,
+    "tsserver.npm": "/usr/local/bin/npm",
+    "yank.highlight.duration": 125,
+    "yank.highlight.enable": true,
+
+    "tsserver.trace.server": "verbose"
 }

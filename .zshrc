@@ -208,3 +208,5 @@ alias redis='~/bin/redis-5.0.6/src/redis-cli -h hapi-infra-redis.zfibdt.ng.0001.
 alias nuke='inspired -af; rm -rf' # Every time we delete a file, run inspire in "ANGRY MODE"
 
 inspired -f
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

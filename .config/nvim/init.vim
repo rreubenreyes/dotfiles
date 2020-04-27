@@ -16,7 +16,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Mostly linting and language server support
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Use lf for more visual file navigation, also preview buffers
 Plug 'ptzz/lf.vim'
@@ -69,6 +69,9 @@ Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
 
 " Async linting engine
 Plug 'w0rp/ale'
+
+" Automatic tag generation
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
 
@@ -186,8 +189,11 @@ set signcolumn=yes
 
 " COC settings
 " Use `lp` and `ln` for navigate diagnostics
-nmap <silent> <leader>lp <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>ln <Plug>(coc-diagnostic-next)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap keys for gotos
 command! LDef  execute "silent normal \<Plug>(coc-definition)"
@@ -223,6 +229,9 @@ set t_ut=
 
 " Let find automatically wildcard match the current directory
 set path=**
+set wildignore+=**/node_modules/**
 
 " Inherit terminal background colors
 hi Normal guibg=NONE ctermbg=NONE
+
+set cmdheight=2

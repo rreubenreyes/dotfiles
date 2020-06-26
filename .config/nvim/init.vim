@@ -15,6 +15,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" Distraction-free/presentation mode
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+
 " Mostly linting and language server support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -66,6 +70,7 @@ Plug 'tpope/vim-fugitive'
 " All syntax highlighting stuff
 Plug 'sheerun/vim-polyglot'
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
+Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
 
 " Async linting engine
 Plug 'w0rp/ale'
@@ -235,3 +240,36 @@ set wildignore+=**/node_modules/**
 hi Normal guibg=NONE ctermbg=NONE
 
 set cmdheight=2
+
+" Limelight + Goyo presentation settings
+let g:goyo_linenr=1
+let g:goyo_width=120
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+" Default: 0.5
+let g:limelight_default_coefficient = 0.7
+
+" Number of preceding/following paragraphs to include (default: 0)
+let g:limelight_paragraph_span = 1
+
+" Beginning/end of paragraph
+"   When there's no empty line between the paragraphs
+"   and each paragraph starts with indentation
+let g:limelight_bop = '^\s'
+let g:limelight_eop = '\ze\n^\s'
+
+" Highlighting priority (default: 10)
+"   Set it to -1 not to overrule hlsearch
+let g:limelight_priority = -1
+
+command! Lim Limelight!!
+nmap <Leader>ll <Plug>(Limelight)
+xmap <Leader>ll <Plug>(Limelight)
+

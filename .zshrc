@@ -54,6 +54,10 @@ export PATH="/usr/local/opt/grep/libexec/gnubin:$HOME/bin:$HOME/Library/Python/3
 export ENV="$HOME/dev/env-vars"
 export NVM_DIR="$HOME/.nvm"
 
+# Temporary paths for presentation purposes, if you're reading this you can delete later
+export PORTAL="~/dev/customer-portal/webapp"
+export MYHAPI="~/dev/consumer-app-web"
+
 
 #                 888                                  888
 #                 888                                  888
@@ -73,6 +77,9 @@ export NVM_DIR="$HOME/.nvm"
 # nvm completion - Bash completion for nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && \
     source "/usr/local/opt/nvm/etc/bash_completion" # Get environment for nvm bash completion
+
+export JAVA_14_HOME=$(/usr/libexec/java_home -v14)
+export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
 
 # z.sh - Frecent file completion
 source $HOME/z.sh
@@ -178,6 +185,10 @@ source $ZSH/oh-my-zsh.sh
 # "Y888888 888 888 "Y888888 88888P' "Y8888  88888P'
 #
 # (You're not a programmer unless you set dumb aliases that only make sense to you)
+
+# Java versions
+alias java14='export JAVA_HOME=$JAVA_14_HOME'
+alias java11='export JAVA_HOME=$JAVA_11_HOME'
 
 # Aliases which shadow default bindings
 alias cat=bat

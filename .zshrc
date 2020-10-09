@@ -50,7 +50,7 @@ export TERM_ITALICS=true
 # (Any path variables that we need to set)
 
 # Path overrides for specific binaries
-export PATH="/usr/local/opt/grep/libexec/gnubin:$HOME/bin:$HOME/Library/Python/3.7/bin:/Users/reuben/dev/sonar-scanner-4.0.0.1744-macosx/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/opt/grep/libexec/gnubin:$HOME/bin:$HOME/Library/Python/3.7/bin:/Users/reuben/dev/sonar-scanner-4.0.0.1744-macosx/bin:$PATH"
 export ENV="$HOME/dev/env-vars"
 export NVM_DIR="$HOME/.nvm"
 
@@ -127,15 +127,11 @@ SPACESHIP_PROMPT_ORDER=(
     jobs
     exit_code
     char
-    aws
     package
     terraform
     vi_mode
 )
 
-
-# The output of history will now show timestamps instead of enumerated indices
-HIST_STAMPS="mm/dd/yyyy"
 
 # Plugins
 plugins=(
@@ -186,6 +182,9 @@ source $ZSH/oh-my-zsh.sh
 #
 # (You're not a programmer unless you set dumb aliases that only make sense to you)
 
+# Todos/Org wiki
+alias org='vi ~/life/work.org'
+
 # Java versions
 # alias java14='export JAVA_HOME=$JAVA_14_HOME'
 alias java11='export JAVA_HOME=$JAVA_11_HOME'
@@ -196,6 +195,8 @@ alias tmux='TERM=xterm-256color tmux'
 alias vi='nvim'
 alias vim='nvim'
 alias vimdiff='nvim -d'
+alias pip='pip3'
+alias python='python3'
 
 # Config files (cf*)
 alias cfn='nvim ~/.config/nvim/init.vim'
@@ -210,12 +211,10 @@ alias please='sudo $(fc -ln -1)'
 # Scripts
 alias getenv='source ~/bin/getenv'
 alias hereyougo='git add --all && git commit -m'
-alias redis-dev='~/bin/redis-5.0.6/src/redis-cli -h localhost -p 6379'
-alias redis-server='~/bin/redis-5.0.6/src/redis-server'
-alias redis-staging='~/bin/redis-5.0.6/src/redis-cli -h redis-staging.zfibdt.0001.usw2.cache.amazonaws.com -p 6379'
-alias redis='~/bin/redis-5.0.6/src/redis-cli -h hapi-infra-redis.zfibdt.ng.0001.usw2.cache.amazonaws.com -p 6379'
 
 # Show a nice inspirational quote every time we reload the shell or do something below
 alias nuke='rm -rf' # Every time we delete a file, run inspire in "ANGRY MODE"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(direnv hook zsh)"

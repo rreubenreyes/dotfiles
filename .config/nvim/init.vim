@@ -1,6 +1,9 @@
 " Plugin manager is vim-plugged
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Org mode
+Plug 'jceb/vim-orgmode'
+
 " Make default vim more usable
 Plug 'tpope/vim-sensible'
 
@@ -18,6 +21,9 @@ Plug 'junegunn/fzf.vim'
 " Distraction-free/presentation mode
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+
+" GraphQL
+Plug 'jparise/vim-graphql'
 
 " Mostly linting and language server support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -71,6 +77,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
 Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'hashivim/vim-terraform'
 
 " Async linting engine
 Plug 'w0rp/ale'
@@ -78,10 +87,14 @@ Plug 'w0rp/ale'
 " Automatic tag generation
 Plug 'ludovicchabant/vim-gutentags'
 
+" Direnv
+Plug 'direnv/direnv.vim'
+
 call plug#end()
 
 " Space is my leader key
 let mapleader=" "
+let maplocalleader="\\"
 
 " :Cf to open this file, :Cfr to reload this config in current env
 command! Cf edit $MYVIMRC " This used to be <leader>fed
@@ -269,7 +282,13 @@ let g:limelight_eop = '\ze\n^\s'
 "   Set it to -1 not to overrule hlsearch
 let g:limelight_priority = -1
 
+" Do not conceal markdown syntax
+let g:vim_markdown_conceal=0
+let g:vim_markdown_conceal_code_blocks=0
+
 command! Lim Limelight!!
 nmap <Leader>ll <Plug>(Limelight)
 xmap <Leader>ll <Plug>(Limelight)
+
+set nofoldenable
 

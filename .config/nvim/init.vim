@@ -33,7 +33,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'editorconfig/editorconfig-vim'
 
 " CSS color previews
-Plug 'gko/vim-coloresque', { 'for': ['css'] }
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Automatically spit out closing brackets/quotations/etc
 Plug 'jiangmiao/auto-pairs'
@@ -70,7 +70,6 @@ Plug 'tpope/vim-fugitive'
 " All syntax highlighting stuff
 Plug 'sheerun/vim-polyglot'
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
-Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
 
 " Async linting engine
 Plug 'w0rp/ale'
@@ -141,6 +140,7 @@ let g:airline#extensions#tabline#enabled=1
 " Use eslint for JS
 let g:ale_linters = {
             \   'javascript': ['eslint'],
+            \   'python': ['pylint'],
             \}
 
 let g:ale_fixers = {
@@ -273,3 +273,4 @@ command! Lim Limelight!!
 nmap <Leader>ll <Plug>(Limelight)
 xmap <Leader>ll <Plug>(Limelight)
 
+lua require'colorizer'.setup()

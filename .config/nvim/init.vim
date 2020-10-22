@@ -58,9 +58,6 @@ Plug 'tpope/vim-surround'
 " 'Paired' bindings for a lot of togglable things
 Plug 'tpope/vim-unimpaired'
 
-" Handy indentation lines
-Plug 'Yggdroot/indentLine'
-
 " 99.999999% of the time my workflow involves Git
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'

@@ -176,12 +176,6 @@ let g:airline_theme='embark'
 let g:airline_powerline_fonts=1
 set laststatus=2 " Always render the status line
 
-" Enable indent guides
-let g:indentLine_enabled=1
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=4
-let g:indent_guides_guide_size=1
-
 " Miscellaneous editing preferences
 set number                                       " Use line numbers
 set numberwidth=4                                " Use 4 characters for the line gutter
@@ -284,4 +278,5 @@ xmap <Leader>ll <Plug>(Limelight)
 
 lua require'colorizer'.setup()
 set nofoldenable
+set clipboard=unnamed
 

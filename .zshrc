@@ -182,9 +182,6 @@ source $ZSH/oh-my-zsh.sh
 #
 # (You're not a programmer unless you set dumb aliases that only make sense to you)
 
-# Todos/Org wiki
-alias org='vi ~/life/work.org'
-
 # Java versions
 # alias java14='export JAVA_HOME=$JAVA_14_HOME'
 alias java11='export JAVA_HOME=$JAVA_11_HOME'
@@ -206,10 +203,8 @@ alias cfz='nvim ~/.zshrc'
 # Convenience aliases
 alias finder='open -a "Finder"'
 alias gpo='git push origin'
-alias please='sudo $(fc -ln -1)'
 
 # Scripts
-alias getenv='source ~/bin/getenv'
 alias hereyougo='git add --all && git commit -m'
 
 # Show a nice inspirational quote every time we reload the shell or do something below

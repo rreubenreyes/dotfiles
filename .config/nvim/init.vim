@@ -1,14 +1,11 @@
 " Plugin manager is vim-plugged
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Org mode
-Plug 'jceb/vim-orgmode'
-
 " Make default vim more usable
 Plug 'tpope/vim-sensible'
 
 " Gruvbox
-Plug 'morhetz/gruvbox'
+Plug 'embark-theme/vim'
 
 " Fancy statusline, most 'show metadata in the statusline' plugins look nicer now
 Plug 'vim-airline/vim-airline'
@@ -17,10 +14,6 @@ Plug 'vim-airline/vim-airline-themes'
 " Use external fzf for file navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" Distraction-free/presentation mode
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 
 " GraphQL
 Plug 'jparise/vim-graphql'
@@ -45,7 +38,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'jiangmiao/auto-pairs'
 
 " I'm too lazy to type out the whole column command
-Plug 'junegunn/vim-easy-align'
+Plug 'godlygeek/tabular'
 
 " Expand DOM tags using convenient shorthand
 Plug 'mattn/emmet-vim'
@@ -77,7 +70,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
 Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'hashivim/vim-terraform'
 
@@ -178,10 +170,9 @@ if (has("termguicolors"))
     set termguicolors
 endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-let g:gruvbox_italic=1
-let g:gruvbox_contrast_dark='soft'
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
+let g:embark_terminal_italics=1
+colorscheme embark
+let g:airline_theme='embark'
 let g:airline_powerline_fonts=1
 set laststatus=2 " Always render the status line
 

@@ -292,3 +292,20 @@ xmap <Leader>ll <Plug>(Limelight)
 
 set nofoldenable
 
+func s:fnameescape(key, val)
+  return fnameescape(a:val)
+endfunc
+
+function! s:populate_arg_list(lines)
+  execute 'args ' . join(map(a:lines, function('s:fnameescape')), ' ')
+endfunction
+
+function! s:populate_arg_list_append(lines)
+  execute 'argadd ' . join(map(a:lines, function('s:fnameescape')), ' ')
+endfunction
+
+let g:fzf_action = {
+            \ 'ctrl-l': function('s:populate_arg_list'),
+            \ 'ctrl-k': function('s:populate_arg_list_append'),
+            \ 'ctrl-x': 'split',
+            \ 'ctrl-v': 'vsplit' }

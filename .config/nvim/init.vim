@@ -1,14 +1,11 @@
 " Plugin manager is vim-plugged
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Org mode
-Plug 'jceb/vim-orgmode'
-
 " Make default vim more usable
 Plug 'tpope/vim-sensible'
 
 " Gruvbox
-Plug 'morhetz/gruvbox'
+Plug 'embark-theme/vim'
 
 " Fancy statusline, most 'show metadata in the statusline' plugins look nicer now
 Plug 'vim-airline/vim-airline'
@@ -17,10 +14,6 @@ Plug 'vim-airline/vim-airline-themes'
 " Use external fzf for file navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" Distraction-free/presentation mode
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 
 " GraphQL
 Plug 'jparise/vim-graphql'
@@ -39,13 +32,13 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'editorconfig/editorconfig-vim'
 
 " CSS color previews
-Plug 'gko/vim-coloresque', { 'for': ['css'] }
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Automatically spit out closing brackets/quotations/etc
 Plug 'jiangmiao/auto-pairs'
 
 " I'm too lazy to type out the whole column command
-Plug 'junegunn/vim-easy-align'
+Plug 'godlygeek/tabular'
 
 " Expand DOM tags using convenient shorthand
 Plug 'mattn/emmet-vim'
@@ -65,9 +58,6 @@ Plug 'tpope/vim-surround'
 " 'Paired' bindings for a lot of togglable things
 Plug 'tpope/vim-unimpaired'
 
-" Handy indentation lines
-Plug 'Yggdroot/indentLine'
-
 " 99.999999% of the time my workflow involves Git
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
@@ -77,7 +67,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
 Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'hashivim/vim-terraform'
 
@@ -143,8 +132,8 @@ set splitright
 
 " Put linting information in the gutter
 let g:ale_sign_column_always=1
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '🔪'
+let g:ale_sign_error = '>'
+let g:ale_sign_warning = '?'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
@@ -154,6 +143,7 @@ let g:airline#extensions#tabline#enabled=1
 " Use eslint for JS
 let g:ale_linters = {
             \   'javascript': ['eslint'],
+            \   'python': ['pylint'],
             \}
 
 let g:ale_fixers = {
@@ -177,18 +167,11 @@ if (has("termguicolors"))
     set termguicolors
 endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-let g:gruvbox_italic=1
-let g:gruvbox_contrast_dark='soft'
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
+let g:embark_terminal_italics=1
+colorscheme embark
+let g:airline_theme='embark'
 let g:airline_powerline_fonts=1
 set laststatus=2 " Always render the status line
-
-" Enable indent guides
-let g:indentLine_enabled=1
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=4
-let g:indent_guides_guide_size=1
 
 " Miscellaneous editing preferences
 set number                                       " Use line numbers
@@ -209,9 +192,6 @@ set signcolumn=yes
 " Use `lp` and `ln` for navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap keys for gotos
 command! LDef  execute "silent normal \<Plug>(coc-definition)"
@@ -254,34 +234,6 @@ hi Normal guibg=NONE ctermbg=NONE
 
 set cmdheight=2
 
-" Limelight + Goyo presentation settings
-let g:goyo_linenr=1
-let g:goyo_width=120
-
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-
-" Color name (:help gui-colors) or RGB color
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
-
-" Default: 0.5
-let g:limelight_default_coefficient = 0.7
-
-" Number of preceding/following paragraphs to include (default: 0)
-let g:limelight_paragraph_span = 1
-
-" Beginning/end of paragraph
-"   When there's no empty line between the paragraphs
-"   and each paragraph starts with indentation
-let g:limelight_bop = '^\s'
-let g:limelight_eop = '\ze\n^\s'
-
-" Highlighting priority (default: 10)
-"   Set it to -1 not to overrule hlsearch
-let g:limelight_priority = -1
-
 " Do not conceal markdown syntax
 let g:vim_markdown_conceal=0
 let g:vim_markdown_conceal_code_blocks=0
@@ -290,7 +242,9 @@ command! Lim Limelight!!
 nmap <Leader>ll <Plug>(Limelight)
 xmap <Leader>ll <Plug>(Limelight)
 
+lua require'colorizer'.setup()
 set nofoldenable
+set clipboard=unnamed
 
 func s:fnameescape(key, val)
   return fnameescape(a:val)

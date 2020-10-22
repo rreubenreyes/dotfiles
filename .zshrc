@@ -78,14 +78,14 @@ export MYHAPI="~/dev/consumer-app-web"
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && \
     source "/usr/local/opt/nvm/etc/bash_completion" # Get environment for nvm bash completion
 
-export JAVA_14_HOME=$(/usr/libexec/java_home -v14)
+# export JAVA_14_HOME=$(/usr/libexec/java_home -v14)
 export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
 
 # z.sh - Frecent file completion
 source $HOME/z.sh
 
 # AWS
-export AWS_DEFAULT_REGION="us-west-2"               # Default region
+export AWS_DEFAULT_REGION="us-west-1"               # Default region
 
 # bat - cat but better
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"   # Let manpages pipe into bat
@@ -182,11 +182,8 @@ source $ZSH/oh-my-zsh.sh
 #
 # (You're not a programmer unless you set dumb aliases that only make sense to you)
 
-# Todos/Org wiki
-alias org='vi ~/life/work.org'
-
 # Java versions
-alias java14='export JAVA_HOME=$JAVA_14_HOME'
+# alias java14='export JAVA_HOME=$JAVA_14_HOME'
 alias java11='export JAVA_HOME=$JAVA_11_HOME'
 
 # Aliases which shadow default bindings
@@ -206,16 +203,12 @@ alias cfz='nvim ~/.zshrc'
 # Convenience aliases
 alias finder='open -a "Finder"'
 alias gpo='git push origin'
-alias please='sudo $(fc -ln -1)'
 
 # Scripts
-alias getenv='source ~/bin/getenv'
 alias hereyougo='git add --all && git commit -m'
 
 # Show a nice inspirational quote every time we reload the shell or do something below
-alias nuke='inspired -af; rm -rf' # Every time we delete a file, run inspire in "ANGRY MODE"
-
-inspired -f
+alias nuke='rm -rf' # Every time we delete a file, run inspire in "ANGRY MODE"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

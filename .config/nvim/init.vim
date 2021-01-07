@@ -161,8 +161,6 @@ let g:ale_fix_on_save=1
 " If a file isn't a Git project, make $PWD=current
 let g:rooter_change_directory_for_non_project_files='current'
 
-" Enable Gruvbox and use a non-eye gore color palette. The rest is just
-" making everything look pretty
 if (has("termguicolors"))
     set termguicolors
 endif
@@ -263,3 +261,6 @@ let g:fzf_action = {
             \ 'ctrl-k': function('s:populate_arg_list_append'),
             \ 'ctrl-x': 'split',
             \ 'ctrl-v': 'vsplit' }
+
+" Jira for Markdown because lazy
+command! Jira norm diWi[<ESC>pa](https://humanapi.atlassian.net/browse/<ESC>pa)<ESC>F[i<Space><ESC>f)

@@ -85,7 +85,7 @@ export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
 source $HOME/z.sh
 
 # AWS
-export AWS_DEFAULT_REGION="us-west-1"               # Default region
+export AWS_DEFAULT_REGION="us-west-2"               # Default region
 
 # bat - cat but better
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"   # Let manpages pipe into bat
@@ -213,3 +213,10 @@ alias nuke='rm -rf' # Every time we delete a file, run inspire in "ANGRY MODE"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(direnv hook zsh)"
+
+# Functions
+function trim() {
+    local var="$*"
+
+    sed 's/^[[:space:]]*//' $var | sed 's/[[:space:]]*$//'
+}

@@ -1,22 +1,30 @@
+function! g:BuffetSetCustomColors()
+  hi! BuffetCurrentBuffer cterm=NONE ctermbg=5 ctermfg=0 guibg=#AAFFE4 guifg=#000000
+  hi! BuffetBuffer cterm=NONE ctermbg=0 ctermfg=15 guibg=#100E23 guifg=#cbe3e7
+  hi! BuffetActiveBuffer cterm=NONE ctermbg=5 ctermfg=0 guibg=#d4bfff guifg=#000000
+  hi! BuffetTab cterm=NONE ctermbg=0 ctermfg=15 guibg=#3E3859 guifg=#cbe3e7
+endfunction
+
 " Plugin manager is vim-plugged
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Make default vim more usable
 Plug 'tpope/vim-sensible'
 
-" Gruvbox
+" Theme
 Plug 'embark-theme/vim'
 
 " Fancy statusline, most 'show metadata in the statusline' plugins look nicer now
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'bagrat/vim-buffet'
+Plug 'itchyny/lightline.vim'
 
 " Use external fzf for file navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" GraphQL
-Plug 'jparise/vim-graphql'
+" IDE madness I guess
+Plug 'pechorin/any-jump.vim'
 
 " Mostly linting and language server support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -32,7 +40,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'editorconfig/editorconfig-vim'
 
 " CSS color previews
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'norcalli/nvim-colorizer.lua', { 'for': ['css', 'scss'] }
 
 " Automatically spit out closing brackets/quotations/etc
 Plug 'jiangmiao/auto-pairs'
@@ -66,9 +74,8 @@ Plug 'tpope/vim-fugitive'
 " All syntax highlighting stuff
 Plug 'sheerun/vim-polyglot'
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
-Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
-Plug 'plasticboy/vim-markdown'
-Plug 'hashivim/vim-terraform'
+Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'md'] }
+Plug 'hashivim/vim-terraform', { 'for': ['terraform'] }
 
 " Async linting engine
 Plug 'w0rp/ale'
@@ -78,6 +85,7 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " Direnv
 Plug 'direnv/direnv.vim'
+Plug 'moll/vim-bbye'
 
 call plug#end()
 
@@ -92,15 +100,23 @@ command! Cfr source $MYVIMRC " This used to be <leader>qR
 " If you open a directory you'll get lf and not netrw
 let g:lf_replace_netrw=1
 
+" AnyJump
+nnoremap <leader>j :AnyJump<CR>
+
+" Visual mode: jump to selected text in visual mode
+xnoremap <leader>j :AnyJumpVisual<CR>
+
+" Normal mode: open previous opened file (after jump)
+nnoremap <leader>ab :AnyJumpBack<CR>
+
+" Normal mode: open last closed search window again
+nnoremap <leader>al :AnyJumpLastResults<CR>
+
 " Use tab to navigate through autocomplete susggestions
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " I'm not leet hacker enough so I still use the mouse
 set mouse=a
-
-" 'Go align'
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
 
 " 'Next, previous [buffer]'
 nnoremap <C-n> :bn<CR>
@@ -137,9 +153,6 @@ let g:ale_sign_warning = '?'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
-" Put linting information in the statusline
-let g:airline#extensions#tabline#enabled=1
-
 " Use eslint for JS
 let g:ale_linters = {
             \   'javascript': ['eslint'],
@@ -161,16 +174,12 @@ let g:ale_fix_on_save=1
 " If a file isn't a Git project, make $PWD=current
 let g:rooter_change_directory_for_non_project_files='current'
 
-" Enable Gruvbox and use a non-eye gore color palette. The rest is just
-" making everything look pretty
 if (has("termguicolors"))
     set termguicolors
 endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:embark_terminal_italics=1
 colorscheme embark
-let g:airline_theme='embark'
-let g:airline_powerline_fonts=1
 set laststatus=2 " Always render the status line
 
 " Miscellaneous editing preferences
@@ -209,9 +218,6 @@ function! s:show_documentation()
 endfunction
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" Enable jsdoc
-let g:javascript_plugin_jsdoc=1
-
 " More defaults
 filetype plugin on
 set hidden     " Do not close buffers when they're not displayed
@@ -242,3 +248,45 @@ lua require'colorizer'.setup()
 set nofoldenable
 set clipboard=unnamed
 
+func s:fnameescape(key, val)
+  return fnameescape(a:val)
+endfunc
+
+function! s:populate_arg_list(lines)
+  execute 'args ' . join(map(a:lines, function('s:fnameescape')), ' ')
+endfunction
+
+function! s:populate_arg_list_append(lines)
+  execute 'argadd ' . join(map(a:lines, function('s:fnameescape')), ' ')
+endfunction
+
+let g:fzf_action = {
+            \ 'ctrl-l': function('s:populate_arg_list'),
+            \ 'ctrl-k': function('s:populate_arg_list_append'),
+            \ 'ctrl-x': 'split',
+            \ 'ctrl-v': 'vsplit' }
+
+let g:lightline = {
+      \ 'colorscheme': 'embark',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'enable': {
+      \     'tabline': 0
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+nmap <leader>1 <Plug>BuffetSwitch(1)
+nmap <leader>2 <Plug>BuffetSwitch(2)
+nmap <leader>3 <Plug>BuffetSwitch(3)
+nmap <leader>4 <Plug>BuffetSwitch(4)
+nmap <leader>5 <Plug>BuffetSwitch(5)
+nmap <leader>6 <Plug>BuffetSwitch(6)
+nmap <leader>7 <Plug>BuffetSwitch(7)
+nmap <leader>8 <Plug>BuffetSwitch(8)
+nmap <leader>9 <Plug>BuffetSwitch(9)
+nmap <leader>0 <Plug>BuffetSwitch(10)

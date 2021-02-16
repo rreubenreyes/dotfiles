@@ -50,7 +50,7 @@ export TERM_ITALICS=true
 # (Any path variables that we need to set)
 
 # Path overrides for specific binaries
-export PATH="/usr/local/bin:/usr/local/opt/grep/libexec/gnubin:$HOME/bin:$HOME/Library/Python/3.7/bin:/Users/reuben/dev/sonar-scanner-4.0.0.1744-macosx/bin:$PATH"
+export PATH="/usr/local/opt/python@3.8/bin:/usr/local/bin:/usr/local/opt/grep/libexec/gnubin:$HOME/bin:$HOME/Library/Python/3.7/bin:/Users/reuben/dev/sonar-scanner-4.0.0.1744-macosx/bin:$PATH"
 export ENV="$HOME/dev/env-vars"
 export NVM_DIR="$HOME/.nvm"
 

@@ -238,10 +238,6 @@ set cmdheight=2
 let g:vim_markdown_conceal=0
 let g:vim_markdown_conceal_code_blocks=0
 
-command! Lim Limelight!!
-nmap <Leader>ll <Plug>(Limelight)
-xmap <Leader>ll <Plug>(Limelight)
-
 lua require'colorizer'.setup()
 set nofoldenable
 set clipboard=unnamed

@@ -1,8 +1,8 @@
 function! g:BuffetSetCustomColors()
-  hi! BuffetCurrentBuffer cterm=NONE ctermbg=5 ctermfg=0 guibg=#7BDAE6 guifg=#000000
-  hi! BuffetBuffer cterm=NONE ctermbg=0 ctermfg=15 guibg=#100E23 guifg=#8A889D
+  hi! BuffetCurrentBuffer cterm=NONE ctermbg=5 ctermfg=0 guibg=#AAFFE4 guifg=#000000
+  hi! BuffetBuffer cterm=NONE ctermbg=0 ctermfg=15 guibg=#100E23 guifg=#cbe3e7
   hi! BuffetActiveBuffer cterm=NONE ctermbg=5 ctermfg=0 guibg=#d4bfff guifg=#000000
-  hi! BuffetTab cterm=NONE ctermbg=0 ctermfg=15 guibg=#3E3859 guifg=#8A889D
+  hi! BuffetTab cterm=NONE ctermbg=0 ctermfg=15 guibg=#3E3859 guifg=#cbe3e7
 endfunction
 
 " Plugin manager is vim-plugged
@@ -17,6 +17,7 @@ Plug 'embark-theme/vim'
 
 " Fancy statusline, most 'show metadata in the statusline' plugins look nicer now
 Plug 'bagrat/vim-buffet'
+Plug 'itchyny/lightline.vim'
 
 " Use external fzf for file navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -73,7 +74,7 @@ Plug 'tpope/vim-fugitive'
 " All syntax highlighting stuff
 Plug 'sheerun/vim-polyglot'
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
-Plug 'plasticboy/vim-markdown', { 'for': ['markdown'] }
+Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'md'] }
 Plug 'hashivim/vim-terraform', { 'for': ['terraform'] }
 
 " Async linting engine
@@ -259,6 +260,20 @@ let g:fzf_action = {
             \ 'ctrl-k': function('s:populate_arg_list_append'),
             \ 'ctrl-x': 'split',
             \ 'ctrl-v': 'vsplit' }
+
+let g:lightline = {
+      \ 'colorscheme': 'embark',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'enable': {
+      \     'tabline': 0
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 nmap <leader>1 <Plug>BuffetSwitch(1)
 nmap <leader>2 <Plug>BuffetSwitch(2)

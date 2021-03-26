@@ -32,6 +32,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Use lf for more visual file navigation, also preview buffers
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'voldikss/vim-floaterm'
 
 " Because I'm too lazy to type "_di(F(p
 Plug 'vim-scripts/ReplaceWithRegister'
@@ -76,6 +77,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'md'] }
 Plug 'hashivim/vim-terraform', { 'for': ['terraform'] }
+Plug 'google/vim-jsonnet'
 
 " Async linting engine
 Plug 'w0rp/ale'
@@ -232,7 +234,6 @@ syntax on
 set t_ut=
 
 " Let find automatically wildcard match the current directory
-set path=**
 set wildignore+=**/node_modules/**
 
 " Inherit terminal background colors
@@ -275,6 +276,7 @@ let g:lightline = {
       \ },
       \ }
 
+" vim-buffet
 nmap <leader>1 <Plug>BuffetSwitch(1)
 nmap <leader>2 <Plug>BuffetSwitch(2)
 nmap <leader>3 <Plug>BuffetSwitch(3)
@@ -285,3 +287,13 @@ nmap <leader>7 <Plug>BuffetSwitch(7)
 nmap <leader>8 <Plug>BuffetSwitch(8)
 nmap <leader>9 <Plug>BuffetSwitch(9)
 nmap <leader>0 <Plug>BuffetSwitch(10)
+
+" Floaterm
+nnoremap  <silent>  <F7>   :FloatermNew<CR>
+tnoremap  <silent>  <F7>   <C-\><C-n>:FloatermNew<CR>
+nnoremap  <silent>  <F8>   :FloatermPrev<CR>
+tnoremap  <silent>  <F8>   <C-\><C-n>:FloatermPrev<CR>
+nnoremap  <silent>  <F9>   :FloatermNext<CR>
+tnoremap  <silent>  <F9>   <C-\><C-n>:FloatermNext<CR>
+nnoremap  <silent>  <F12>  :FloatermToggle<CR>
+tnoremap  <silent>  <F12>  <C-\><C-n>:FloatermToggle<CR>

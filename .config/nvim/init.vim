@@ -6,7 +6,6 @@ function! g:BuffetSetCustomColors()
 endfunction
 
 " Plugin manager is vim-plugged
-
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Make default vim more usable
@@ -20,8 +19,8 @@ Plug 'bagrat/vim-buffet'
 Plug 'itchyny/lightline.vim'
 
 " Use external fzf for file navigation
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " IDE madness I guess
 Plug 'pechorin/any-jump.vim'
@@ -31,6 +30,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Use lf for more visual file navigation, also preview buffers
 Plug 'ptzz/lf.vim'
+Plug 'voldikss/vim-floaterm'
 Plug 'rbgrouleff/bclose.vim'
 
 " Because I'm too lazy to type "_di(F(p
@@ -76,6 +76,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'md'] }
 Plug 'hashivim/vim-terraform', { 'for': ['terraform'] }
+Plug 'google/vim-jsonnet'
 
 " Async linting engine
 Plug 'w0rp/ale'
@@ -99,6 +100,7 @@ command! Cfr source $MYVIMRC " This used to be <leader>qR
 
 " If you open a directory you'll get lf and not netrw
 let g:lf_replace_netrw=1
+let g:lf_map_keys=0
 
 " AnyJump
 nnoremap <leader>j :AnyJump<CR>
@@ -240,11 +242,6 @@ hi Normal guibg=NONE ctermbg=NONE
 
 set cmdheight=2
 
-" Do not conceal markdown syntax
-let g:vim_markdown_conceal=0
-let g:vim_markdown_conceal_code_blocks=0
-
-lua require'colorizer'.setup()
 set nofoldenable
 set clipboard=unnamed
 
@@ -290,3 +287,20 @@ nmap <leader>7 <Plug>BuffetSwitch(7)
 nmap <leader>8 <Plug>BuffetSwitch(8)
 nmap <leader>9 <Plug>BuffetSwitch(9)
 nmap <leader>0 <Plug>BuffetSwitch(10)
+
+nnoremap   <silent>   <F7>    :FloatermNew<CR>
+tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <F8>    :FloatermPrev<CR>
+tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <F9>    :FloatermNext<CR>
+tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+
+augroup jsonnet_ft
+  au!
+  autocmd BufNewFile,BufRead *.jsonnet.TEMPLATE   set syntax=jsonnet
+augroup END
+
+command! JsonnetFmt 1,$:!jsonnetfmt %
+let g:floaterm_shell='fish'

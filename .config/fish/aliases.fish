@@ -2,7 +2,7 @@ alias java11='export JAVA_HOME=$JAVA_11_HOME'
 
 # Aliases which shadow default bindings
 alias cat=bat
-alias tmux='TERM=xterm-256color tmux'
+# alias tmux='TERM=xterm-256color tmux'
 alias vi='nvim'
 alias vim='nvim'
 alias vimdiff='nvim -d'

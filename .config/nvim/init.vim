@@ -6,7 +6,6 @@ function! g:BuffetSetCustomColors()
 endfunction
 
 " Plugin manager is vim-plugged
-
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Make default vim more usable
@@ -20,8 +19,8 @@ Plug 'bagrat/vim-buffet'
 Plug 'itchyny/lightline.vim'
 
 " Use external fzf for file navigation
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " IDE madness I guess
 Plug 'pechorin/any-jump.vim'
@@ -31,6 +30,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Use lf for more visual file navigation, also preview buffers
 Plug 'ptzz/lf.vim'
+Plug 'voldikss/vim-floaterm'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'voldikss/vim-floaterm'
 
@@ -101,6 +101,7 @@ command! Cfr source $MYVIMRC " This used to be <leader>qR
 
 " If you open a directory you'll get lf and not netrw
 let g:lf_replace_netrw=1
+let g:lf_map_keys=0
 
 " AnyJump
 nnoremap <leader>j :AnyJump<CR>
@@ -297,3 +298,11 @@ nnoremap  <silent>  <F9>   :FloatermNext<CR>
 tnoremap  <silent>  <F9>   <C-\><C-n>:FloatermNext<CR>
 nnoremap  <silent>  <F12>  :FloatermToggle<CR>
 tnoremap  <silent>  <F12>  <C-\><C-n>:FloatermToggle<CR>
+
+augroup jsonnet_ft
+  au!
+  autocmd BufNewFile,BufRead *.jsonnet.TEMPLATE   set syntax=jsonnet
+augroup END
+
+command! JsonnetFmt 1,$:!jsonnetfmt %
+let g:floaterm_shell='fish'

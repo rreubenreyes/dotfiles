@@ -59,13 +59,22 @@ main() {
     fish ~/install.fish
   fi
 
-  # 4) node stuff
+  # 5) node stuff
   if [[ " ${STEPS[*]} " == *"5"* ]] || [[ ${#STEPS[@]} -eq 0 ]]; then
-    echo "[STEP 4] installing global node packages"
+    echo "[STEP 5] installing global node packages"
     show_rerun_help 5
 
     npm i -g bunyan
     npm i -g typescript
+  fi
+
+  # 6) aws-cli
+  if [[ " ${STEPS[*]} " == *"6"* ]] || [[ ${#STEPS[@]} -eq 0 ]]; then
+    echo "[STEP 6] installing aws-cli"
+    show_rerun_help 6
+
+    curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+    installer -pkg AWSCLIV2.pkg -target /
   fi
 
   echo "done"

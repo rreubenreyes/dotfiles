@@ -45,6 +45,7 @@ brew 'python@3.x'
 brew 'go'
 brew 'gcc'
 brew 'terraform'
+brew 'jsonnet'
 
 # uncomment if working on spark stuff
 # brew 'openjdk@14'

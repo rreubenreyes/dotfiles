@@ -39,7 +39,7 @@ main() {
     echo "[STEP 2] installing homebrew packages"
     show_rerun_help 2
 
-    brew bundle
+    brew bundle --file ~/Brewfile
   fi
 
   # 3) vim-plug

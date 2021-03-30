@@ -22,4 +22,4 @@ alias gpo='git push origin'
 alias hereyougo='git add --all; git commit -m'
 
 # pls
-alias nuke='rm -rf' # Every time we delete a file, run inspire in "ANGRY MODE"
+alias nuke='rm -rf'

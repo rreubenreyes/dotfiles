@@ -32,7 +32,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'voldikss/vim-floaterm'
 
 " Because I'm too lazy to type "_di(F(p
 Plug 'vim-scripts/ReplaceWithRegister'
@@ -210,6 +209,9 @@ command! LDef  execute "silent normal \<Plug>(coc-definition)"
 command! LTdef execute "silent normal \<Plug>(coc-type-definition)"
 command! LImpl execute "silent normal \<Plug>(coc-implementation)"
 command! LRef  execute "silent normal \<Plug>(coc-references)"
+
+" CocAction shortcut
+command! CA CocAction
 
 " Use K to show documentation in preview window
 function! s:show_documentation()

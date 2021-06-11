@@ -6,7 +6,6 @@ end
 if ! set -q lucid_prompt_symbol
     set -g lucid_prompt_symbol "❯"
 end
-
 # This should be set to be at least as long as lucid_dirty_indicator, due to a fish bug
 if ! set -q lucid_clean_indicator
     set -g lucid_clean_indicator (string replace -r -a '.' ' ' $lucid_dirty_indicator)
@@ -168,18 +167,18 @@ end
 
 function __lucid_vi_indicator
     if [ $fish_key_bindings = "fish_vi_key_bindings" ]
+        set_color $fish_color_comment
         switch $fish_bind_mode
             case "insert"
-                set_color green
                 echo -n "[I] "
             case "default"
-                set_color red
+                set_color $fish_color_comment
                 echo -n "[N] "
             case "visual"
-                set_color yellow
+                set_color $fish_color_comment
                 echo -n "[S] "
             case "replace"
-                set_color blue
+                set_color $fish_color_comment
                 echo -n "[R] "
         end
         set_color normal
@@ -194,7 +193,7 @@ end
 function __lucid_jobs_indicator
     set -g lucid_jobs_count (jobs | wc -l | xargs echo -n)
     if [ $lucid_jobs_count != "0" ]
-        set_color blue
+        set_color $__embark_primary_cyan
         echo -n "+$lucid_jobs_count "
     end
     set_color normal
@@ -220,5 +219,7 @@ function fish_prompt
 
     echo ''
     __lucid_vi_indicator
+    set_color $__embark_bright_magenta
     echo -n "$lucid_prompt_symbol "
+    set_color normal
 end

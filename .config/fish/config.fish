@@ -23,3 +23,10 @@ set -gx GO111MODULE on;
 
 # Load aliases
 source ~/.config/fish/aliases.fish
+
+# Color scheme (Embark)
+fish_embark_colors
+
+# Lucid prompt stuff
+set -gx lucid_cwd_color $__embark_bright_cyan
+set -gx lucid_git_color $__embark_bright_magenta

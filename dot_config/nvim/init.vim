@@ -30,6 +30,9 @@ Plug 'folke/trouble.nvim'
 Plug 'ray-x/go.nvim'
 Plug 'ray-x/guihua.lua'
 
+" Docs
+Plug 'kkoomen/vim-doge', { 'do': 'npm i --no-save && npm run build:binary:unix' }
+
 " Completion
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -91,6 +94,7 @@ Plug 'tpope/vim-fugitive'
 " All syntax highlighting stuff
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/nvim-tree-docs'
 Plug 'hashivim/vim-terraform', { 'for': ['terraform'] }
 Plug 'google/vim-jsonnet'
 Plug 'chrisbra/csv.vim', { 'for': ['csv'] }

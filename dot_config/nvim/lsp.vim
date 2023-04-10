@@ -128,6 +128,7 @@ require('lspconfig')['gopls'].setup{
   on_attach = on_attach('gopls'),
   cmd = { os.getenv('GOPATH')..'/bin/gopls' },
   flags = lsp_flags,
+  filetypes = { "go" },
   settings = {
     gopls = {
       analyses = {

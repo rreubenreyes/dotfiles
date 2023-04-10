@@ -30,6 +30,7 @@ set tabstop=2
 set wildignore+=**/node_modules/**
 
 " Appearance
+set bg=dark
 if (has("termguicolors"))
     set termguicolors
 endif

@@ -17,6 +17,7 @@ set -gx PATH $GOPATH/bin $PATH;
 set -gx PATH $HOME/Library/Python/3.7/bin $PATH;
 set -gx PATH /opt/homebrew/bin $PATH;
 set -gx PATH /opt/homebrew/opt/python@3.10/libexec/bin $PATH;
+set -gx PATH $HOME/.cargo/bin $PATH;
 
 # Other path stuff
 set -gx NVM_DIR $HOME/.nvm

@@ -1,6 +1,4 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
-opacity=0.95
-for_window [app_id="Alacritty"] opacity $opacity
 keybinds {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
@@ -207,7 +205,7 @@ default_shell "fish"
 //   - true (default)
 //   - false
 //
-// pane_frames true
+pane_frames false
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
@@ -244,7 +242,7 @@ theme "tokyo-night"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-default_layout "compact"
+//default_layout "compact"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -258,7 +256,7 @@ default_layout "compact"
 //   - true (default)
 //   - false
 //
-// mouse_mode false
+// mouse_mode true
 
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back

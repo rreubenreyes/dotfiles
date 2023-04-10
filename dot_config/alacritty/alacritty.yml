@@ -29,6 +29,7 @@ window:
   #  x: 0
   #  y: 0
   opacity: 0.925
+  option_as_alt: both
 
   # Window padding (changes require restart)
   #

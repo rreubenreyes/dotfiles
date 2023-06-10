@@ -1,3 +1,8 @@
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'ray-x/go.nvim'
+Plug 'ray-x/guihua.lua'
+call plug#end()
+
 lua <<EOF
 require('go').setup()
 

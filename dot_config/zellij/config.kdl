@@ -2,7 +2,7 @@
 keybinds {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
-        bind "Alt c" { Copy; }
+        // bind "Alt c" { Copy; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
@@ -77,7 +77,7 @@ keybinds {
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
         // uncomment this and adjust key if using copy_on_select=false
-        bind "Alt c" { Copy; }
+        // bind "Alt c" { Copy; }
     }
     search {
         bind "Ctrl s" { SwitchToMode "Normal"; }
@@ -205,7 +205,7 @@ default_shell "fish"
 //   - true (default)
 //   - false
 //
-pane_frames false
+pane_frames true
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
@@ -256,7 +256,7 @@ theme "tokyo-night"
 //   - true (default)
 //   - false
 //
-// mouse_mode true
+mouse_mode true
 
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back
@@ -288,12 +288,12 @@ theme "tokyo-night"
 // Enable or disable automatic copy (and clear) of selection when releasing mouse
 // Default: true
 //
-copy_on_select false
+// copy_on_select true
 
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
 //
-scrollback_editor "/opt/homebrew/bin/nvim"
+scrollback_editor "/usr/bin/vim"
 
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)

@@ -23,7 +23,7 @@ aws_cli:
 
 npm_globals: homebrew
 	npm i -g \
-		bunyan \
+		pino-pretty \
 		typescript \
 		typescript-language-server \
 		diagnostic-languageserver \

@@ -48,6 +48,7 @@ brew 'golang'
 brew 'jsonnet'
 brew 'node'
 brew 'nvm'
+brew 'pyenv'
 brew 'terraform'
 brew 'zig'
 

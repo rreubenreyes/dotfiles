@@ -47,3 +47,9 @@ set -gx LDFLAGS "-L/usr/local/opt/python@3.7/lib"
 
 # direnv
 direnv hook fish | source
+
+# pyenv
+# run the following once
+# set -Ux PYENV_ROOT $HOME/.pyenv
+# fish_add_path $PYENV_ROOT/bin
+pyenv init - | source

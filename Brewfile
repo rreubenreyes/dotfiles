@@ -50,6 +50,7 @@ brew 'node'
 brew 'nvm'
 brew 'pyenv'
 brew 'terraform'
+brew 'tfenv'
 brew 'zig'
 
 # core cloud stuff

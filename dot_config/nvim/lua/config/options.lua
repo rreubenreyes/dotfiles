@@ -7,6 +7,6 @@ vim.opt.fixendofline = false
 vim.opt.foldenable = false
 vim.opt.swapfile = false
 
--- theme
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_transpaarent = true
+-- commands
+vim.cmd("command! Top Trouble")
+vim.cmd("command! Tcl TroubleClose")

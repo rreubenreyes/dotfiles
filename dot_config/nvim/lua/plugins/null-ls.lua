@@ -6,23 +6,39 @@ return {
     dependencies = { "mason.nvim", "typescript.nvim" },
     opts = function()
       local nls = require("null-ls")
+
       return {
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
         sources = {
-          nls.builtins.formatting.fish_indent,
+          -- lazyvim defaults
           nls.builtins.diagnostics.fish,
+          nls.builtins.formatting.fish_indent,
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.shfmt,
-          nls.builtins.formatting.eslint_d.with({
+
+          -- prettier
+          nls.builtins.formatting.prettierd,
+
+          -- eslint
+          nls.builtins.diagnostics.eslint_d.with({
             prefer_local = "node_modules/.bin",
           }),
-          nls.builtins.diagnostics.eslint_d.with({
+          nls.builtins.formatting.eslint_d.with({
             prefer_local = "node_modules/.bin",
           }),
           nls.builtins.code_actions.eslint_d.with({
             prefer_local = "node_modules/.bin",
           }),
-          nls.builtins.formatting.prettierd,
+
+          -- go
+          nls.builtins.code_actions.gomodifytags,
+          nls.builtins.code_actions.impl,
+          nls.builtins.formatting.gofumpt,
+          nls.builtins.formatting.goimports_reviser,
+
+          -- yamllint
+          nls.builtins.diagnostics.yamllint,
+
           require("typescript.extensions.null-ls.code-actions"),
         },
       }

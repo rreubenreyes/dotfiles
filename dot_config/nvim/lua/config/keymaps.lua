@@ -9,3 +9,7 @@ vim.keymap.set("n", "<C-n>", ":bn<CR>")
 -- jk is esc
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("c", "jk", "<C-c")
+
+-- commands
+vim.cmd("command! Top Trouble")
+vim.cmd("command! Tcl TroubleClose")

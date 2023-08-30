@@ -6,7 +6,3 @@ vim.opt.cmdheight = 2
 vim.opt.fixendofline = false
 vim.opt.foldenable = false
 vim.opt.swapfile = false
-
--- commands
-vim.cmd("command! Top Trouble")
-vim.cmd("command! Tcl TroubleClose")

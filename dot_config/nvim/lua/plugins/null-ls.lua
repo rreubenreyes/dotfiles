@@ -37,7 +37,17 @@ return {
           nls.builtins.formatting.goimports_reviser,
 
           -- yamllint
-          nls.builtins.diagnostics.yamllint,
+          -- nls.builtins.diagnostics.yamllint,
+
+          -- sql
+          nls.builtins.diagnostics.sqlfluff.with({
+            extra_args = { "--dialect", "sparksql" },
+          }),
+          nls.builtins.formatting.sqlfmt,
+
+          -- terraform
+          nls.builtins.formatting.terraform_fmt,
+          nls.builtins.diagnostics.terraform_validate,
 
           require("typescript.extensions.null-ls.code-actions"),
         },

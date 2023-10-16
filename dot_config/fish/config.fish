@@ -43,13 +43,12 @@ set -g hydro_fetch true
 set -g hydro_multiline true
 
 # Python runtime weirdness
-set -gx LDFLAGS "-L/usr/local/opt/python@3.7/lib"
+set -gx LDFLAGS "-L/opt/homebrew/opt/python@3.10/lib"
+
+# Make prettierd smart
+set -gx PRETTIERD_LOCAL_PRETTIER_ONLY 1
 
 # direnv
 direnv hook fish | source
 
-# pyenv
-# run the following once
-# set -Ux PYENV_ROOT $HOME/.pyenv
-# fish_add_path $PYENV_ROOT/bin
-pyenv init - | source
+set --universal pure_show_jobs

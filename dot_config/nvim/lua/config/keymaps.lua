@@ -19,6 +19,9 @@ vim.keymap.set("n", "L", ":bn<CR>")
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("c", "jk", "<C-c")
 
+-- LazyGit
+vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>")
+
 -- commands
 vim.cmd("command! Top Trouble")
 vim.cmd("command! Tcl TroubleClose")

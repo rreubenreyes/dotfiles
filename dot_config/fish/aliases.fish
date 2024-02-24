@@ -8,19 +8,9 @@ alias pip='pip3'
 # alias python='python3'
 
 # Config files (cf*)
-alias cfn='nvim ~/.config/nvim/init.vim'
-alias cft='nvim ~/.config/alacritty/alacritty.yml'
-alias cff='nvim ~/.config/fish/config.fish'
+alias cft='chezmoi edit ~/.config/alacritty/alacritty.yml --apply'
+alias cff='chezmoi edit ~/.config/fish/config.fish --apply'
 
 # Convenience aliases
-alias brave='open -a "Brave Browser"'
-alias chrome='open -a "Google Chrome"'
 alias finder='open -a "Finder"'
-alias gpo='git push origin'
 alias l='ls -laH'
-
-# Scripts
-alias hereyougo='git add --all; git commit -m'
-
-# pls
-alias nuke='rm -rf'

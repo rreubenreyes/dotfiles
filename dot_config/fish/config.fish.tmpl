@@ -1,13 +1,16 @@
 source ~/.config/fish/colors.fish
 source ~/.config/fish/aliases.fish
 
+set -gx EDITOR nvim
+
 # Go
 set -gx GOPATH "$HOME/go"
 
+{{ if eq .profile "hapi" }}
 # AWS
-# uncomment if work machine
-# set -gx AWS_DEFAULT_PROFILE 'okta';
-# set -gx AWS_PROFILE 'okta';
+# set -gx AWS_DEFAULT_PROFILE okta
+# set -gx AWS_PROFILE okta
+{{ end }}
 
 # Path
 fish_add_path -a \

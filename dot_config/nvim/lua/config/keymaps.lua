@@ -7,9 +7,6 @@
 -- vim.keymap.set({ "n", "i", "v" }, "<A-k>", false)
 -- vim.keymap.set({ "i", "n", "x", "s" }, "<C-s>", false)
 -- vim.keymap.set({ "i", "n", "x", "s" }, "<C-/>", false)
--- vim.keymap.set({ "i", "n", "x", "s" }, "<leader>qq", false)
--- vim.keymap.set({ "i", "n", "x", "s" }, "<leader>ft", false)
--- vim.keymap.set({ "i", "n", "x", "s" }, "<leader>fT", false)
 
 -- prev, next buffer
 vim.keymap.set("n", "H", ":bp<CR>")
@@ -21,6 +18,11 @@ vim.keymap.set("c", "jk", "<C-c")
 
 -- LazyGit
 vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>")
+--
+-- replace with register
+vim.keymap.set({ "n" }, "<leader>r", "<Plug>ReplaceWithRegisterOperator")
+vim.keymap.set({ "n" }, "<leader>rr", "<Plug>ReplaceWithRegisterLine")
+vim.keymap.set({ "x" }, "<leader>r", "<Plug>ReplaceWithRegisterVisual")
 
 -- commands
 vim.cmd("command! Top Trouble")

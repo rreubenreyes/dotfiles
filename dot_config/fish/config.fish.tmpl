@@ -2,6 +2,7 @@ source ~/.config/fish/colors.fish
 source ~/.config/fish/aliases.fish
 
 set -gx EDITOR nvim
+set -gx TERM "xterm-256color"
 
 # Go
 set -gx GOPATH "$HOME/go"
@@ -24,9 +25,6 @@ fish_add_path -a \
     /opt/homebrew/sbin \
     /opt/homebrew/opt/python@3.10/libexec/bin \
     $HOME/.cargo/bin
-
-# Alacritty
-set -gx TERM alacritty
 
 # Other path stuff
 set -gx NVM_DIR $HOME/.nvm

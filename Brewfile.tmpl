@@ -7,29 +7,19 @@ tap 'aws/tap'
 
 # macOS programs I typically use, subject to change
 cask '1password'
-cask 'alacritty'
 cask 'obsidian'
-cask 'orion'
-cask 'discord'
 cask 'docker'
 cask 'font-fira-code'
 cask 'insomnia'
 cask 'karabiner-elements'
 cask 'rectangle'
-
-# uncomment if work machine
-# cask 'lastpass'
-# cask 'slack'
-# cask 'zoomus'
+cask 'wezterm'
 
 # core stuff
 brew 'fish'
 brew 'git'
 brew 'neovim'
 brew 'reattach-to-user-namespace'
-brew 'tmux'
-brew 'yadm'
-brew 'zellij'
 
 # less core stuff but I use these regularly enough
 brew 'bat'
@@ -37,6 +27,7 @@ brew 'coreutils'
 brew 'editorconfig-checker'
 brew 'fd'
 brew 'fzf'
+brew 'gron'
 brew 'jq'
 brew 'lf'
 brew 'rg'
@@ -51,7 +42,22 @@ brew 'nvm'
 brew 'pyenv'
 brew 'terraform'
 brew 'tfenv'
-brew 'zig'
 
 # core cloud stuff
 brew 'aws-vault'
+
+# personal machine only
+{{ if eq .profile "personal" }}
+cask 'discord'
+{{ else }}
+# <profile is {{ .profile | quote }}>
+{{ end }}
+
+# Human API machine only
+{{ if eq .profile "hapi" }}
+cask 'lastpass'
+cask 'slack'
+cask 'zoomus'
+{{ else }}
+# <profile is {{ .profile | quote }}>
+{{ end }}

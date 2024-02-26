@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# install homebrew packages
+brew bundle --file ~/Brewfile
+
+# aws
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+installer -pkg AWSCLIV2.pkg -target /
+
+# pnpm
+curl -fsSL https://get.pnpm.io/install.sh | sh -#
+
+# node stuff
+pnpm i -g \
+  bunyan \
+  pino-pretty \
+  typescript \
+  eslint_d

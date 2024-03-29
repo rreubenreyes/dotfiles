@@ -9,7 +9,6 @@ tap 'aws/tap'
 cask '1password'
 cask 'obsidian'
 cask 'docker'
-cask 'font-fira-code'
 cask 'insomnia'
 cask 'karabiner-elements'
 cask 'rectangle'
@@ -19,7 +18,6 @@ cask 'wezterm'
 brew 'fish'
 brew 'git'
 brew 'neovim'
-brew 'reattach-to-user-namespace'
 
 # less core stuff but I use these regularly enough
 brew 'bat'
@@ -45,6 +43,7 @@ brew 'tfenv'
 
 # core cloud stuff
 brew 'aws-vault'
+brew 'kreuzwerker/taps/m1-terraform-provider-helper'
 
 # personal machine only
 {{ if eq .profile "personal" }}
@@ -55,7 +54,6 @@ cask 'discord'
 
 # Human API machine only
 {{ if eq .profile "hapi" }}
-cask 'lastpass'
 cask 'slack'
 cask 'zoomus'
 {{ else }}

@@ -9,8 +9,8 @@ set -gx GOPATH "$HOME/go"
 
 {{ if eq .profile "hapi" }}
 # AWS
-# set -gx AWS_DEFAULT_PROFILE okta
-# set -gx AWS_PROFILE okta
+set -gx AWS_DEFAULT_PROFILE okta
+set -gx AWS_PROFILE okta
 {{ end }}
 
 # Path
@@ -40,6 +40,7 @@ set -g __fish_git_prompt_showupstream auto
 set -gx PNPM_HOME /Users/chroma/Library/pnpm
 fish_add_path -a $PNPM_HOME
 alias pnpx='pnpm dlx'
+alias ungron='gron --ungron'
 
 # Key bindings
 fish_vi_key_bindings
@@ -65,5 +66,3 @@ set -gx PRETTIERD_LOCAL_PRETTIER_ONLY 1
 
 # direnv
 direnv hook fish | source
-
-set --universal pure_show_jobs

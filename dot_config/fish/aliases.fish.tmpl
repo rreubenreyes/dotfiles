@@ -8,8 +8,13 @@ alias pip='pip3'
 # alias python='python3'
 
 # Config files (cf*)
-alias cft='chezmoi edit ~/.config/alacritty/alacritty.yml --apply'
 alias cff='chezmoi edit ~/.config/fish/config.fish --apply'
+alias cft='chezmoi edit ~/.wezterm.lua --apply'
+alias cfa='chezmoi edit ~/.config/fish/aliases.fish --apply'
+
+{{ if eq .profile "hapi" }}
+alias aws_console='saml2aws console --force --session-duration 28800'
+{{ end }}
 
 # Convenience aliases
 alias finder='open -a "Finder"'

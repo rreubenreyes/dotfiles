@@ -1,0 +1,22 @@
+theme = "catppuccin_transparent_mocha"
+
+[editor]
+bufferline = "multiple"
+line-number = "relative"
+default-yank-register = "+"
+true-color = true
+
+[editor.lsp]
+display-inlay-hints = true
+
+[editor.indent-guides]
+render = true
+character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "warning"
+
+[keys.insert]
+j = { k = "normal_mode" } # Maps `jk` to exit insert mode

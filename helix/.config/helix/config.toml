@@ -6,6 +6,7 @@ bufferline = "multiple"
 default-yank-register = "+"
 line-number = "relative"
 true-color = true
+jump-label-alphabet = "asdfghjklqweruiop"
 
 [editor.lsp]
 display-inlay-hints = false

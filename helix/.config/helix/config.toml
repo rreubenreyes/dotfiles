@@ -1,13 +1,15 @@
 theme = "catppuccin_transparent_mocha"
 
 [editor]
+auto-format = true
 bufferline = "multiple"
-line-number = "relative"
 default-yank-register = "+"
+line-number = "relative"
 true-color = true
 
 [editor.lsp]
 display-inlay-hints = true
+display-messages = true
 
 [editor.indent-guides]
 render = true

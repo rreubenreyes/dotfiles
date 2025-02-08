@@ -8,7 +8,7 @@ line-number = "relative"
 true-color = true
 
 [editor.lsp]
-display-inlay-hints = true
+display-inlay-hints = false
 display-messages = true
 
 [editor.indent-guides]
@@ -19,6 +19,13 @@ skip-levels = 1
 [editor.inline-diagnostics]
 cursor-line = "warning"
 other-lines = "warning"
+
+[keys.normal]
+H = ":bp"
+L = ":bn"
+
+[keys.normal.space.u]
+h = ":toggle lsp.display-inlay-hints"
 
 [keys.insert]
 j = { k = "normal_mode" } # Maps `jk` to exit insert mode

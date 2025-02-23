@@ -18,6 +18,21 @@ experimental = {}
 problems = { shortenToSingleLine = false }
 workingDirectory = { mode = "auto" }
 
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+config = {}
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language-server.ruff.config]
+settings = {args = []}
+
+[[language]]
+name = "svelte"
+auto-format = true
+
 [[language]]
 name = "javascript"
 language-servers = ["typescript-language-server", "eslint"]
@@ -41,3 +56,11 @@ name = "tsx"
 language-servers = ["typescript-language-server", "eslint"]
 formatter = { command = 'prettierd', args = [".tsx"] }
 auto-format = true
+
+[[language]]
+name = "python"
+roots = ["pyproject.toml", "setup.py", "Poetry.lock", ".git"]
+shebangs = ["python"]
+language-servers = ["pyright", "ruff"]
+auto-format = true
+formatter = {command = 'black', args = ["--quiet", "-"]}

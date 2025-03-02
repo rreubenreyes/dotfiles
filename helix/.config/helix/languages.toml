@@ -24,10 +24,8 @@ args = ["--stdio"]
 config = {}
 
 [language-server.ruff]
-command = "ruff-lsp"
-
-[language-server.ruff.config]
-settings = {args = []}
+command = "ruff"
+args = ["server"]
 
 [[language]]
 name = "svelte"
@@ -61,6 +59,6 @@ auto-format = true
 name = "python"
 roots = ["pyproject.toml", "setup.py", "Poetry.lock", ".git"]
 shebangs = ["python"]
-language-servers = ["pyright", "ruff"]
+language-servers = ["ruff", "pyright"]
 auto-format = true
 formatter = {command = 'black', args = ["--quiet", "-"]}

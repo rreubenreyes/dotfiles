@@ -7,6 +7,12 @@ default-yank-register = "+"
 line-number = "relative"
 true-color = true
 jump-label-alphabet = "asdfghjklqweruiop"
+end-of-line-diagnostics = "error"
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
 
 [editor.lsp]
 display-inlay-hints = false
@@ -16,10 +22,6 @@ display-messages = true
 render = true
 character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
 skip-levels = 1
-
-[editor.inline-diagnostics]
-cursor-line = "warning"
-other-lines = "warning"
 
 [keys.normal]
 H = ":bp"

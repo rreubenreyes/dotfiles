@@ -63,3 +63,6 @@ language-servers = ["ruff", "pyright"]
 auto-format = true
 formatter = {command = 'black', args = ["--quiet", "-"]}
 
+[[language]]
+name = "bash"
+auto-format = true

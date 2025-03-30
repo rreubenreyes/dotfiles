@@ -1,6 +1,6 @@
 source ~/.config/fish/aliases.fish
 
-set -gx EDITOR nvim
+set -gx EDITOR hx
 
 # Go
 set -gx GOPATH "$HOME/go"
@@ -40,25 +40,13 @@ set -gx GOPATH "$HOME/go"
 fish_add_path -a $GOPATH
 set -gx GO111MODULE on
 
-# direnv
-direnv hook fish | source
-
-# pyenv
-# run the following once
-# set -Ux PYENV_ROOT $HOME/.pyenv
-# fish_add_path $PYENV_ROOT/bin
-pyenv init - | source
-
-zoxide init fish | source
-
 ## Easier linking of homebrew libraries for compiled projects
 set -gx LIBRARY_PATH "$LIBRARY_PATH:$(brew --prefix)/lib"
 
 # Created by `pipx` on 2025-02-23 15:11:59
 set PATH $PATH $HOME/.local/bin
 
-# pyenv virutalenv
-status --is-interactive; and pyenv virtualenv-init - | source
-
-# prompt
+# CLI tool hooks
+direnv hook fish | source
+zoxide init fish | source
 starship init fish | source

@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # install homebrew packages
-brew bundle --file ~/Brewfile
+brew bundle --file ~/dotfiles/homebrew/Brewfile
 
 # aws
 curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"

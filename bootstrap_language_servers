@@ -1,0 +1,50 @@
+#!/bin/bash
+
+set -e
+
+function check_program() {
+  if ! command -v "$1" >/dev/null 2>&1; then
+    echo "Error: $1 is not installed or not in PATH" >&2
+    exit 1
+  fi
+}
+
+function install_bash() {
+  check_program pnpm
+  pnpm i -g bash-language-server
+
+  check_program brew
+  brew install shellcheck
+
+  check_program go
+  go install mvdan.cc/sh/v3/cmd/shfmt@latest
+}
+
+function install_python() {
+  check_program brew
+  brew install uv
+
+  check_program uv
+  uv python install 3.12
+  uv tool install ruff
+  uv tool install pyright
+  uv tool install black
+}
+
+function install_node() {
+  check_pwrogram curl
+  curl -fsSL https://get.pnpm.io/install.sh | sh -
+
+  check_program pnpm
+  pnpm i -g \
+    typescript-language-server \
+    typescript \
+    @fsouza/prettierd \
+    vscode-langservers-extracted
+}
+
+function main() {
+  install_node
+  install_python
+  install_bash
+}

@@ -62,3 +62,4 @@ shebangs = ["python"]
 language-servers = ["ruff", "pyright"]
 auto-format = true
 formatter = {command = 'black', args = ["--quiet", "-"]}
+

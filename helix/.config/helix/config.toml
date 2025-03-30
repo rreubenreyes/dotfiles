@@ -7,7 +7,7 @@ default-yank-register = "+"
 line-number = "relative"
 true-color = true
 jump-label-alphabet = "asdfghjklqweruiop"
-end-of-line-diagnostics = "error"
+end-of-line-diagnostics = "warning"
 
 [editor.cursor-shape]
 normal = "block"

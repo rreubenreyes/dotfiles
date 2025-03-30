@@ -1,0 +1,43 @@
+# repos
+tap 'homebrew/cask'
+tap 'homebrew/cask-versions'
+tap 'homebrew/core'
+tap 'aws/tap'
+
+# macOS programs I typically use, subject to change
+cask '1password'
+cask 'obsidian'
+cask 'httpie'
+cask 'rectangle'
+cask 'wezterm'
+
+# shell
+brew 'fish'
+brew 'starship'
+
+# core stuff
+brew 'git'
+brew 'helix'
+brew 'go-task'
+brew 'podman'
+
+# less core stuff but I use these regularly enough
+brew 'bat'
+brew 'coreutils'
+brew 'fd'
+brew 'fzf'
+brew 'gron'
+brew 'jq'
+brew 'lf'
+brew 'rg'
+brew 'trash'
+
+# languages
+brew 'gcc'
+brew 'golang'
+brew 'node'
+brew 'nvm'
+brew 'pyenv'
+brew 'pyenv-virtualenv'
+brew 'terraform'
+brew 'tfenv'

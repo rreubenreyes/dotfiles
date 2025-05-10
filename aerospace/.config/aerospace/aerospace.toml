@@ -82,6 +82,9 @@ alt-ctrl-cmd-shift-c = 'move-node-to-workspace comms --focus-follows-window'
 alt-ctrl-cmd-shift-a = 'move-node-to-workspace admin --focus-follows-window'
 alt-ctrl-cmd-shift-m = 'move-node-to-workspace music --focus-follows-window'
 
+alt-ctrl-cmd-shift-n = 'move-workspace-to-monitor --wrap-around next'
+alt-ctrl-cmd-shift-p = 'move-workspace-to-monitor --wrap-around prev'
+
 alt-ctrl-cmd-shift-equal = 'balance-sizes'
 
 [mode.split.binding]
@@ -108,11 +111,8 @@ alt-ctrl-cmd-shift-c = 'workspace comms'
 alt-ctrl-cmd-shift-a = 'workspace admin'
 alt-ctrl-cmd-shift-m = 'workspace music'
 
-alt-ctrl-cmd-shift-n = 'move-workspace-to-monitor --wrap-around next'
-alt-ctrl-cmd-shift-p = 'move-workspace-to-monitor --wrap-around prev'
-
-alt-ctrl-cmd-shift-h = 'focus-monitor --wrap-around next'
-alt-ctrl-cmd-shift-l = 'focus-monitor --wrap-around prev'
+alt-ctrl-cmd-shift-n = 'focus-monitor --wrap-around next'
+alt-ctrl-cmd-shift-p = 'focus-monitor --wrap-around prev'
 
 [mode.summon.binding]
 esc = "mode main"

@@ -27,7 +27,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
-automatically-unhide-macos-hidden-apps = false
+automatically-unhide-macos-hidden-apps = true
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -44,8 +44,8 @@ preset = 'qwerty'
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 4
-inner.vertical = 4
+inner.horizontal = 8
+inner.vertical = 8
 outer.left = 0
 outer.bottom = 0
 outer.top = 0
@@ -85,6 +85,8 @@ alt-ctrl-cmd-shift-l = 'move right'
 alt-ctrl-cmd-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
 alt-ctrl-cmd-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
 alt-ctrl-cmd-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+alt-ctrl-cmd-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+alt-ctrl-cmd-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
 alt-ctrl-cmd-shift-t = 'move-node-to-workspace notes --focus-follows-window'
 alt-ctrl-cmd-shift-c = 'move-node-to-workspace comms --focus-follows-window'
 alt-ctrl-cmd-shift-a = 'move-node-to-workspace admin --focus-follows-window'
@@ -108,6 +110,8 @@ tab = 'workspace-back-and-forth'
 alt-ctrl-cmd-shift-1 = 'workspace 1'
 alt-ctrl-cmd-shift-2 = 'workspace 2'
 alt-ctrl-cmd-shift-3 = 'workspace 3'
+alt-ctrl-cmd-shift-4 = 'workspace 4'
+alt-ctrl-cmd-shift-5 = 'workspace 5'
 alt-ctrl-cmd-shift-t = 'workspace notes'
 alt-ctrl-cmd-shift-c = 'workspace comms'
 alt-ctrl-cmd-shift-a = 'workspace admin'
@@ -126,6 +130,8 @@ alt-ctrl-cmd-shift-p = 'mode picker'
 alt-ctrl-cmd-shift-1 = 'summon-workspace 1'
 alt-ctrl-cmd-shift-2 = 'summon-workspace 2'
 alt-ctrl-cmd-shift-3 = 'summon-workspace 3'
+alt-ctrl-cmd-shift-4 = 'summon-workspace 4'
+alt-ctrl-cmd-shift-5 = 'summon-workspace 5'
 alt-ctrl-cmd-shift-t = 'summon-workspace notes'
 alt-ctrl-cmd-shift-c = 'summon-workspace comms'
 alt-ctrl-cmd-shift-a = 'summon-workspace admin'

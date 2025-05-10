@@ -3,9 +3,7 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local config = wezterm.config_builder()
 
-config.term = "xterm-256color"
-
-config.alternate_buffer_wheel_scroll_speed = 3
+config.term = "wezterm"
 
 -- allow tiling
 config.tiling_desktop_environments = {
@@ -22,7 +20,7 @@ config.default_prog = { "/opt/homebrew/bin/fish" }
 config.color_scheme = "Catppuccin Mocha"
 config.macos_window_background_blur = 20
 config.use_fancy_tab_bar = false
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.88
 config.window_decorations = "RESIZE"
 
 -- smooth animations
@@ -99,30 +97,6 @@ config.keys = {
 	},
 }
 
--- zen mode
-wezterm.on("user-var-changed", function(window, pane, name, value)
-	local overrides = window:get_config_overrides() or {}
-	if name == "ZEN_MODE" then
-		local incremental = value:find("+")
-		local number_value = tonumber(value)
-		if incremental ~= nil then
-			while number_value > 0 do
-				window:perform_action(wezterm.action.IncreaseFontSize, pane)
-				number_value = number_value - 1
-			end
-			overrides.enable_tab_bar = false
-		elseif number_value < 0 then
-			window:perform_action(wezterm.action.ResetFontSize, pane)
-			overrides.font_size = nil
-			overrides.enable_tab_bar = true
-		else
-			overrides.font_size = number_value
-			overrides.enable_tab_bar = false
-		end
-	end
-	window:set_config_overrides(overrides)
-end)
-
 -- display active workspace
 wezterm.on("update-right-status", function(window)
 	local workspace = window:active_workspace()
@@ -155,6 +129,24 @@ wezterm.on("update-right-status", function(window)
 		{ Foreground = { Color = "#24283b" } },
 		{ Text = time_icon .. " " .. workspace .. " " },
 	}))
+end)
+
+
+wezterm.on("window-focus-changed", function(window, pane)
+  local is_focused = window:is_focused()
+  local overrides = window:get_config_overrides() or {}
+  
+  if is_focused then
+    overrides.colors = nil  -- Remove any color overrides
+  else
+    overrides.colors = {
+      tab_bar = {
+        background = "#333333",  -- Darker background for unfocused window
+      },
+    }
+  end
+  
+  window:set_config_overrides(overrides)
 end)
 
 return config

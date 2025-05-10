@@ -9,6 +9,9 @@ true-color = true
 jump-label-alphabet = "asdfghjklqweruiop"
 end-of-line-diagnostics = "warning"
 
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
 [editor.cursor-shape]
 normal = "block"
 insert = "bar"
@@ -30,5 +33,12 @@ L = ":bn"
 [keys.normal.space.u]
 h = ":toggle lsp.display-inlay-hints"
 
+[keys.normal.space]
+l = ":format"
+
 [keys.insert]
 j = { k = "normal_mode" } # Maps `jk` to exit insert mode
+"C-l" = ":format"
+
+[keys.normal.g]
+w = "no_op"

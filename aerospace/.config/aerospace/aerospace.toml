@@ -1,0 +1,137 @@
+start-at-login = true
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# See: https://nikitabobko.github.io/AeroSpace/guide#layouts
+# The 'accordion-padding' specifies the size of accordion padding
+# You can set 0 to disable the padding feature
+accordion-padding = 100
+
+# Possible values: tiles|accordion
+default-root-container-layout = 'tiles'
+
+# Possible values: horizontal|vertical|auto
+# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
+#               tall monitor (anything higher than wide) gets vertical orientation
+default-root-container-orientation = 'auto'
+
+# Mouse follows focus when focused monitor changes
+# Drop it from your config, if you don't like this behavior
+# See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
+# See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
+# Fallback value (if you omit the key): on-focused-monitor-changed = []
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
+# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
+# Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
+automatically-unhide-macos-hidden-apps = false
+
+# Possible values: (qwerty|dvorak|colemak)
+# See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
+
+[key-mapping]
+preset = 'qwerty'
+
+# Gaps between windows (inner-*) and between monitor edges (outer-*).
+# Possible values:
+# - Constant:     gaps.outer.top = 8
+# - Per monitor:  gaps.outer.top = [{ monitor.main = 16 }, { monitor."some-pattern" = 32 }, 24]
+#                 In this example, 24 is a default value when there is no match.
+#                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
+#                 See:
+#                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+[gaps]
+inner.horizontal = 4
+inner.vertical = 4
+outer.left = 0
+outer.bottom = 0
+outer.top = 0
+outer.right = 0
+
+[mode.main.binding]
+alt-ctrl-cmd-shift-comma = 'mode service'
+alt-ctrl-cmd-shift-w = 'mode window'
+alt-ctrl-cmd-shift-space = 'mode layout'
+alt-ctrl-cmd-shift-r = 'mode resize'
+alt-ctrl-cmd-shift-s = 'mode split'
+alt-ctrl-cmd-shift-p = 'mode picker'
+
+alt-ctrl-cmd-shift-h = 'focus left'
+alt-ctrl-cmd-shift-j = 'focus down'
+alt-ctrl-cmd-shift-k = 'focus up'
+alt-ctrl-cmd-shift-l = 'focus right'
+alt-ctrl-cmd-shift-f = 'fullscreen'
+
+[mode.layout.binding]
+esc = "mode main"
+
+alt-ctrl-cmd-shift-f = 'layout floating tiling'
+alt-ctrl-cmd-shift-t = 'layout tiles horizontal vertical'
+alt-ctrl-cmd-shift-a = 'layout accordion horizontal vertical'
+
+[mode.window.binding]
+esc = "mode main"
+
+alt-ctrl-cmd-shift-tab = 'workspace-back-and-forth'
+
+alt-ctrl-cmd-shift-h = 'move left'
+alt-ctrl-cmd-shift-j = 'move down'
+alt-ctrl-cmd-shift-k = 'move up'
+alt-ctrl-cmd-shift-l = 'move right'
+
+alt-ctrl-cmd-shift-1 = 'move-node-to-workspace 1'
+alt-ctrl-cmd-shift-2 = 'move-node-to-workspace 2'
+alt-ctrl-cmd-shift-3 = 'move-node-to-workspace 3'
+alt-ctrl-cmd-shift-4 = 'move-node-to-workspace 4'
+alt-ctrl-cmd-shift-5 = 'move-node-to-workspace 5'
+
+alt-ctrl-cmd-shift-equal = 'balance-sizes'
+
+[mode.split.binding]
+esc = "mode main"
+
+alt-ctrl-cmd-shift-h = 'join-with left'
+alt-ctrl-cmd-shift-j = 'join-with down'
+alt-ctrl-cmd-shift-k = 'join-with up'
+alt-ctrl-cmd-shift-l = 'join-with right'
+
+[mode.picker.binding]
+esc = "mode main"
+
+alt-ctrl-cmd-shift-1 = 'workspace 1'
+alt-ctrl-cmd-shift-2 = 'workspace 2'
+alt-ctrl-cmd-shift-3 = 'workspace 3'
+alt-ctrl-cmd-shift-4 = 'workspace 4'
+alt-ctrl-cmd-shift-5 = 'workspace 5'
+
+alt-ctrl-cmd-shift-n = 'move-workspace-to-monitor --wrap-around next'
+alt-ctrl-cmd-shift-p = 'move-workspace-to-monitor --wrap-around prev'
+
+alt-ctrl-cmd-shift-h = 'focus-monitor --wrap-around next'
+alt-ctrl-cmd-shift-l = 'focus-monitor --wrap-around prev'
+
+[mode.resize.binding]
+esc = "mode main"
+
+alt-ctrl-cmd-shift-minus = 'resize smart -50'
+alt-ctrl-cmd-shift-equal = 'resize smart +50'
+
+[mode.service.binding]
+esc = "mode main"
+
+alt-ctrl-cmd-shift-comma = ['reload-config', 'mode main']
+alt-ctrl-cmd-shift-r = ['flatten-workspace-tree', 'mode main']                # reset layout
+alt-ctrl-cmd-shift-f = ['layout floating tiling', 'mode main']
+alt-ctrl-cmd-shift-backspace = ['close-all-windows-but-current', 'mode main']
+
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
+
+[[on-window-detected]]
+if.app-id = "com.github.wez.wezterm"
+run = "layout tiling"

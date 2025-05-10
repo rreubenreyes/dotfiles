@@ -3,6 +3,15 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local config = wezterm.config_builder()
 
+config.term = "xterm-256color"
+
+config.alternate_buffer_wheel_scroll_speed = 3
+
+-- allow tiling
+config.tiling_desktop_environments = {
+	"Aerospace",
+}
+
 -- alt key
 config.send_composed_key_when_left_alt_is_pressed = false
 
@@ -31,6 +40,7 @@ config.front_end = "WebGpu"
 
 config.keys = {
 	-- tabs
+	{ key = "w", mods = "CMD|SHIFT", action = act.ShowTabNavigator },
 	{ key = "p", mods = "CMD|SHIFT", action = act.ActivateTabRelative(-1) },
 	{ key = "n", mods = "CMD|SHIFT", action = act.ActivateTabRelative(1) },
 	{ key = "t", mods = "CMD|SHIFT", action = act.CloseCurrentTab({ confirm = true }) },

@@ -1,3 +1,7 @@
+[language-server.marksman]
+command = "marksman"
+args = ["server"]
+
 [language-server.eslint]
 command = "vscode-eslint-language-server"
 args = ["--stdio"]
@@ -6,7 +10,7 @@ args = ["--stdio"]
 format = true
 nodePath = ""
 onIgnoredFiles = "off"
-# packageManager = "yarn"
+packageManager = "pnpm"
 quiet = false
 rulesCustomizations = []
 run = "onType"
@@ -59,10 +63,29 @@ auto-format = true
 name = "python"
 roots = ["pyproject.toml", "setup.py", "Poetry.lock", ".git"]
 shebangs = ["python"]
-language-servers = ["ruff", "pyright"]
+language-servers = ["pyright", "ruff"]
 auto-format = true
-formatter = {command = 'black', args = ["--quiet", "-"]}
+formatter = { command = 'black', args = ["--quiet", "-"] }
+
+[[language]]
+name = "python"
+roots = ["pyproject.toml", "setup.py", "Poetry.lock", ".git"]
+shebangs = ["python"]
+language-servers = ["pyright", "ruff"]
+auto-format = true
+formatter = { command = 'black', args = ["--quiet", "-"] }
 
 [[language]]
 name = "bash"
+auto-format = true
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+auto-format = true
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman"]
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
 auto-format = true

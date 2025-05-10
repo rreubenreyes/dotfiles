@@ -7,7 +7,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 100
+accordion-padding = 120
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -29,27 +29,17 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = true
 
-# Possible values: (qwerty|dvorak|colemak)
-# See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 
 [key-mapping]
 preset = 'qwerty'
 
-# Gaps between windows (inner-*) and between monitor edges (outer-*).
-# Possible values:
-# - Constant:     gaps.outer.top = 8
-# - Per monitor:  gaps.outer.top = [{ monitor.main = 16 }, { monitor."some-pattern" = 32 }, 24]
-#                 In this example, 24 is a default value when there is no match.
-#                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
-#                 See:
-#                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 8
 inner.vertical = 8
-outer.left = 0
-outer.bottom = 0
-outer.top = 0
-outer.right = 0
+outer.left = 8
+outer.bottom = 8
+outer.top = 8
+outer.right = 8
 
 [mode.main.binding]
 alt-ctrl-cmd-shift-comma = 'mode service'
@@ -90,6 +80,7 @@ alt-ctrl-cmd-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
 alt-ctrl-cmd-shift-t = 'move-node-to-workspace notes --focus-follows-window'
 alt-ctrl-cmd-shift-c = 'move-node-to-workspace comms --focus-follows-window'
 alt-ctrl-cmd-shift-a = 'move-node-to-workspace admin --focus-follows-window'
+alt-ctrl-cmd-shift-m = 'move-node-to-workspace music --focus-follows-window'
 
 alt-ctrl-cmd-shift-equal = 'balance-sizes'
 
@@ -115,6 +106,7 @@ alt-ctrl-cmd-shift-5 = 'workspace 5'
 alt-ctrl-cmd-shift-t = 'workspace notes'
 alt-ctrl-cmd-shift-c = 'workspace comms'
 alt-ctrl-cmd-shift-a = 'workspace admin'
+alt-ctrl-cmd-shift-m = 'workspace music'
 
 alt-ctrl-cmd-shift-n = 'move-workspace-to-monitor --wrap-around next'
 alt-ctrl-cmd-shift-p = 'move-workspace-to-monitor --wrap-around prev'
@@ -135,6 +127,7 @@ alt-ctrl-cmd-shift-5 = 'summon-workspace 5'
 alt-ctrl-cmd-shift-t = 'summon-workspace notes'
 alt-ctrl-cmd-shift-c = 'summon-workspace comms'
 alt-ctrl-cmd-shift-a = 'summon-workspace admin'
+alt-ctrl-cmd-shift-m = 'summon-workspace music'
 
 [mode.resize.binding]
 esc = "mode main"

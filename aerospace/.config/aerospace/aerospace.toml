@@ -42,7 +42,7 @@ outer.top = 8
 outer.right = 8
 
 [mode.main.binding]
-alt-ctrl-cmd-shift-comma = 'mode service'
+alt-ctrl-cmd-shift-comma = 'mode xservice'
 alt-ctrl-cmd-shift-w = 'mode window'
 alt-ctrl-cmd-shift-space = 'mode layout'
 alt-ctrl-cmd-shift-r = 'mode resize'
@@ -64,7 +64,7 @@ alt-ctrl-cmd-shift-a = 'layout accordion horizontal vertical'
 
 [mode.window.binding]
 esc = "mode main"
-alt-ctrl-cmd-shift-p = 'mode picker'
+alt-ctrl-cmd-shift-w = 'mode picker'
 alt-ctrl-cmd-shift-s = 'mode summon'
 
 alt-ctrl-cmd-shift-h = 'move left'
@@ -81,6 +81,7 @@ alt-ctrl-cmd-shift-t = 'move-node-to-workspace notes --focus-follows-window'
 alt-ctrl-cmd-shift-c = 'move-node-to-workspace comms --focus-follows-window'
 alt-ctrl-cmd-shift-a = 'move-node-to-workspace admin --focus-follows-window'
 alt-ctrl-cmd-shift-m = 'move-node-to-workspace music --focus-follows-window'
+alt-ctrl-cmd-shift-o = 'move-node-to-workspace obs --focus-follows-window'
 
 alt-ctrl-cmd-shift-n = 'move-workspace-to-monitor --wrap-around next'
 alt-ctrl-cmd-shift-p = 'move-workspace-to-monitor --wrap-around prev'
@@ -110,6 +111,7 @@ alt-ctrl-cmd-shift-t = 'workspace notes'
 alt-ctrl-cmd-shift-c = 'workspace comms'
 alt-ctrl-cmd-shift-a = 'workspace admin'
 alt-ctrl-cmd-shift-m = 'workspace music'
+alt-ctrl-cmd-shift-o = 'workspace obs'
 
 alt-ctrl-cmd-shift-n = 'focus-monitor --wrap-around next'
 alt-ctrl-cmd-shift-p = 'focus-monitor --wrap-around prev'
@@ -128,6 +130,7 @@ alt-ctrl-cmd-shift-t = 'summon-workspace notes'
 alt-ctrl-cmd-shift-c = 'summon-workspace comms'
 alt-ctrl-cmd-shift-a = 'summon-workspace admin'
 alt-ctrl-cmd-shift-m = 'summon-workspace music'
+alt-ctrl-cmd-shift-o = 'summon-workspace music'
 
 [mode.resize.binding]
 esc = "mode main"
@@ -135,7 +138,7 @@ esc = "mode main"
 alt-ctrl-cmd-shift-minus = 'resize smart -50'
 alt-ctrl-cmd-shift-equal = 'resize smart +50'
 
-[mode.service.binding]
+[mode.xservice.binding]
 esc = "mode main"
 
 alt-ctrl-cmd-shift-comma = ['reload-config', 'mode main']
@@ -151,3 +154,31 @@ alt-shift-l = ['join-with right', 'mode main']
 [[on-window-detected]]
 if.app-id = "com.github.wez.wezterm"
 run = "layout tiling"
+
+[[on-window-detected]]
+if.app-id = "uk.co.wearecocoon.YT-Music"
+run = "move-node-to-workspace music"
+
+[[on-window-detected]]
+if.app-id = "com.linear"
+run = "move-node-to-workspace admin"
+
+[[on-window-detected]]
+if.app-id = "com.tinyspeck.slackmacgap"
+run = "move-node-to-workspace comms"
+
+[[on-window-detected]]
+if.app-id = "com.1password.1password"
+run = "move-node-to-workspace admin"
+
+[[on-window-detected]]
+if.app-id = "md.obsidian"
+run = "move-node-to-workspace notes"
+
+[[on-window-detected]]
+if.app-id = "com.obsproject.obs-studio"
+run = "move-node-to-workspace obs"
+
+[[on-window-detected]]
+if.app-id = "us.zoom.xos"
+run = "move-node-to-workspace comms"

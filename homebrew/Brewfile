@@ -8,8 +8,10 @@ tap 'aws/tap'
 cask '1password'
 cask 'obsidian'
 cask 'httpie'
-cask 'rectangle'
 cask 'wezterm'
+cask 'nikitabobko/tap/aerospace'
+cask 'obs'
+cask 'yt-music'
 
 # shell
 brew 'fish'
@@ -43,3 +45,6 @@ brew 'nvm'
 brew 'uv'
 brew 'terraform'
 brew 'tfenv'
+
+# rice
+brew 'fastfetch'

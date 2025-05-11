@@ -17,10 +17,27 @@ config.send_composed_key_when_left_alt_is_pressed = false
 config.default_prog = { "/opt/homebrew/bin/fish" }
 
 -- general appearance
-config.color_scheme = "Catppuccin Mocha"
+local in_focus = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+in_focus.tab_bar.background = "rgba(30, 30, 46, 0.8)"
+in_focus.tab_bar.active_tab.bg_color ="#cba6f7"
+in_focus.tab_bar.inactive_tab.bg_color ="rgba(30, 30, 46, 0.8)"
+in_focus.tab_bar.new_tab.bg_color ="rgba(30, 30, 46, 0.8)"
+
+local out_of_focus = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+out_of_focus.tab_bar.background = "rgba(30, 30, 46, 0.8)"
+out_of_focus.tab_bar.active_tab.bg_color = "#74c7ec"
+out_of_focus.tab_bar.inactive_tab.bg_color ="rgba(30, 30, 46, 0.8)"
+out_of_focus.tab_bar.new_tab.bg_color ="rgba(30, 30, 46, 0.8)"
+
+config.color_schemes = {
+  ["Catppuccin Mocha (in focus)"] = in_focus,
+  ["Catppuccin Mocha (out of focus)"] = out_of_focus,
+}
+
+config.color_scheme = "Catppuccin Mocha (in focus)"
 config.macos_window_background_blur = 20
 config.use_fancy_tab_bar = false
-config.window_background_opacity = 0.88
+config.window_background_opacity = 0.8
 config.window_decorations = "RESIZE"
 
 -- smooth animations
@@ -122,13 +139,23 @@ wezterm.on("update-right-status", function(window)
 		time_icon = "🫥🫥🫥🫥💀"
 	end
 
-	window:set_right_status(wezterm.format({
-		{ Foreground = { Color = "#c099ff" } },
-		{ Text = wezterm.nerdfonts.ple_left_half_circle_thick },
-		{ Background = { Color = "#c099ff" } },
-		{ Foreground = { Color = "#24283b" } },
-		{ Text = time_icon .. " " .. workspace .. " " },
-	}))
+	if window:is_focused() then
+		window:set_right_status(wezterm.format({
+			{ Foreground = { Color = "#cba6f7" } },
+			{ Text = wezterm.nerdfonts.ple_left_half_circle_thick },
+			{ Background = { Color = "#cba6f7" } },
+			{ Foreground = { Color = "#24283b" } },
+			{ Text = time_icon .. " " .. workspace .. " " },
+		}))
+	else
+		window:set_right_status(wezterm.format({
+			{ Foreground = { Color = "#74c7ec" } },
+			{ Text = wezterm.nerdfonts.ple_left_half_circle_thick },
+			{ Background = { Color = "#74c7ec" } },
+			{ Foreground = { Color = "#24283b" } },
+			{ Text = time_icon .. " " .. workspace .. " " },
+		}))
+	end
 end)
 
 
@@ -137,13 +164,9 @@ wezterm.on("window-focus-changed", function(window, pane)
   local overrides = window:get_config_overrides() or {}
   
   if is_focused then
-    overrides.colors = nil  -- Remove any color overrides
+    overrides.color_scheme = "Catppuccin Mocha (in focus)"
   else
-    overrides.colors = {
-      tab_bar = {
-        background = "#333333",  -- Darker background for unfocused window
-      },
-    }
+    overrides.color_scheme = "Catppuccin Mocha (out of focus)"
   end
   
   window:set_config_overrides(overrides)

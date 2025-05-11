@@ -16,3 +16,4 @@ alias lf='eza --icons --tree -L2 --no-permissions --no-user --no-time --no-files
 alias ls=eza
 alias z=zoxide
 alias venv_use="source .venv/bin/activate.fish"
+alias reload="source ~/.config/fish/config.fish"

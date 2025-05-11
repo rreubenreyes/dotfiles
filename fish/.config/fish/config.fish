@@ -59,3 +59,7 @@ zoxide init fish | source
 starship init fish | source
 uv generate-shell-completion fish | source
 uvx --generate-shell-completion fish | source
+
+function fish_greeting
+    fastfetch
+end

@@ -7,7 +7,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 120
+accordion-padding = 80
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -48,6 +48,7 @@ alt-ctrl-cmd-shift-space = 'mode layout'
 alt-ctrl-cmd-shift-r = 'mode resize'
 alt-ctrl-cmd-shift-s = 'mode split'
 alt-ctrl-cmd-shift-p = 'mode picker'
+alt-ctrl-cmd-shift-u = 'mode usummon'
 
 alt-ctrl-cmd-shift-h = 'focus left'
 alt-ctrl-cmd-shift-j = 'focus down'
@@ -98,6 +99,10 @@ alt-ctrl-cmd-shift-c = [
   'move-node-to-workspace comms --focus-follows-window',
   'mode main',
 ]
+alt-ctrl-cmd-shift-z = [
+  'move-node-to-workspace zoom --focus-follows-window',
+  'mode main',
+]
 alt-ctrl-cmd-shift-a = [
   'move-node-to-workspace admin --focus-follows-window',
   'mode main',
@@ -141,6 +146,7 @@ alt-ctrl-cmd-shift-4 = ['workspace 4', 'mode main']
 alt-ctrl-cmd-shift-5 = ['workspace 5', 'mode main']
 alt-ctrl-cmd-shift-t = ['workspace notes', 'mode main']
 alt-ctrl-cmd-shift-c = ['workspace comms', 'mode main']
+alt-ctrl-cmd-shift-z = ['workspace zoom', 'mode main']
 alt-ctrl-cmd-shift-a = ['workspace admin', 'mode main']
 alt-ctrl-cmd-shift-m = ['workspace music', 'mode main']
 alt-ctrl-cmd-shift-o = ['workspace obs', 'mode main']
@@ -148,7 +154,7 @@ alt-ctrl-cmd-shift-o = ['workspace obs', 'mode main']
 alt-ctrl-cmd-shift-n = ['focus-monitor --wrap-around next', 'mode main']
 alt-ctrl-cmd-shift-p = ['focus-monitor --wrap-around prev', 'mode main']
 
-[mode.summon.binding]
+[mode.usummon.binding]
 esc = "mode main"
 
 alt-ctrl-cmd-shift-1 = ['summon-workspace 1', 'mode main']
@@ -158,6 +164,7 @@ alt-ctrl-cmd-shift-4 = ['summon-workspace 4', 'mode main']
 alt-ctrl-cmd-shift-5 = ['summon-workspace 5', 'mode main']
 alt-ctrl-cmd-shift-t = ['summon-workspace notes', 'mode main']
 alt-ctrl-cmd-shift-c = ['summon-workspace comms', 'mode main']
+alt-ctrl-cmd-shift-z = ['summon-workspace zoom', 'mode main']
 alt-ctrl-cmd-shift-a = ['summon-workspace admin', 'mode main']
 alt-ctrl-cmd-shift-m = ['summon-workspace music', 'mode main']
 alt-ctrl-cmd-shift-o = ['summon-workspace music', 'mode main']
@@ -211,4 +218,4 @@ run = "move-node-to-workspace obs"
 
 [[on-window-detected]]
 if.app-id = "us.zoom.xos"
-run = "move-node-to-workspace comms"
+run = "move-node-to-workspace zoom"

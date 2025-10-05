@@ -26,9 +26,40 @@ render = true
 character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
 skip-levels = 1
 
+[editor.soft-wrap]
+enable = true
+max-wrap = 25         # increase value to reduce forced mid-word wrapping
+max-indent-retain = 0
+wrap-indicator = ""   # set wrap-indicator to "" to hide it
+
 [keys.normal]
 H = ":bp"
 L = ":bn"
+- = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+
+# don't keep highlights on word motions
+w = ["move_next_word_start", "move_char_right", "collapse_selection"]
+W = ["move_next_long_word_start", "move_char_right", "collapse_selection"]
+e = ["move_next_word_end", "collapse_selection"]
+E = ["move_next_long_word_end", "collapse_selection"]
+b = ["move_prev_word_start", "collapse_selection"]
+B = ["move_prev_long_word_start", "collapse_selection"]
+f = ["find_next_char", "collapse_selection"]
+t = ["find_till_char", "collapse_selection"]
+F = ["find_prev_char", "collapse_selection"]
+T = ["till_prev_char", "collapse_selection"]
+
+# LSP/Treesitter selection stuff
+C-h = "select_prev_sibling"
+C-j = "shrink_selection"
+C-k = "expand_selection"
+C-l = "select_next_sibling"
 
 [keys.normal.space.u]
 h = ":toggle lsp.display-inlay-hints"
@@ -42,3 +73,6 @@ j = { k = "normal_mode" } # Maps `jk` to exit insert mode
 
 [keys.normal.g]
 w = "no_op"
+
+[keys.normal."["]
+"[" = "flip_selections"

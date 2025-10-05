@@ -1,3 +1,6 @@
+[language-server.sqls]
+command = "sqls"
+
 [language-server.marksman]
 command = "marksman"
 args = ["server"]
@@ -30,6 +33,7 @@ config = {}
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
+config = { lint = { isort = { profile = "black" } }, format = { isort = { profile = "black" } } }
 
 [[language]]
 name = "svelte"
@@ -52,20 +56,14 @@ name = "jsx"
 language-servers = ["typescript-language-server", "eslint"]
 formatter = { command = 'prettierd', args = [".jsx"] }
 auto-format = true
+block-comment-tokens = ["{/*", "*/}"]
 
 [[language]]
 name = "tsx"
 language-servers = ["typescript-language-server", "eslint"]
 formatter = { command = 'prettierd', args = [".tsx"] }
 auto-format = true
-
-[[language]]
-name = "python"
-roots = ["pyproject.toml", "setup.py", "Poetry.lock", ".git"]
-shebangs = ["python"]
-language-servers = ["pyright", "ruff"]
-auto-format = true
-formatter = { command = 'black', args = ["--quiet", "-"] }
+block-comment-tokens = ["{/*", "*/}"]
 
 [[language]]
 name = "python"
@@ -88,4 +86,19 @@ auto-format = true
 name = "markdown"
 language-servers = ["marksman"]
 formatter = { command = "dprint", args = ["fmt", "--stdin", "md"] }
+auto-format = true
+
+[[language]]
+name = "sql"
+scope = "source.sql"
+injection-regex = "sql"
+file-types = ["sql", "SQL"]
+comment-token = "--"
+language-servers = ["sqls"]
+formatter = { command = "sql-formatter" }
+auto-format = true
+
+[[language]]
+name = "hcl"
+formatter = { command = "terraform", args = ["fmt", "-"] }
 auto-format = true

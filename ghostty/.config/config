@@ -1,0 +1,16 @@
+# shell
+command = "/opt/homebrew/bin/fish"
+shell-integration = "fish"
+
+# appearance
+theme = "arboreal"
+font-family = "JetBrains Mono"
+font-size = 14
+background-opacity = 0.88
+background-blur = true
+window-padding-x = 8
+window-padding-y = 8
+
+custom-shader = shaders/cursor_warp.glsl
+# quick terminal
+keybind = global:cmd+grave_accent=toggle_quick_terminal

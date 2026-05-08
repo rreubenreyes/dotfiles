@@ -1,0 +1,156 @@
+# arboreal theme for Helix
+# Author: ossyrian <rakku@neden.gg>
+# License: MIT
+
+# UI
+# "ui.background" = { bg = "shadow" }
+# comment above, uncomment below for transparent background
+"ui.background" = {}
+"ui.background.separator" = { fg = "stone" }
+
+# --- cursors
+"ui.cursor" = { fg = "mint", modifiers = ["reversed"] }
+"ui.cursor.insert" = { fg = "mint", modifiers = ["reversed"] }
+"ui.cursor.select" = { fg = "mint", modifiers = ["reversed"] }
+"ui.cursor.match" = { fg = "spring", modifiers = ["underlined"] }
+"ui.cursor.primary" = { fg = "mint", modifiers = ["reversed"] }
+"ui.cursor.primary.normal" = { fg = "mint", modifiers = ["reversed"] }
+"ui.cursor.primary.insert" = { fg = "mint", modifiers = ["reversed"] }
+"ui.cursor.primary.select" = { fg = "mint", modifiers = ["reversed"] }
+
+# --- debugger
+"ui.debug.breakpoint" = { fg = "blush" }
+"ui.debug.active" = { fg = "mint" }
+
+# --- gutter
+# "ui.gutter" = { bg = "shadow" }
+# comment above, uncomment below for transparent gutter
+"ui.gutter" = {}
+"ui.gutter.selected" = { fg = "mint" }
+
+# --- line numbers
+"ui.linenr" = { fg = "slate" }
+"ui.linenr.selected" = { fg = "mint" }
+
+# --- statusline
+"ui.statusline" = { fg = "ash", bg = "moon" }
+"ui.statusline.inactive" = { fg = "stone", bg = "shadow" }
+"ui.statusline.normal" = { fg = "ash", bg = "shadow" }
+"ui.statusline.insert" = { fg = "shadow", bg = "mint" }
+"ui.statusline.select" = { fg = "shadow", bg = "spring" }
+
+# --- popup menus
+# "ui.popup" = { fg = "ash", bg = "shadow" }
+# comment above, uncomment below for transparent popups
+"ui.popup" = { fg = "ash" }
+"ui.window" = { fg = "stone" }
+"ui.help" = { fg = "ash", bg = "shadow" }
+"ui.text" = { fg = "ash" }
+"ui.text.focus" = { fg = "mint", bg = "shadow", modifiers = ["bold"] }
+"ui.text.inactive" = { fg = "stone" }
+"ui.virtual.ruler" = { bg = "moon" }
+"ui.virtual.whitespace" = { fg = "slate" }
+"ui.virtual.indent-guide" = { fg = "slate" }
+"ui.virtual.jump-label" = { fg = "blush" }
+"ui.menu" = { fg = "ash", bg = "shadow" }
+"ui.menu.selected" = { fg = "shadow", bg = "stone", modifiers = ["bold"] }
+"ui.menu.scroll" = { fg = "stone", bg = "shadow" }
+"ui.selection" = { bg = "moon" }
+"ui.selection.primary" = { bg = "moon" }
+"ui.highlight" = { bg = "moon", fg = "ash" }
+"ui.cursorline.primary" = { bg = "moon" }
+"ui.cursorline.secondary" = { bg = "moon" }
+"ui.cursorcolumn.primary" = { bg = "moon" }
+"ui.cursorcolumn.secondary" = { bg = "moon" }
+
+# --- syntax
+# Four accent colors: mint (keywords/operators), amber (strings/constants),
+# spruce (functions), teal (types). Variables in lichen, punctuation in soot.
+"attribute" = "teal"
+"type" = "teal"
+"type.builtin" = "teal"
+"constructor" = "spruce"
+"constant" = "amber"
+"constant.builtin" = "amber"
+"constant.builtin.boolean" = "amber"
+"string" = "amber"
+"string.regexp" = "amber"
+"string.special" = "amber"
+"comment" = { fg = "stone", modifiers = ["italic"] }
+"variable" = "lichen"
+"variable.builtin" = "lichen"
+"variable.parameter" = { fg = "lichen", modifiers = ["italic"] }
+"variable.other.member" = "lichen"
+"label" = "mint"
+"punctuation" = "soot"
+"punctuation.delimiter" = "soot"
+"punctuation.bracket" = "soot"
+"punctuation.special" = "mint"
+"keyword" = "mint"
+"keyword.control" = "mint"
+"keyword.control.conditional" = "mint"
+"keyword.control.repeat" = "mint"
+"keyword.control.import" = "mint"
+"keyword.control.return" = "mint"
+"keyword.control.exception" = "mint"
+"keyword.operator" = "mint"
+"keyword.function" = { fg = "mint", modifiers = ["italic"] }
+"keyword.storage" = { fg = "mint", modifiers = ["italic"] }
+"keyword.storage.type" = { fg = "mint", modifiers = ["italic"] }
+"keyword.storage.modifier" = { fg = "mint", modifiers = ["italic"] }
+"operator" = "mint"
+"function" = "spruce"
+"function.builtin" = "spruce"
+"function.method" = "spruce"
+"function.macro" = { fg = "spruce", modifiers = ["bold"] }
+"tag" = "spruce"
+"namespace" = { fg = "teal", modifiers = ["italic"] }
+"special" = "mint"
+
+# --- markup
+"markup.heading" = { fg = "mint", modifiers = ["bold"] }
+"markup.list" = "mint"
+"markup.bold" = { fg = "ash", modifiers = ["bold"] }
+"markup.italic" = { fg = "ash", modifiers = ["italic"] }
+"markup.link.url" = { fg = "amber", modifiers = ["underlined"] }
+"markup.link.text" = "lichen"
+"markup.quote" = { fg = "stone", modifiers = ["italic"] }
+"markup.raw" = "amber"
+
+# --- diffs
+"diff.plus" = "celadon"
+"diff.minus" = "rose"
+"diff.delta" = "straw"
+
+# --- diagnostics
+"diagnostic" = { modifiers = ["underlined"] }
+"diagnostic.hint" = { fg = "meadow", modifiers = ["underlined"] }
+"diagnostic.info" = { fg = "spruce", modifiers = ["underlined"] }
+"diagnostic.warning" = { fg = "straw", modifiers = ["underlined"] }
+"diagnostic.error" = { fg = "blush", modifiers = ["underlined"] }
+"diagnostic.unnecessary" = { fg = "spruce", modifiers = ["underlined"] }
+"diagnostic.deprecated" = { fg = "spruce", modifiers = ["underlined"] }
+
+# Elixir-specific (including atoms)
+"constant.character.escape" = "amber"
+"constant.character" = "amber"
+"symbol" = { fg = "mint", modifiers = ["italic"] } # Elixir atoms
+
+[palette]
+shadow = "#0e1d1c"
+moon = "#23454d"
+slate = "#3d5a5f"
+stone = "#486874"
+ash = "#b6cdb8"
+lichen = "#9dbfb0"
+soot = "#a0bab0"
+mint = "#9cc48c"
+amber = "#b8a060"
+spruce = "#688996"
+teal = "#78a89e"
+spring = "#b8d090"
+celadon = "#8fc8a0"
+straw = "#c8b870"
+rose = "#c88888"
+blush = "#c89090"
+meadow = "#88b890"

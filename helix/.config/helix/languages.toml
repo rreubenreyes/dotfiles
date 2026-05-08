@@ -5,6 +5,10 @@ command = "sqls"
 command = "marksman"
 args = ["server"]
 
+[language-server.biome]
+command = "biome"
+args = ["lsp-proxy"]
+
 [language-server.eslint]
 command = "vscode-eslint-language-server"
 args = ["--stdio"]
@@ -35,33 +39,53 @@ command = "ruff"
 args = ["server"]
 config = { lint = { isort = { profile = "black" } }, format = { isort = { profile = "black" } } }
 
+[language-server.ty]
+command = "ty"
+args = ["server"]
+
 [[language]]
 name = "svelte"
 auto-format = true
 
 [[language]]
 name = "javascript"
-language-servers = ["typescript-language-server", "eslint"]
-formatter = { command = 'prettierd', args = [".js"] }
+language-servers = ["typescript-language-server", "biome"]
+formatter = { command = "biome", args = [
+  "format",
+  "--stdin-file-path",
+  "file.js",
+] }
 auto-format = true
 
 [[language]]
 name = "typescript"
-language-servers = ["typescript-language-server", "eslint"]
-formatter = { command = 'prettierd', args = [".ts"] }
+language-servers = ["typescript-language-server", "biome"]
+formatter = { command = "biome", args = [
+  "format",
+  "--stdin-file-path",
+  "file.ts",
+] }
 auto-format = true
 
 [[language]]
 name = "jsx"
-language-servers = ["typescript-language-server", "eslint"]
-formatter = { command = 'prettierd', args = [".jsx"] }
+language-servers = ["typescript-language-server", "biome"]
+formatter = { command = "biome", args = [
+  "format",
+  "--stdin-file-path",
+  "file.jsx",
+] }
 auto-format = true
 block-comment-tokens = ["{/*", "*/}"]
 
 [[language]]
 name = "tsx"
-language-servers = ["typescript-language-server", "eslint"]
-formatter = { command = 'prettierd', args = [".tsx"] }
+language-servers = ["typescript-language-server", "biome"]
+formatter = { command = "biome", args = [
+  "format",
+  "--stdin-file-path",
+  "file.tsx",
+] }
 auto-format = true
 block-comment-tokens = ["{/*", "*/}"]
 
@@ -69,7 +93,7 @@ block-comment-tokens = ["{/*", "*/}"]
 name = "python"
 roots = ["pyproject.toml", "setup.py", "Poetry.lock", ".git"]
 shebangs = ["python"]
-language-servers = ["pyright", "ruff"]
+language-servers = ["ty", "ruff"]
 auto-format = true
 formatter = { command = 'black', args = ["--quiet", "-"] }
 

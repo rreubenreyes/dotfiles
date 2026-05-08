@@ -1,0 +1,29 @@
+# name: 'Arboreal'
+# preferred_background: 0e1d1c
+
+fish_color_normal b6cdb8          # ash
+fish_color_command 688996          # spruce
+fish_color_param 9dbfb0            # lichen
+fish_color_keyword 9cc48c --bold   # mint
+fish_color_quote b8a060            # amber
+fish_color_redirection 78a89e      # teal
+fish_color_end 486874              # stone
+fish_color_comment 486874          # stone
+fish_color_error c89090            # blush
+fish_color_gray 486874             # stone
+fish_color_selection --background=23454d  # moon
+fish_color_search_match --background=3d5a5f  # slate
+fish_color_option 88b890           # meadow
+fish_color_operator 9cc48c         # mint
+fish_color_escape 8fc8a0           # celadon
+fish_color_autosuggestion 486874   # stone
+fish_color_cancel c88888           # rose
+fish_color_cwd 9cc48c              # mint
+fish_color_user 9dbfb0             # lichen
+fish_color_host 688996             # spruce
+fish_color_host_remote 88b890      # meadow
+fish_color_status c89090           # blush
+fish_pager_color_progress 486874   # stone
+fish_pager_color_prefix 9dbfb0     # lichen
+fish_pager_color_completion b6cdb8 # ash
+fish_pager_color_description 486874 # stone

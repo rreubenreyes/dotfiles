@@ -1,0 +1,117 @@
+# Arboreal theme for eza
+# Philosophy: ash for most things, four accent colors for semantic roles,
+# stone for dim/inactive, semantic colors for git/diffs.
+#
+# Roles (mirroring helix):
+#   mint    = navigate/act on  (directories, execute perms)
+#   amber   = data/values      (dates, write perms, media)
+#   spruce  = callable/source  (source files, branch names)
+#   teal    = resolved refs    (symlinks, compiled)
+#   celadon = new/clean        (executables, git new)
+#   straw   = caution/changed  (git modified)
+#   rose    = removed/broken   (git deleted, broken symlinks, root)
+#   stone   = dim/inactive     (ignored, pipes, metadata labels)
+#   ash     = everything else
+
+colourful: true
+
+filekinds:
+  normal:       {foreground: "#b6cdb8"}  # ash
+  directory:    {foreground: "#9cc48c"}  # mint
+  symlink:      {foreground: "#78a89e"}  # teal
+  pipe:         {foreground: "#486874"}  # stone
+  block_device: {foreground: "#486874"}  # stone
+  char_device:  {foreground: "#486874"}  # stone
+  socket:       {foreground: "#486874"}  # stone
+  special:      {foreground: "#486874"}  # stone
+  executable:   {foreground: "#8fc8a0"}  # celadon
+  mount_point:  {foreground: "#9cc48c"}  # mint
+
+perms:
+  user_read:          {foreground: "#b6cdb8"}  # ash
+  user_write:         {foreground: "#b8a060"}  # amber
+  user_execute_file:  {foreground: "#9cc48c"}  # mint
+  user_execute_other: {foreground: "#9cc48c"}  # mint
+  group_read:         {foreground: "#a0bab0"}  # soot
+  group_write:        {foreground: "#b8a060"}  # amber
+  group_execute:      {foreground: "#9cc48c"}  # mint
+  other_read:         {foreground: "#486874"}  # stone
+  other_write:        {foreground: "#b8a060"}  # amber
+  other_execute:      {foreground: "#9cc48c"}  # mint
+  special_user_file:  {foreground: "#486874"}  # stone
+  special_other:      {foreground: "#486874"}  # stone
+  attribute:          {foreground: "#486874"}  # stone
+
+size:
+  major:       {foreground: "#486874"}  # stone
+  minor:       {foreground: "#486874"}  # stone
+  number_byte: {foreground: "#b6cdb8"}  # ash
+  number_kilo: {foreground: "#b6cdb8"}  # ash
+  number_mega: {foreground: "#b6cdb8"}  # ash
+  number_giga: {foreground: "#b6cdb8"}  # ash
+  number_huge: {foreground: "#b6cdb8"}  # ash
+  unit_byte:   {foreground: "#486874"}  # stone
+  unit_kilo:   {foreground: "#486874"}  # stone
+  unit_mega:   {foreground: "#486874"}  # stone
+  unit_giga:   {foreground: "#486874"}  # stone
+  unit_huge:   {foreground: "#486874"}  # stone
+
+users:
+  user_you:    {foreground: "#b6cdb8"}  # ash
+  user_root:   {foreground: "#c89090"}  # blush
+  user_other:  {foreground: "#486874"}  # stone
+  group_yours: {foreground: "#a0bab0"}  # soot
+  group_other: {foreground: "#486874"}  # stone
+  group_root:  {foreground: "#c88888"}  # rose
+
+links:
+  normal:          {foreground: "#b6cdb8"}  # ash
+  multi_link_file: {foreground: "#b8a060"}  # amber
+
+git:
+  new:        {foreground: "#8fc8a0"}  # celadon
+  modified:   {foreground: "#c8b870"}  # straw
+  deleted:    {foreground: "#c88888"}  # rose
+  renamed:    {foreground: "#9dbfb0"}  # lichen
+  typechange: {foreground: "#c8b870"}  # straw
+  ignored:    {foreground: "#486874"}  # stone
+  conflicted: {foreground: "#c89090"}  # blush
+
+git_repo:
+  branch_main:  {foreground: "#b6cdb8"}  # ash
+  branch_other: {foreground: "#688996"}  # spruce
+  git_clean:    {foreground: "#8fc8a0"}  # celadon
+  git_dirty:    {foreground: "#c88888"}  # rose
+
+security_context:
+  colon: {foreground: "#486874"}  # stone
+  user:  {foreground: "#a0bab0"}  # soot
+  role:  {foreground: "#486874"}  # stone
+  typ:   {foreground: "#486874"}  # stone
+  range: {foreground: "#486874"}  # stone
+
+file_type:
+  image:      {foreground: "#b8a060"}  # amber  (media/data, like constants)
+  video:      {foreground: "#b8a060"}  # amber
+  music:      {foreground: "#b8a060"}  # amber
+  lossless:   {foreground: "#b8a060"}  # amber
+  crypto:     {foreground: "#486874"}  # stone
+  document:   {foreground: "#b6cdb8"}  # ash
+  compressed: {foreground: "#9dbfb0"}  # lichen
+  temp:       {foreground: "#486874"}  # stone
+  compiled:   {foreground: "#78a89e"}  # teal
+  build:      {foreground: "#486874"}  # stone
+  source:     {foreground: "#688996"}  # spruce
+
+punctuation:         {foreground: "#486874"}  # stone
+date:                {foreground: "#b8a060"}  # amber
+inode:               {foreground: "#486874"}  # stone
+blocks:              {foreground: "#486874"}  # stone
+header:              {foreground: "#b6cdb8"}  # ash
+octal:               {foreground: "#486874"}  # stone
+flags:               {foreground: "#486874"}  # stone
+
+symlink_path:        {foreground: "#78a89e"}  # teal
+control_char:        {foreground: "#486874"}  # stone
+broken_symlink:      {foreground: "#c88888"}  # rose
+broken_path_overlay: {foreground: "#486874"}  # stone

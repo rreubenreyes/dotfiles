@@ -1,4 +1,4 @@
-theme = "catppuccin_transparent_mocha"
+theme = "arboreal"
 
 [editor]
 auto-format = true
@@ -8,6 +8,7 @@ line-number = "relative"
 true-color = true
 jump-label-alphabet = "asdfghjklqweruiop"
 end-of-line-diagnostics = "warning"
+clipboard-provider = "pasteboard"
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
@@ -15,7 +16,7 @@ cursor-line = "warning"
 [editor.cursor-shape]
 normal = "block"
 insert = "bar"
-select = "block"
+select = "underline"
 
 [editor.lsp]
 display-inlay-hints = false
@@ -42,24 +43,19 @@ L = ":bn"
   ':open %sh{cat /tmp/unique-file}',
   ':redraw',
 ]
-
-# don't keep highlights on word motions
-w = ["move_next_word_start", "move_char_right", "collapse_selection"]
-W = ["move_next_long_word_start", "move_char_right", "collapse_selection"]
-e = ["move_next_word_end", "collapse_selection"]
-E = ["move_next_long_word_end", "collapse_selection"]
-b = ["move_prev_word_start", "collapse_selection"]
-B = ["move_prev_long_word_start", "collapse_selection"]
-f = ["find_next_char", "collapse_selection"]
-t = ["find_till_char", "collapse_selection"]
-F = ["find_prev_char", "collapse_selection"]
-T = ["till_prev_char", "collapse_selection"]
+"{" = ["goto_prev_paragraph"]
+"}" = ["goto_next_paragraph"]
+0 = "goto_line_start"
+"$" = "goto_line_end"
+"^" = "goto_first_nonwhitespace"
+G = "goto_file_end"
 
 # LSP/Treesitter selection stuff
 C-h = "select_prev_sibling"
 C-j = "shrink_selection"
 C-k = "expand_selection"
 C-l = "select_next_sibling"
+
 
 [keys.normal.space.u]
 h = ":toggle lsp.display-inlay-hints"
@@ -72,7 +68,7 @@ j = { k = "normal_mode" } # Maps `jk` to exit insert mode
 "C-l" = ":format"
 
 [keys.normal.g]
-w = "no_op"
+ret = [":write-all", ":insert-output serpl >/dev/tty", ":redraw", ":reload-all"]
 
 [keys.normal."["]
 "[" = "flip_selections"
@@ -81,3 +77,8 @@ w = "no_op"
 "D" = "remove_primary_selection"
 "-" = "merge_selections"
 "[" = "flip_selections"
+"_" = "split_selection_on_newline"
+0 = "goto_line_start"
+"$" = "goto_line_end"
+"^" = "goto_first_nonwhitespace"
+G = "goto_file_end"

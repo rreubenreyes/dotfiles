@@ -3,9 +3,9 @@ alias cat=bat
 alias pip='pip3'
 
 # Config files (cf*)
-alias cft='hx ~/.config/ghostty/config'
-alias cfh='hx ~/.config/helix/config.toml'
-alias cff='hx ~/.config/fish/config.fish'
+alias cft='nvim ~/.config/ghostty/config'
+alias cfh='nvim ~/.config/helix/config.toml'
+alias cff='nvim ~/.config/fish/config.fish'
 
 # Convenience aliases
 alias cursor='agent'

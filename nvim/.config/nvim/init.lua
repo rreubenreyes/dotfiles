@@ -194,16 +194,14 @@ do
   
 
   -- [[ Colorscheme ]]
-  vim.pack.add { gh 'catppuccin/nvim' }
+  vim.pack.add { gh 'neanias/everforest-nvim' }
   ---@diagnostic disable-next-line: missing-fields
-  require('catppuccin').setup {
-    flavour = "mocha",
-    transparent_background = true,
-    styles = {
-      { comments = "italic" },
-    },
+  require('everforest').setup {
+    background = "hard",
+    transparent_background_level = 2,
+    italics = true,
   }
-  vim.cmd.colorscheme 'catppuccin'
+  vim.cmd.colorscheme 'everforest'
 
   -- Highlight todo, notes, etc in comments
   vim.pack.add { gh 'folke/todo-comments.nvim' }
@@ -450,7 +448,7 @@ do
       -- <c-k>: Toggle signature help
       --
       -- See `:help blink-cmp-config-keymap` for defining your own keymap
-      preset = 'default',
+      preset = 'super-tab',
 
       -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps

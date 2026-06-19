@@ -3,7 +3,7 @@ command = "/opt/homebrew/bin/fish"
 shell-integration = "fish"
 
 # appearance
-theme = "Catppuccin Mocha"
+theme = "everforest-dark-hard"
 font-family = "JetBrains Mono"
 font-size = 14
 background-opacity = 0.9

@@ -10,7 +10,7 @@ require('conform').setup {
       clojure = true,
     }
     if enabled_filetypes[vim.bo[bufnr].filetype] then
-      return { timeout_ms = 500 }
+      return { timeout_ms = 5000 }
     else
       return nil
     end

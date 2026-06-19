@@ -27,6 +27,10 @@ do
 
   -- Enable break indent
   vim.o.breakindent = true
+  vim.o.expandtab = true
+  vim.o.tabstop = 4
+  vim.o.softtabstop = 4
+  vim.o.shiftwidth = 4
 
   -- Enable undo/redo changes even after closing and reopening a file
   vim.o.undofile = true
@@ -194,16 +198,12 @@ do
   
 
   -- [[ Colorscheme ]]
-  vim.pack.add { gh 'catppuccin/nvim' }
-  ---@diagnostic disable-next-line: missing-fields
-  require('catppuccin').setup {
-    flavour = "mocha",
-    transparent_background = true,
-    styles = {
-      { comments = "italic" },
-    },
+  vim.pack.add { gh 'neanias/everforest-nvim' }
+  require('everforest').setup {
+    background = 'soft',
+    transparent_background_level = 2,
   }
-  vim.cmd.colorscheme 'catppuccin'
+  vim.cmd.colorscheme('everforest')
 
   -- Highlight todo, notes, etc in comments
   vim.pack.add { gh 'folke/todo-comments.nvim' }
@@ -450,7 +450,7 @@ do
       -- <c-k>: Toggle signature help
       --
       -- See `:help blink-cmp-config-keymap` for defining your own keymap
-      preset = 'default',
+      preset = 'super-tab',
 
       -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps

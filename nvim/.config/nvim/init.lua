@@ -27,6 +27,10 @@ do
 
   -- Enable break indent
   vim.o.breakindent = true
+  vim.o.expandtab = true
+  vim.o.tabstop = 4
+  vim.o.softtabstop = 4
+  vim.o.shiftwidth = 4
 
   -- Enable undo/redo changes even after closing and reopening a file
   vim.o.undofile = true
@@ -195,13 +199,11 @@ do
 
   -- [[ Colorscheme ]]
   vim.pack.add { gh 'neanias/everforest-nvim' }
-  ---@diagnostic disable-next-line: missing-fields
   require('everforest').setup {
-    background = "hard",
+    background = 'soft',
     transparent_background_level = 2,
-    italics = true,
   }
-  vim.cmd.colorscheme 'everforest'
+  vim.cmd.colorscheme('everforest')
 
   -- Highlight todo, notes, etc in comments
   vim.pack.add { gh 'folke/todo-comments.nvim' }

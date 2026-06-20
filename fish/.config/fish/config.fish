@@ -1,6 +1,6 @@
 source ~/.config/fish/aliases.fish
 
-set -gx EDITOR hx
+set -gx EDITOR nvim
 set -gx SHELL fish
 set -gx VENV $HOME/.venv
 set -gx SECRETS $HOME/.secrets
@@ -38,10 +38,6 @@ fish_vi_key_bindings
 
 # nvm
 set -U nvm_default_version v22.14.0
-
-# eza
-set -e EZA_COLORS
-set -gx EZA_CONFIG_DIR ~/.config/eza/theme.yml
 
 # Go
 set -gx GOPATH "$HOME/go"

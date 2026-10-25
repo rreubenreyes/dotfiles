@@ -1,8 +1,8 @@
-
 [settings]
 animate = true
-animation_duration = 0.1
-animation_fps = 120
+animation_duration = 0.3
+animation_fps = 100
+animation_easing = "ease_out_circ"
 
 default_disable = false
 
@@ -11,7 +11,6 @@ mouse_follows_focus = true
 mouse_hides_on_focus = true
 
 auto_focus_blacklist = []
-
 run_on_start = []
 
 hot_reload = true
@@ -95,7 +94,6 @@ prevent_wrapping = false
 reapply_app_rules_on_title_change = false
 
 workspace_rules = []
-
 workspace_names = [
 	"main",
 	"spill",
@@ -109,6 +107,7 @@ app_rules = [
 	{ app_id = "us.zoom.xos", workspace = "comms" },
 	{ app_id = "com.apple.iCal", workspace = "admin" },
 	{ app_id = "ch.protonvpn.mac", workspace = "admin" },
+	{ app_id = "com.1password.1password", workspace = "admin" },
 ]
 
 [modifier_combinations]
@@ -171,4 +170,3 @@ hyper = "Alt + Shift + Ctrl + Meta"
 "L" = { resize_window_grow = "horizontal" }
 
 "Escape" = { binding_mode = "default" }
-

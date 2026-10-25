@@ -6,7 +6,7 @@ animation_fps = 120
 
 default_disable = false
 
-focus_follows_mouse = true
+focus_follows_mouse = false
 mouse_follows_focus = true
 mouse_hides_on_focus = true
 
@@ -103,7 +103,13 @@ workspace_names = [
 	"comms",
 ]
 
-app_rules = []
+app_rules = [
+	{ app_id = "org.whispersystems.signal-desktop", workspace = "comms" },
+	{ app_id = "ch.protonmail.desktop", workspace = "comms" },
+	{ app_id = "us.zoom.xos", workspace = "comms" },
+	{ app_id = "com.apple.iCal", workspace = "admin" },
+	{ app_id = "ch.protonvpn.mac", workspace = "admin" },
+]
 
 [modifier_combinations]
 hyper = "Alt + Shift + Ctrl + Meta"
@@ -139,10 +145,10 @@ hyper = "Alt + Shift + Ctrl + Meta"
 "K" = { move_node = "up" }
 "L" = { move_node = "right" }
 
-"0" = { move_window_to_workspace = { workspace = 0, follow = true } }
-"1" = { move_window_to_workspace = { workspace = 1, follow = true } }
-"2" = { move_window_to_workspace = { workspace = 2, follow = true } }
-"3" = { move_window_to_workspace = { workspace = 3, follow = true } }
+"0" = { move_window_to_workspace = { workspace = "main", follow = true } }
+"1" = { move_window_to_workspace = { workspace = "spill", follow = true } }
+"2" = { move_window_to_workspace = { workspace = "admin", follow = true } }
+"3" = { move_window_to_workspace = { workspace = "comms", follow = true } }
 
 "N" = { move_window_to_display = { selector = "93DE346B-CDAD-489D-BE54-A6079E594769" } }
 "P" = { move_window_to_display = { selector = "37D8832A-2D66-02CA-B9F7-8F30A301B230" } }
@@ -150,10 +156,10 @@ hyper = "Alt + Shift + Ctrl + Meta"
 "Escape" = { binding_mode = "default" }
 
 [binding_modes.picker]
-"0" = { switch_to_workspace = 0 }
-"1" = { switch_to_workspace = 1 }
-"2" = { switch_to_workspace = 2 }
-"3" = { switch_to_workspace = 3 }
+"0" = { switch_to_workspace = "main" }
+"1" = { switch_to_workspace = "spill" }
+"2" = { switch_to_workspace = "admin" }
+"3" = { switch_to_workspace = "comms" }
 
 "N" = { move_workspace_to_display = { selector = "93DE346B-CDAD-489D-BE54-A6079E594769" } }
 "P" = { move_workspace_to_display = { selector = "37D8832A-2D66-02CA-B9F7-8F30A301B230" } }

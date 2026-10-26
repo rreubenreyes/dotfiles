@@ -53,6 +53,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- ts_ls = {},
+  terraformls = {},
 
   stylua = {}, -- Used to format Lua code
 

@@ -162,7 +162,10 @@ local function gh(repo) return 'https://github.com/' .. repo end
 -- ============================================================
 do
   vim.pack.add { gh 'NMAC427/guess-indent.nvim' }
-  require('guess-indent').setup {}
+  require('guess-indent').setup {
+    -- html indent is fixed to prettier's default (see lua/custom/formatting.lua)
+    filetype_exclude = { 'html' },
+  }
 
   vim.pack.add { gh 'lewis6991/gitsigns.nvim' }
   require('gitsigns').setup {

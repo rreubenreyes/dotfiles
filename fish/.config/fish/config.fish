@@ -20,7 +20,9 @@ fish_add_path -a \
     /opt/homebrew/sbin \
     /opt/homebrew/opt/python@3.10/libexec/bin \
     $HOME/.cargo/bin \
-    $HOME/.bin
+    $HOME/.bin \
+    $HOME/.tau/share/fabric_client \
+    $HOME/.tau/share
 
 # Other path stuff
 set -gx NVM_DIR $HOME/.nvm
@@ -63,3 +65,4 @@ uvx --generate-shell-completion fish | source
 function fish_greeting
     fastfetch
 end
+source /Users/reuben/agents/tau/tau.fish

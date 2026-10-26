@@ -1,0 +1,66 @@
+[metadata]
+name = "arboreal"
+author = "ossyrian"
+
+[colors]
+foreground = "#b6cdb8" # ash
+background = "#0e1d1c" # shadow
+
+cursor_bg = "#9cc48c"     # mint
+cursor_fg = "#0e1d1c"     # shadow
+cursor_border = "#9cc48c" # mint
+
+selection_fg = "#b6cdb8" # ash
+selection_bg = "#23454d" # moon
+
+scrollbar_thumb = "#486874" # stone
+split = "#486874"           # stone
+
+compose_cursor = "#b8a060" # amber
+
+# ANSI 0-7
+ansi = [
+  "#0e1d1c", # black   -> shadow (bg)
+  "#c88888", # red     -> rose
+  "#9cc48c", # green   -> mint
+  "#b8a060", # yellow  -> amber
+  "#688996", # blue    -> spruce
+  "#78a89e", # magenta -> teal
+  "#9dbfb0", # cyan    -> lichen
+  "#b6cdb8", # white   -> ash (fg)
+]
+
+# ANSI 8-15 (brights)
+brights = [
+  "#486874", # bright black   -> stone
+  "#c89090", # bright red     -> blush
+  "#8fc8a0", # bright green   -> celadon
+  "#c8b870", # bright yellow  -> straw
+  "#688996", # bright blue    -> spruce
+  "#88b890", # bright magenta -> meadow
+  "#78a89e", # bright cyan    -> teal
+  "#d0ddd2", # bright white   -> ash lightened
+]
+
+[colors.tab_bar]
+background = "#0e1d1c" # shadow
+
+[colors.tab_bar.active_tab]
+bg_color = "#23454d" # moon
+fg_color = "#b6cdb8" # ash
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#0e1d1c" # shadow
+fg_color = "#486874" # stone
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#3d5a5f" # slate
+fg_color = "#9dbfb0" # lichen
+
+[colors.tab_bar.new_tab]
+bg_color = "#0e1d1c" # shadow
+fg_color = "#486874" # stone
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#3d5a5f" # slate
+fg_color = "#9dbfb0" # lichen

@@ -1,0 +1,172 @@
+[settings]
+animate = true
+animation_duration = 0.3
+animation_fps = 100
+animation_easing = "ease_out_circ"
+
+default_disable = false
+
+focus_follows_mouse = false
+mouse_follows_focus = true
+mouse_hides_on_focus = true
+
+auto_focus_blacklist = []
+run_on_start = []
+
+hot_reload = true
+
+[settings.layout]
+mode = "scrolling"
+window_insertion_point = "next_to_selection"
+
+[settings.layout.scrolling]
+column_width_ratio = 0.7
+preserve_window_sizes = true
+expand_single_column = false
+
+min_column_width_ratio = 0.3
+max_column_width_ratio = 0.9
+
+focus_navigation_style = "niri"
+
+[settings.layout.scrolling.gestures]
+enabled = true
+invert_horizontal = true
+fingers = 3
+propagate_to_workspace_swipe = false
+
+
+[settings.layout.gaps]
+
+[settings.layout.gaps.outer]
+top = 8
+left = 8
+bottom = 8
+right = 8
+
+[settings.layout.gaps.inner]
+horizontal = 8
+vertical = 8
+
+[settings.ui.mission_control]
+enabled = false
+show_empty_workspaces = true
+
+[settings.ui.menu_bar]
+enabled = true
+show_empty = true
+show_binding_mode = true
+mode = "all"
+active_label = "index"
+display_style = "layout"
+layout_folder = "~/.config/rift/layouts"
+
+[settings.ui.stack_line]
+enabled = true
+hover = "hover"
+horiz_placement = "top"
+vert_placement = "left"
+thickness = 28.0
+spacing = 0.0
+
+# Mouse move and tiled-window drop behavior
+[settings.drag_drop]
+enabled = true
+modifier = "fn"
+action1 = "move"
+# Dropping in the center of another tiled window: swap | stack.
+# Dropping near an edge of another tiled window inserts on that side.
+# Dropping near an edge of the dragged window's vacated tile moves it one step, like move_node,
+# toward sides with no window to drop onto. An edge that would put it back in place acts like the center.
+drop_action = "swap"
+# Edge-zone depth. Must be between 0.10 and 0.45; 0.25 leaves a 50% x 50% center.
+drop_zone_fraction = 0.25
+# Show drop-intent feedback when preview rendering is available.
+preview = true
+
+[virtual_workspaces]
+enabled = true
+default_workspace_count = 4
+auto_assign_windows = true
+preserve_focus_per_workspace = true
+workspace_auto_back_and_forth = false
+prevent_wrapping = false
+reapply_app_rules_on_title_change = false
+
+workspace_rules = []
+workspace_names = [
+	"main",
+	"spill",
+	"admin",
+	"comms",
+]
+
+app_rules = [
+	{ app_id = "org.whispersystems.signal-desktop", workspace = "comms" },
+	{ app_id = "ch.protonmail.desktop", workspace = "comms" },
+	{ app_id = "us.zoom.xos", workspace = "comms" },
+	{ app_id = "com.apple.iCal", workspace = "admin" },
+	{ app_id = "ch.protonvpn.mac", workspace = "admin" },
+	{ app_id = "com.1password.1password", workspace = "admin" },
+]
+
+[modifier_combinations]
+hyper = "Alt + Shift + Ctrl + Meta"
+
+[keys]
+"hyper + H" = { move_focus = "left" }
+"hyper + J" = { move_focus = "down" }
+"hyper + K" = { move_focus = "up" }
+"hyper + L" = { move_focus = "right" }
+
+"hyper + 1" = { focus_display = "93DE346B-CDAD-489D-BE54-A6079E594769" } # external
+"hyper + 2" = { focus_display = "37D8832A-2D66-02CA-B9F7-8F30A301B230" } # built-in
+
+"hyper + X" = "toggle_window_floating"
+"hyper + S" = "center_selection"
+"hyper + F" = "toggle_fullscreen"
+
+# modes
+"hyper + W" = { binding_mode = "window" }
+"hyper + R" = { binding_mode = "resize" }
+"hyper + P" = { binding_mode = "picker" }
+
+# kept defaults
+"Alt + Z" = "toggle_space_activated"
+"Alt + Tab" = "switch_to_last_workspace"
+"Alt + Shift + D" = "debug" # prints layout tree
+"Alt + Ctrl + S" = "serialize"
+"Alt + Ctrl + Q" = "save_and_exit"
+
+[binding_modes.window]
+"H" = { move_node = "left" }
+"J" = { move_node = "down" }
+"K" = { move_node = "up" }
+"L" = { move_node = "right" }
+
+"0" = { move_window_to_workspace = { workspace = "main", follow = true } }
+"1" = { move_window_to_workspace = { workspace = "spill", follow = true } }
+"2" = { move_window_to_workspace = { workspace = "admin", follow = true } }
+"3" = { move_window_to_workspace = { workspace = "comms", follow = true } }
+
+"N" = { move_window_to_display = { selector = "93DE346B-CDAD-489D-BE54-A6079E594769" } }
+"P" = { move_window_to_display = { selector = "37D8832A-2D66-02CA-B9F7-8F30A301B230" } }
+
+"Escape" = { binding_mode = "default" }
+
+[binding_modes.picker]
+"0" = { switch_to_workspace = "main" }
+"1" = { switch_to_workspace = "spill" }
+"2" = { switch_to_workspace = "admin" }
+"3" = { switch_to_workspace = "comms" }
+
+"N" = { move_workspace_to_display = { selector = "93DE346B-CDAD-489D-BE54-A6079E594769" } }
+"P" = { move_workspace_to_display = { selector = "37D8832A-2D66-02CA-B9F7-8F30A301B230" } }
+
+"Escape" = { binding_mode = "default" }
+
+[binding_modes.resize]
+"H" = { resize_window_shrink = "horizontal" }
+"L" = { resize_window_grow = "horizontal" }
+
+"Escape" = { binding_mode = "default" }

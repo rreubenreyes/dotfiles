@@ -1,4 +1,3 @@
-# vi: ft=dosini
 [main]
 
 # Enables context sensitive auto-completion. If this is disabled, all
@@ -111,7 +110,7 @@ search_path_filter = False
 # Default pager. See https://www.pgcli.com/pager for more information on settings.
 # By default 'PAGER' environment variable is used. If the pager is less, and the 'LESS'
 # environment variable is not set, then LESS='-SRXF' will be automatically set.
-pager = hx
+pager = less
 
 # Timing of sql statements and table rendering.
 timing = True
@@ -125,7 +124,7 @@ show_bottom_toolbar = True
 # sql-update-1, sql-update-2 (formatter with sql-* prefix can format query
 # output to executable insertion or updating sql).
 # Recommended: psql, fancy_grid and grid.
-table_format = psql
+table_format = fancy_grid
 
 # Syntax Style. Possible values: manni, igor, xcode, vim, autumn, vs, rrt,
 # native, perldoc, borland, tango, emacs, friendly, monokai, paraiso-dark,
@@ -233,11 +232,6 @@ output.null = "#808080"
 # Named queries are queries you can execute by name.
 [named queries]
 
-# Here's where you can provide a list of connection string aliases.
-# You can use it by passing the -D option. `pgcli -D example_dsn`
-[alias_dsn]
-# example_dsn = postgresql://[user[:password]@][netloc][:port][/dbname]
-
 # Format for number representation
 # for decimal "d" - 12345678, ",d" - 12,345,678
 # for float "g" - 123456.78, ",g" - 123,456.78
@@ -249,3 +243,10 @@ float = ""
 [column_date_formats]
 # use strftime format, e.g.
 # created = "%Y-%m-%d"
+
+# Here's where you can provide a list of connection string aliases.
+# You can use it by passing the -D option. `pgcli -D example_dsn`
+[alias_dsn]
+dev_writer = postgresql://fabricadmin:Df_)vnjYf#ZxL38>0eo9<#cQ5uBL@fabric-dev1-instance-1.cf6qqskwokkn.us-west-2.rds.amazonaws.com:5432/fabric
+preprod_writer = postgresql://fabricadmin:*MpTn72~JhR_Qyb9ICv!28UHE~v3@fabric-db-preprod-instance-1.chukigagsf7j.us-west-2.rds.amazonaws.com:5432/fabric
+prod_writer = 'postgresql://fabricadmin:dvNv9%7C%23r2AWAZ~%3A%5B%5DFPcutg%5DO%3F0F@postgresql://fabric-db-prod-instance-1.ctg60kumw6wv.us-west-2.rds.amazonaws.com:5432/fabric'

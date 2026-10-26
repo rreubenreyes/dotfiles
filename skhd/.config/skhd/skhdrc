@@ -1,0 +1,90 @@
+# Mode definitions
+:: default
+:: window @
+:: layout @
+:: resize @
+:: picker @
+:: xservice @
+
+# ============================================================
+# Default mode
+# ============================================================
+
+# Focus
+hyper - h : rift-cli execute window focus left
+hyper - l : rift-cli execute window focus right
+
+# Fullscreen
+hyper - f : rift-cli execute window toggle-fullscreen
+hyper - g : rift-cli execute layout center-selection
+
+# Mode activators
+hyper - w ; window
+hyper - space ; layout
+hyper - r ; resize
+hyper - p ; picker
+hyper - x ; xservice
+
+# ============================================================
+# Window mode
+# ============================================================
+
+window < hyper - h : rift-cli execute layout move-node left
+window < hyper - l : rift-cli execute layout move-node right
+window < hyper - j : rift-cli execute layout move-node down
+window < hyper - k : rift-cli execute layout move-node up
+window < hyper - n : rift-cli execute display move-window --index 1
+window < hyper - p : rift-cli execute display move-window --index 0
+
+# Move window to workspace
+window < hyper - 1 : rift-cli execute workspace move-window 0
+window < hyper - 2 : rift-cli execute workspace move-window 1
+window < hyper - 3 : rift-cli execute workspace move-window 2
+window < hyper - 4 : rift-cli execute workspace move-window 3
+window < hyper - 5 : rift-cli execute workspace move-window 4
+window < hyper - t : rift-cli execute workspace move-window 5
+window < hyper - c : rift-cli execute workspace move-window 6
+window < hyper - z : rift-cli execute workspace move-window 7
+window < hyper - a : rift-cli execute workspace move-window 8
+window < escape ; default
+
+# ============================================================
+# Picker mode (workspace switching)
+# ============================================================
+
+picker < hyper - 1 : rift-cli execute workspace switch 0
+picker < hyper - 2 : rift-cli execute workspace switch 1
+picker < hyper - 3 : rift-cli execute workspace switch 2
+picker < hyper - 4 : rift-cli execute workspace switch 3
+picker < hyper - 5 : rift-cli execute workspace switch 4
+picker < hyper - t : rift-cli execute workspace switch 5
+picker < hyper - c : rift-cli execute workspace switch 6
+picker < hyper - z : rift-cli execute workspace switch 7
+picker < hyper - a : rift-cli execute workspace switch 8
+picker < hyper - n : rift-cli execute display focus --index 1
+picker < hyper - p : rift-cli execute display focus --index 0
+picker < escape ; default
+
+# ============================================================
+# Layout mode
+# ============================================================
+
+layout < hyper - f : rift-cli execute window toggle-float
+layout < escape ; default
+
+# ============================================================
+# Resize mode
+# ============================================================
+
+resize < hyper - h : rift-cli execute window resize-shrink
+resize < hyper - l : rift-cli execute window resize-grow
+resize < escape ; default
+
+# ============================================================
+# XService mode
+# ============================================================
+
+xservice < hyper - f : rift-cli execute window toggle-float
+xservice < hyper - s : rift-cli execute toggle-space-activated
+xservice < hyper - 0x2B : rift-cli execute config reload && skhd -r
+xservice < escape ; default

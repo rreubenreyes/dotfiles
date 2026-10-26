@@ -47,5 +47,5 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/opt/homebrew/bin\x1e/opt/homebrew/sbin\x1e/Users/reuben/Library/pnpm\x1e/Users/reuben/\x2ecargo/bin\x1e/Users/reuben/go/bin\x1e/Users/reuben/go\x1e/Users/reuben/\x2ebin\x1e/usr/local/bin
+SETUVAR fish_user_paths:/opt/homebrew/bin\x1e/opt/homebrew/sbin\x1e/Users/reuben/Library/pnpm\x1e/Users/reuben/\x2ecargo/bin\x1e/Users/reuben/go/bin\x1e/Users/reuben/go\x1e/Users/reuben/\x2ebin\x1e/usr/local/bin\x1e/Users/reuben/\x2etau/share\x1e/Users/reuben/\x2etau/share/fabric_client
 SETUVAR nvm_default_version:v22\x2e14\x2e0

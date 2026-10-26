@@ -25,6 +25,7 @@ require('conform').setup {
     python = { 'isort', 'black' },
     markdown = { 'dprint' },
     terraform = { 'terraform_fmt' },
+    lua = { 'stylua'},
     -- rust = { 'rustfmt' },
     html = { "prettierd", "prettier", stop_after_first = true },
   },
